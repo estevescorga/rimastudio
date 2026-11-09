@@ -424,6 +424,9 @@ button.cta-link{border:1px solid var(--c-dark);cursor:pointer;line-height:inheri
 @media(min-width:860px){.tps-split{grid-template-columns:1fr 1fr;gap:var(--space-5);}}
 .tps-duo{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-2);}
 .tps-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-2);}
+.tps-style .tps-trio{grid-template-columns:1fr 1fr 2fr;align-items:end;max-width:1100px;margin:0 auto;}
+.tps-style .tps-trio img{width:100%;height:auto;display:block;}
+@media(max-width:640px){.tps-style .tps-trio{grid-template-columns:1fr 1fr;}.tps-style .tps-trio .tps-grupo{grid-column:1/-1;}}
 @media(max-width:640px){.tps-trio .ph{font-size:11px;padding:6px;}}
 .tps-style{padding:var(--space-4) 0;border-top:1px solid var(--c-line);}
 .tps-style-text{max-width:640px;margin:0 auto var(--space-4);text-align:center;}

@@ -666,10 +666,11 @@ def build_people_series():
          "Line is layered with colour, hatching, marks, overlays and textures, creating a portrait with greater graphic density and a more editorial character.",
          "The portrait still preserves the identity and essential features of the person, while allowing for a freer, more dynamic and author-led interpretation."),
     ])
-    who = L(["Homem", "Mulher", "Grupo"], ["Man", "Woman", "Group"])
     styles_html = ""
     for t, lead, p1, p2 in styles:
-        shots = "".join(ph(f"{t} — {w}", f"{t} — {w}", "4/5") for w in who)
+        slug = {"Traço": "traco", "Line": "traco", "Forma": "forma", "Form": "forma", "Textura": "textura", "Texture": "textura"}[t]
+        alts = {"homem": L("retrato de homem", "portrait of a man"), "mulher": L("retrato de mulher", "portrait of a woman"), "grupo": L("retrato de grupo", "group portrait")}
+        shots = "".join(img(f"tps-{slug}-{w}", cls=f"tps-{w}", alt=f"The People Series — {t}: {alts[w]}") for w in ("homem", "mulher", "grupo"))
         styles_html += f'''
 <section class="tps-style">
   <div class="container">
