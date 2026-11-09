@@ -36,9 +36,21 @@ PROJECT_COVERS = {
     "o-protesto-do-lobo-mau": "e46b83_c134117eef5c4c5093995219dc7c1592~mv2.jpg",
     "dahu-shoes-off": "e46b83_8f3cfc3436114b359293f4913fcc6605~mv2.jpg",
     "padrao-byou": "e46b83_09961fc6f03e4ae09cd558fd2022562a~mv2.jpg",
-    "omami": "e46b83_c667db6ad849408ba2b0b60a84dab517~mv2.png",
+    "omami": "e46b83_717ac4218a7f419d8569c7549bec7e0a~mv2.png",
+    "jfdo": "e46b83_b42f5b3325474cd48b001b49b703aec9~mv2.jpg",
+    "mil-jewellery": "e46b83_2762a212ca4d45338eaec60485545332~mv2.jpg",
+    "troglodicas": "e46b83_67db48c2f53b481792271e3059c21143~mv2.jpg",
+    "eclipse": "e46b83_f999c48213f84b7bbbbb1dc4625a1255~mv2.png",
+    "the-bear-collection": "e46b83_627fd07c940b4bd4b0e36c2b437d5042~mv2.png",
     "o-pequeno-ego": "e46b83_82d79fb18de9415ea1582896ae679c57~mv2.png",
 }
+
+# Order of the tiles on the original portfolio grid (verified against the Wix site).
+PORTFOLIO_ORDER = ["casa-del-yoga", "tailor-made-events", "olqnsoqqs", "noveme", "jfdo",
+    "kc-the-brand", "vicente", "armar-o-baile", "talismas", "de-la-espada-lookbook",
+    "quinta-foz-do-sabor", "mil-jewellery", "andanças-22", "troglodicas", "videoclip-linho",
+    "ctt-retrospectiva-2022", "o-protesto-do-lobo-mau", "dahu-shoes-off", "padrao-byou",
+    "eclipse", "omami", "o-pequeno-ego", "the-bear-collection"]
 
 # Current build pass language ('pt' or 'en'). main() builds the whole site
 # once per language. PT pages are written at the site root; EN pages under
@@ -107,25 +119,30 @@ def grid_markup(items, extra_cls=""):
     """Shared alternating narrow/wide project grid, used on the home page's
     featured projects and on the portfolio/filter pages, with a consistent
     hover caption: bold uppercase title + lowercase tags, centered at the
-    bottom of the thumbnail (matching the original site)."""
-    out = f'<div class="grid {extra_cls}">\n'
-    for i, p in enumerate(items):
-        pair_i = i // 2
-        pos = i % 2
-        row_a = (pair_i % 2 == 0)
-        if row_a:
-            size_cls = 'narrow' if pos == 0 else 'wide'
-        else:
-            size_cls = 'wide' if pos == 0 else 'narrow'
+    bottom of the thumbnail (matching the original site). Items are grouped
+    in rows of two (1/3 + 2/3, flipping sides each row, like the original);
+    a lone last item gets half the row width."""
+    def tile(p, size_cls):
         tags = hover_tags(p.get("tags_pt"), p.get("tags_en"))
-        out += f'''  <a class="grid-item {size_cls}" href="{url_for(p['slug'] + ".html")}">
-    {img(project_thumb(p), alt=p['title'], eager=True)}
-    <span class="grid-caption">
-      <span class="grid-caption-title">{e(L(p.get('title', p['slug']), p.get('title_en', p.get('title', p['slug']))))}</span>
-      <span class="grid-caption-tags">{e(tags)}</span>
-    </span>
-  </a>
+        return f'''    <a class="grid-item {size_cls}" href="{url_for(p['slug'] + ".html")}">
+      {img(project_thumb(p), alt=p['title'], eager=True)}
+      <span class="grid-caption">
+        <span class="grid-caption-title">{e(L(p.get('title', p['slug']), p.get('title_en', p.get('title', p['slug']))))}</span>
+        <span class="grid-caption-tags">{e(tags)}</span>
+      </span>
+    </a>
 '''
+    out = f'<div class="grid {extra_cls}">\n'
+    for r in range(0, len(items), 2):
+        pair = items[r:r + 2]
+        row_a = ((r // 2) % 2 == 0)
+        if len(pair) == 1:
+            out += '  <div class="grid-row row-half">\n' + tile(pair[0], 'half') + '  </div>\n'
+            continue
+        sizes = ('narrow', 'wide') if row_a else ('wide', 'narrow')
+        out += f'  <div class="grid-row {"row-a" if row_a else "row-b"}">\n'
+        out += tile(pair[0], sizes[0]) + tile(pair[1], sizes[1])
+        out += '  </div>\n'
     out += '</div>'
     return out
 
@@ -468,7 +485,8 @@ FILTER_TITLES = {
 
 def build_portfolio(category=None, filename="portfolio.html"):
     h = SITE["home"]
-    items = PROJECTS if category is None else [p for p in PROJECTS if category in p["categories"]]
+    ordered = sorted(PROJECTS, key=lambda p: PORTFOLIO_ORDER.index(p["slug"]) if p["slug"] in PORTFOLIO_ORDER else 999)
+    items = ordered if category is None else [p for p in ordered if category in p["categories"]]
     content = f'''
 <section class="section-tight">
   <div class="container">

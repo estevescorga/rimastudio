@@ -203,12 +203,18 @@ section{padding:var(--space-6) var(--space-3);}
   font-family:var(--font-serif);font-size:13px;color:var(--c-white);opacity:.85;
   margin-top:4px;text-transform:lowercase;
 }
+.grid-row{display:contents;}
 @media(min-width:720px){
-  .grid{grid-template-columns:repeat(3,1fr);}
+  .grid{display:block;}
+  .grid-row{display:grid;gap:var(--grid-gap);}
+  .grid-row + .grid-row{margin-top:var(--grid-gap);}
+  .row-a{grid-template-columns:1fr 2fr;}
+  .row-b{grid-template-columns:2fr 1fr;}
+  .row-half{grid-template-columns:1fr 1fr;}
   .grid-item{aspect-ratio:auto;}
   .grid-item img{position:absolute;inset:0;}
-  .grid-item.wide{grid-column:span 2;aspect-ratio:1.414/1;}
-  .grid-item.narrow{grid-column:span 1;align-self:stretch;}
+  .grid-item.wide,.grid-item.half{aspect-ratio:1.414/1;}
+  .grid-item.narrow{align-self:stretch;}
 }
 
 /* filter tabs */
@@ -385,9 +391,9 @@ section{padding:var(--space-6) var(--space-3);}
 
 /* Full-bleed map, recoloured to the site palette (warm beige / taupe tones) */
 .map-band{padding:0;}
-.map-duotone{position:relative;width:100%;height:clamp(300px,34vw,460px);isolation:isolate;overflow:hidden;background:#d7d0c6;}
-.map-duotone iframe{display:block;width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.7) sepia(.6) saturate(.9) brightness(.88);}
-.map-duotone::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,.6) 14%,rgba(255,255,255,.12) 45%,rgba(255,255,255,0) 65%);}
+.map-duotone{position:relative;width:100%;height:clamp(300px,34vw,460px);isolation:isolate;overflow:hidden;background:#fff;}
+.map-duotone iframe{display:block;width:100%;height:100%;border:0;filter:grayscale(1) brightness(.72) contrast(3.2) sepia(.4);}
+.map-duotone::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,.6) 14%,rgba(255,255,255,0) 50%);}
 
 /* Clients band: taupe like the original, white logos */
 .band-taupe{background:#d7d0c6;color:var(--c-white);padding:var(--space-5) var(--space-3) var(--space-6);}
