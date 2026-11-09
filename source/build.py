@@ -52,6 +52,9 @@ PORTFOLIO_ORDER = ["casa-del-yoga", "tailor-made-events", "olqnsoqqs", "noveme",
     "ctt-retrospectiva-2022", "o-protesto-do-lobo-mau", "dahu-shoes-off", "padrao-byou",
     "eclipse", "omami", "o-pequeno-ego", "the-bear-collection"]
 
+MISSION_LINES_PT = ["A TECNOLOGIA TRANSFORMA A FORMA", "COMO CRIAMOS. O OLHAR HUMANO", "CONTINUA A FAZER A DIFERENÇA."]
+MISSION_LINES_EN = ["TECHNOLOGY IS CHANGING THE WAY", "WE CREATE. THE HUMAN PERSPECTIVE", "STILL MAKES THE DIFFERENCE."]
+
 # Current build pass language ('pt' or 'en'). main() builds the whole site
 # once per language. PT pages are written at the site root; EN pages under
 # /en/ — real, separate, crawlable URLs (not a client-side toggle), so each
@@ -184,7 +187,7 @@ def base_head(filename, title, desc=""):
 <link rel="icon" href="/images/{webp_name(SITE['meta']['favicon'])}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Karmilla:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Nixie+One&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,400;0,700;1,400&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/style.css">
 '''
 
@@ -222,18 +225,28 @@ def header(filename="index.html"):
       </ul>
     </li>
     <li><a href="{oestudio_url}">{e(L('O ESTÚDIO','THE STUDIO'))}</a></li>
-    <li><a href="{oestudio_url}#contacto">{e(L('CONTACTOS','CONTACT'))}</a></li>
+    <li><a href="{oestudio_url}#contacto">{e(L('CONTACTO','CONTACT'))}</a></li>
     <li><a href="{SITE['meta']['external']['rimalab']}" target="_blank" rel="noopener">RIMA lab</a></li>
-    <li><a href="{SITE['meta']['external']['estevescorga']}" target="_blank" rel="noopener">ESTEVES CORGA | Portfolio de Ilustração</a></li>
+    <li><a href="{SITE['meta']['external']['estevescorga']}" target="_blank" rel="noopener">ESTEVES CORGA</a>
+      <ul class="offcanvas-sub">
+        <li><a href="{SITE['meta']['external']['estevescorga']}" target="_blank" rel="noopener">{e(L('Portfolio de Ilustração','Illustration Portfolio'))}</a></li>
+      </ul>
+    </li>
   </ul>
   <div class="offcanvas-social">
-    <a href="{SITE['meta']['social']['facebook']}" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
-    <a href="{SITE['meta']['social']['instagram']}" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
-    <a href="{SITE['meta']['social']['linkedin']}" target="_blank" rel="noopener" aria-label="LinkedIn">IN</a>
+    <a href="{SITE['meta']['social']['facebook']}" target="_blank" rel="noopener" aria-label="Facebook">{SOCIAL_SVG["facebook"]}</a>
+    <a href="{SITE['meta']['social']['instagram']}" target="_blank" rel="noopener" aria-label="Instagram">{SOCIAL_SVG["instagram"]}</a>
+    <a href="{SITE['meta']['social']['linkedin']}" target="_blank" rel="noopener" aria-label="LinkedIn">{SOCIAL_SVG["linkedin"]}</a>
   </div>
 </nav>
 <div class="offcanvas-overlay" id="offcanvasOverlay"></div>
 '''
+
+SOCIAL_SVG = {
+    "facebook": '''<svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.15 8.44 9.94v-7.03H7.9v-2.91h2.54V9.84c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.45 2.91h-2.33V22c4.78-.79 8.44-4.94 8.44-9.94z"/></svg>''',
+    "instagram": '''<svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2c2.72 0 3.06.01 4.12.06 1.06.05 1.78.22 2.41.46.65.25 1.2.59 1.75 1.14.5.5.9 1.1 1.14 1.75.24.63.41 1.35.46 2.41.05 1.06.06 1.4.06 4.12s-.01 3.06-.06 4.12c-.05 1.06-.22 1.78-.46 2.41a4.9 4.9 0 01-1.14 1.75 4.9 4.9 0 01-1.75 1.14c-.63.24-1.35.41-2.41.46-1.06.05-1.4.06-4.12.06s-3.06-.01-4.12-.06c-1.06-.05-1.78-.22-2.41-.46a4.9 4.9 0 01-1.75-1.14 4.9 4.9 0 01-1.14-1.75c-.24-.63-.41-1.35-.46-2.41C2.01 15.06 2 14.72 2 12s.01-3.06.06-4.12c.05-1.06.22-1.78.46-2.41.25-.65.59-1.2 1.14-1.75a4.9 4.9 0 011.75-1.14c.63-.24 1.35-.41 2.41-.46C8.94 2.01 9.28 2 12 2zm0 1.8c-2.67 0-2.99.01-4.04.06-.97.04-1.5.2-1.85.34-.46.18-.8.4-1.15.75s-.57.69-.75 1.15c-.14.35-.3.88-.34 1.85-.05 1.05-.06 1.37-.06 4.04s.01 2.99.06 4.04c.04.97.2 1.5.34 1.85.18.46.4.8.75 1.15s.69.57 1.15.75c.35.14.88.3 1.85.34 1.05.05 1.37.06 4.04.06s2.99-.01 4.04-.06c.97-.04 1.5-.2 1.85-.34.46-.18.8-.4 1.15-.75s.57-.69.75-1.15c.14-.35.3-.88.34-1.85.05-1.05.06-1.37.06-4.04s-.01-2.99-.06-4.04c-.04-.97-.2-1.5-.34-1.85a3.1 3.1 0 00-.75-1.15 3.1 3.1 0 00-1.15-.75c-.35-.14-.88-.3-1.85-.34-1.05-.05-1.37-.06-4.04-.06zm0 3.06a5.14 5.14 0 110 10.28 5.14 5.14 0 010-10.28zm0 1.8a3.34 3.34 0 100 6.68 3.34 3.34 0 000-6.68zm5.34-1.99a1.2 1.2 0 11-2.4 0 1.2 1.2 0 012.4 0z"/></svg>''',
+    "linkedin": '''<svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.03-1.85-3.03-1.85 0-2.14 1.45-2.14 2.94v5.66H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 110-4.13 2.07 2.07 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>''',
+}
 
 def footer():
     return f'''<footer class="site-footer">
@@ -344,7 +357,7 @@ def build_home():
 
 <section class="mission" style="background-image:url('/images/{webp_name(mission_bg)}')">
   <div class="mission-inner">
-    {bi(h['pt']['closing_line'], h['en']['closing_line'], 'p')}
+    <p>{'<br>'.join(e(x) for x in L(MISSION_LINES_PT, MISSION_LINES_EN))}</p>
   </div>
 </section>
 

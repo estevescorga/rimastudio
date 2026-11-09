@@ -9,10 +9,10 @@
   --c-dark:#1d1d1b;
   --c-white:#ffffff;
 
-  --font-display:'Nixie One', serif;
-  --font-body:'Karmilla', sans-serif;
+  --font-display:'Karla', sans-serif;
+  --font-body:'Karla', sans-serif;
   --font-serif:'Old Standard TT', serif;
-  --font-label:'Quicksand', sans-serif;
+  --font-label:'Karla', sans-serif;
   --font-accent:'Karla', sans-serif;
 
   --space-1:8px;
@@ -253,7 +253,7 @@ section{padding:var(--space-6) var(--space-3);}
   padding:var(--space-5) var(--space-3);
 }
 .mission::before{content:"";position:absolute;inset:0;background:rgba(20,18,15,.18);}
-.mission-inner{position:relative;max-width:680px;text-align:center;}
+.mission-inner{position:relative;max-width:760px;text-align:center;}
 .mission-inner p{
   font-family:var(--font-accent);font-weight:700;
   font-size:clamp(17px,2vw,24px);color:var(--c-white);line-height:1.5;margin:0;
@@ -348,10 +348,9 @@ section{padding:var(--space-6) var(--space-3);}
   border-bottom:1px solid var(--c-text);padding-bottom:3px;
 }
 .offcanvas-social a{
-  font-family:var(--font-label);font-size:12px;letter-spacing:1px;
-  border:1px solid var(--c-text-soft);border-radius:50%;width:32px;height:32px;
-  display:flex;align-items:center;justify-content:center;
+  color:var(--c-text);width:32px;height:32px;display:flex;align-items:center;justify-content:center;
 }
+.offcanvas-social a:hover{color:#000;}
 
 /* ---------- O Estúdio (matches the original Wix page) ---------- */
 .studio-hero{height:clamp(260px,48.6vw,700px);background-size:cover;background-position:center;}
@@ -389,11 +388,10 @@ section{padding:var(--space-6) var(--space-3);}
 .contact-form .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
 @media(max-width:640px){.contact-form{grid-template-columns:1fr;}.studio-portraits{grid-template-columns:1fr;}}
 
-/* Full-bleed map, recoloured to the site palette (warm beige / taupe tones) */
+/* Full-bleed map, plain black and white */
 .map-band{padding:0;}
-.map-duotone{position:relative;width:100%;height:clamp(300px,34vw,460px);isolation:isolate;overflow:hidden;background:#fff;}
-.map-duotone iframe{display:block;width:100%;height:100%;border:0;filter:grayscale(1) brightness(.72) contrast(3.2) sepia(.4);}
-.map-duotone::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,.6) 14%,rgba(255,255,255,0) 50%);}
+.map-duotone{position:relative;width:100%;height:clamp(300px,34vw,460px);overflow:hidden;background:#fff;}
+.map-duotone iframe{display:block;width:100%;height:100%;border:0;filter:grayscale(1);}
 
 /* Clients band: taupe like the original, white logos */
 .band-taupe{background:#d7d0c6;color:var(--c-white);padding:var(--space-5) var(--space-3) var(--space-6);}
