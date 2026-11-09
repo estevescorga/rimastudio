@@ -778,8 +778,14 @@ def build_people_series():
     <p>{e(L("Podem ser fotografias profissionais ou informais. Não precisam de ter sido produzidas especificamente para o projeto. Também podemos trabalhar a partir de vídeo, desde que permita ver bem a pessoa.", "They can be professional or informal photographs and do not need to have been produced specifically for the project. We can also work from video, as long as the person can be seen clearly."))}</p>
     <p>{e(L("A equipa RIMA cruza as diferentes referências para perceber melhor os traços, a expressão e a presença de cada colaborador, sem ficar dependente de uma única fotografia.", "The RIMA team cross-references the available material to better understand each employee's features, expression and presence, rather than relying on a single photograph."))}</p>
   </div>
-  <div class="container tps-trio tps-trio--seq">
-    {ph("Referência 1", "Reference 1", "1/1")}{ph("Referência 2 / frame de vídeo", "Reference 2 / video frame", "1/1")}{ph("Retrato final", "Final portrait", "1/1")}
+  <div class="container tps-refs">
+    <div class="tps-refs-photos">
+      {"".join(f'<figure>{img(f"tps-ref-{w}", alt=L("Fotografia de referência", "Reference photograph") + " — " + lbl)}<figcaption>{e(L("Referência", "Reference"))} · {e(lbl)}</figcaption></figure>' for w, lbl in (("homem", L("Homem", "Man")), ("mulher", L("Mulher", "Woman")), ("grupo", L("Grupo", "Group"))))}
+    </div>
+    <div class="tps-arrow" aria-hidden="true">&darr;</div>
+    <div class="tps-refs-ill">
+      {"".join(img(f"tps-forma-{w}", cls=f"tps-{w}", alt=L("Retrato ilustrado a partir da referência", "Illustrated portrait made from the reference")) for w in ("homem", "mulher", "grupo"))}
+    </div>
   </div>
 </section>
 
