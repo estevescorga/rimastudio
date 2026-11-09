@@ -36,3 +36,30 @@
   }
 
 })();
+
+// Contact form (Web3Forms)
+(function(){
+  var form = document.getElementById('contactForm');
+  if (!form) return;
+  var status = form.querySelector('.cf-status');
+  var btn = form.querySelector('.cf-send');
+  form.addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var fail = function(){
+      status.textContent = form.dataset.err + ' ' + form.dataset.email;
+    };
+    if (!form.dataset.key) { fail(); return; }
+    btn.disabled = true;
+    status.textContent = '';
+    var data = {};
+    new FormData(form).forEach(function(v,k){ data[k] = v; });
+    fetch('https://api.web3forms.com/submit', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify(data)
+    }).then(function(r){ return r.json(); }).then(function(j){
+      if (j && j.success) { status.textContent = form.dataset.ok; form.reset(); }
+      else fail();
+    }).catch(fail).then(function(){ btn.disabled = false; });
+  });
+})();

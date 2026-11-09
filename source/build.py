@@ -365,51 +365,91 @@ def build_home():
     write_page("index.html", title, content, desc=desc)
 
 # ---------------- O ESTUDIO ----------------
+STUDIO_BOLD = {
+    "pt": ("design gráfico, ilustração e animação 2D", "Ricardo Esteves Corga", "Marta Oliveira"),
+    "en": ("graphic design, illustration and 2D animation", "Ricardo Esteves Corga", "Marta Oliveira"),
+}
+
+def studio_para(i):
+    """One paragraph of the studio text, with the same inline bold as the original."""
+    o = SITE["oestudio"]
+    txt = e(L(o["pt"]["paragraphs"][i], o["en"]["paragraphs"][i]))
+    for b in BRAND_NAMES + STUDIO_BOLD[LANG]:
+        txt = txt.replace(b, f"<strong>{b}</strong>")
+    return txt
+
+def studio_intro_paras():
+    """Paragraph 0 is split in two (first sentence, then the rest), as in the original."""
+    full = studio_para(0)
+    cut = full.index(". ") + 1
+    return full[:cut], full[cut:].strip()
+
 def build_oestudio():
     o = SITE["oestudio"]
+    key = SITE["meta"].get("web3forms_key", "")
+    first, rest = studio_intro_paras()
+    hero_img = o["team_images"][0]
+    portraits = [o["team_images"][1], o["studio_image"]]
+    lab = {
+        "name": L("Nome", "Name"), "surname": L("Apelido", "Last name"),
+        "email": "Email", "subject": L("Assunto", "Subject"),
+        "message": L("Mensagem", "Message"), "send": L("ENVIAR", "SEND"),
+        "ok": L("Mensagem enviada. Obrigado, respondemos em breve.", "Message sent. Thank you, we will reply shortly."),
+        "err": L("Não foi possível enviar. Escreva-nos para", "Could not send. Please write to us at"),
+    }
     content = f'''
-<section class="section-tight">
-  <div class="container" style="max-width:760px;">
-    <div class="project-text">
-'''
-    for i, para in enumerate(o['pt']['paragraphs']):
-        content += f'      <p>{bi_brand(para, o["en"]["paragraphs"][i])}</p>\n'
-    content += '''    </div>
-  </div>
+<div class="studio-hero" role="img" aria-label="RIMA studio" style="background-image:url('/images/{webp_name(hero_img)}')"></div>
+
+<section class="studio-text">
+  <p>{first}</p>
+  <p>{rest}</p>
+  <p>{studio_para(1)}</p>
 </section>
 
-<section class="section-tight split">
-  <div class="container split">
-'''
-    for im in SITE['oestudio']['team_images']:
-        content += f'    <div>{img(im, alt="RIMA studio")}</div>\n'
-    content += '''  </div>
+<section class="studio-portraits">
+  <div>{img(portraits[0], alt="Ricardo Esteves Corga", cls="pos-ricardo")}</div>
+  <div>{img(portraits[1], alt="Marta Oliveira", cls="pos-marta")}</div>
 </section>
 
-<section class="band section-tight">
-  <div class="container center" style="max-width:560px;">
-'''
-    content += f'''    {bi(o['pt']['contact_eyebrow'], o['en']['contact_eyebrow'], 'p', 'eyebrow')}
-    {bi(o['pt']['contact_title'], o['en']['contact_title'], 'h2', 'section-title')}
-    <p>{bi(o['pt']['contact_text'], o['en']['contact_text'])} <a class="contact-email" href="mailto:{SITE['meta']['email']}">{SITE['meta']['email']}</a></p>
-  </div>
+<section class="studio-text">
+  <p>{studio_para(2)}</p>
+  <p>{studio_para(3)}</p>
+  <p>{studio_para(4)}</p>
 </section>
 
-<section class="section-tight">
-  <div class="container" style="max-width:760px;">
-    <div class="map-embed">
-      <iframe src="https://www.google.com/maps?q=RIMA+studio,R.+Moinho+Vermelho+638,2645-449+Alcabideche&output=embed" width="100%" height="320" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="{e(L('Localização RIMA studio','RIMA studio location'))}"></iframe>
+<section class="studio-contact">
+  <h2 class="studio-title">{e(L(o["pt"]["contact_eyebrow"], o["en"]["contact_eyebrow"]))}</h2>
+  <div class="divider divider--dark"></div>
+  <p class="studio-contact-lead"><strong>{e(L(o["pt"]["contact_title"], o["en"]["contact_title"]))}</strong><br>
+  {e(L("Preencha o formulário abaixo ou escreva-nos diretamente para", "Fill in the form below or write to us directly at"))} {SITE["meta"]["email"]}</p>
+  <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST"
+        data-key="{key}" data-ok="{e(lab["ok"])}" data-err="{e(lab["err"])}" data-email="{SITE["meta"]["email"]}">
+    <input type="hidden" name="access_key" value="{key}">
+    <input type="hidden" name="from_name" value="RIMA studio (rimastudio.pt)">
+    <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+    <div class="cf-left">
+      <label>{lab["name"]} *<input type="text" name="name" required></label>
+      <label>{lab["surname"]} *<input type="text" name="surname" required></label>
+      <label>{lab["email"]} *<input type="email" name="email" required></label>
+      <label>{lab["subject"]} *<input type="text" name="subject" required></label>
     </div>
+    <label class="cf-right">{lab["message"]}<textarea name="message"></textarea></label>
+    <button type="submit" class="cf-send">{lab["send"]}</button>
+    <p class="cf-status" role="status" aria-live="polite"></p>
+  </form>
+</section>
+
+<section class="map-band">
+  <div class="map-duotone">
+    <iframe src="https://www.google.com/maps?q=RIMA+studio,R.+Moinho+Vermelho+638,2645-449+Alcabideche&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="{e(L('Localização RIMA studio','RIMA studio location'))}"></iframe>
   </div>
 </section>
 
-<section class="band-dark section-tight">
-  <div class="container center">
-    {bi(o['pt']['clients_eyebrow'], o['en']['clients_eyebrow'], 'p', 'eyebrow')}
-    <p style="max-width:560px;margin:0 auto;color:#cfc9bc;">{bi_brand(o['pt']['clients_text'], o['en']['clients_text'])}</p>
-'''
-    content += clients_section("", "")
-    content += '''  </div>
+<section class="band-taupe">
+  <h2 class="studio-title studio-title--light">{e(L(o["pt"]["clients_eyebrow"], o["en"]["clients_eyebrow"]))}</h2>
+  <div class="divider divider--light"></div>
+  <p class="studio-clients-text">{bi_brand(o["pt"]["clients_text"], o["en"]["clients_text"])}</p>
+{clients_section("", "")}
 </section>
 '''
     title = L("O Estúdio | RIMA studio, Cascais", "The Studio | RIMA studio, Cascais")

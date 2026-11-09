@@ -343,3 +343,53 @@ section{padding:var(--space-6) var(--space-3);}
   border:1px solid var(--c-text-soft);border-radius:50%;width:32px;height:32px;
   display:flex;align-items:center;justify-content:center;
 }
+
+/* ---------- O Estúdio (matches the original Wix page) ---------- */
+.studio-hero{height:clamp(260px,48.6vw,700px);background-size:cover;background-position:center;}
+.studio-text{max-width:690px;margin:0 auto;padding:var(--space-5) var(--space-3) var(--space-4);text-align:center;}
+.studio-text p{font-family:var(--font-serif);font-size:15px;line-height:1.8;margin:0 0 27px;}
+.studio-text p:last-child{margin-bottom:0;}
+.studio-text strong{font-weight:700;}
+.studio-portraits{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,4vw,57px);max-width:955px;margin:0 auto;padding:var(--space-3) var(--space-3) var(--space-4);}
+.studio-portraits img{width:100%;aspect-ratio:211/275;object-fit:cover;border-radius:0;}
+.studio-portraits .pos-ricardo{object-position:50% 62%;}
+.studio-portraits .pos-marta{object-position:50% 40%;}
+.studio-title{
+  font-family:var(--font-body);font-weight:700;text-transform:uppercase;
+  font-size:clamp(20px,2.2vw,28px);letter-spacing:1px;text-align:center;margin:0;color:var(--c-text);
+}
+.studio-title--light{color:var(--c-white);}
+.divider--dark{background:var(--c-text);height:32px;margin:var(--space-3) auto var(--space-3);}
+.divider--light{background:rgba(255,255,255,.85);height:32px;margin:var(--space-3) auto var(--space-3);}
+.studio-contact{max-width:760px;margin:0 auto;padding:var(--space-5) var(--space-3) var(--space-6);}
+.studio-contact-lead{text-align:center;font-size:14px;line-height:1.8;margin:0 0 var(--space-4);}
+.contact-form{display:grid;grid-template-columns:1fr 1.6fr;gap:12px 14px;max-width:662px;margin:0 auto;font-family:var(--font-body);}
+.contact-form label{display:block;font-size:11.5px;color:var(--c-text);}
+.contact-form input[type=text],.contact-form input[type=email],.contact-form textarea{
+  display:block;width:100%;margin-top:4px;padding:8px 10px;border:1px solid var(--c-text);border-radius:0;
+  background:#fff;font:inherit;font-size:14px;color:var(--c-text);
+}
+.contact-form .cf-left{display:grid;gap:12px;}
+.contact-form .cf-right{display:flex;flex-direction:column;}
+.contact-form textarea{flex:1;min-height:180px;resize:vertical;}
+.contact-form input:focus,.contact-form textarea:focus{outline:2px solid var(--c-dark);outline-offset:1px;}
+.cf-send{grid-column:1/-1;background:#000;color:#fff;border:0;border-radius:0;padding:12px;font-family:var(--font-body);font-size:11.5px;letter-spacing:1.5px;cursor:pointer;}
+.cf-send:hover{background:var(--c-dark);}
+.cf-send[disabled]{opacity:.6;cursor:default;}
+.cf-status{grid-column:1/-1;text-align:center;font-size:13.5px;margin:4px 0 0;min-height:1.4em;}
+.contact-form .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0;}
+@media(max-width:640px){.contact-form{grid-template-columns:1fr;}.studio-portraits{grid-template-columns:1fr;}}
+
+/* Full-bleed map, recoloured to the site palette (dark -> beige duotone) */
+.map-band{padding:0;}
+.map-duotone{position:relative;width:100%;height:clamp(300px,34vw,460px);isolation:isolate;overflow:hidden;background:#d7d0c6;}
+.map-duotone iframe{display:block;width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.35) brightness(.98);}
+.map-duotone::before,.map-duotone::after{content:"";position:absolute;inset:0;pointer-events:none;}
+.map-duotone::before{background:linear-gradient(180deg,#e9e2d5 0%,#d7d0c6 100%);mix-blend-mode:multiply;}
+.map-duotone::after{background:#2b2926;mix-blend-mode:screen;}
+
+/* Clients band: taupe like the original, white logos */
+.band-taupe{background:#d7d0c6;color:var(--c-white);padding:var(--space-5) var(--space-3) var(--space-6);}
+.studio-clients-text{max-width:560px;margin:0 auto;text-align:center;font-size:14px;line-height:1.8;color:var(--c-white);}
+.studio-clients-text strong{font-weight:700;}
+.band-taupe .clients-track img{opacity:1;}
