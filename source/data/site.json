@@ -1,0 +1,137 @@
+{
+  "meta": {
+    "name": "RIMA studio",
+    "email": "hello@rimastudio.pt",
+    "social": {
+      "facebook": "https://www.facebook.com/RIMAcreativestudio/",
+      "instagram": "https://www.instagram.com/rimacreativestudio/",
+      "linkedin": "https://www.linkedin.com/company/rima-studio/about"
+    },
+    "external": {
+      "rimalab": "http://rimalab.pt/",
+      "estevescorga": "http://estevescorga.pt/"
+    },
+    "logo": "e46b83_6b6a3095abb94283bd2d3a9f76e04e32~mv2.png",
+    "favicon": "e46b83_4502c9afcfd24d77817fd52bd67e64a5~mv2.jpg"
+  },
+  "home": {
+    "pt": {
+      "hero_title": "COMUNICAÇÃO VISUAL COM OLHAR HUMANO.",
+      "hero_sub": "Design, ilustração e animação para empresas e projetos que valorizam ideias, autoria e uma abordagem próxima.",
+      "projects_eyebrow": "PROJETOS",
+      "projects_title": "DIFERENTES IDEIAS, CONTEXTOS E DESAFIOS.",
+      "projects_sub": "Uma seleção de projetos que refletem a diversidade do nosso trabalho.",
+      "projects_cta": "EXPLORAR TODOS OS PROJETOS",
+      "what_eyebrow": "O QUE FAZEMOS",
+      "what_title": "DIFERENTES FORMAS DE COMUNICAR. O MESMO OLHAR.",
+      "what_sub": "Trabalhamos em diferentes áreas da comunicação visual, cruzando competências e linguagens criativas para encontrar a melhor solução para cada projeto.",
+      "services": [
+        {
+          "name": "DESIGN",
+          "text": "Criamos identidades visuais e peças de comunicação que dão forma às ideias e ajudam marcas e projetos a comunicar com clareza e personalidade.",
+          "tags": "Identidade visual · Editorial · Packaging · Comunicação digital e impressa"
+        },
+        {
+          "name": "ILUSTRAÇÃO",
+          "text": "Desenvolvemos ilustrações originais, adaptadas a diferentes contextos e suportes, explorando linguagens visuais que dão carácter e uma dimensão mais pessoal a cada projeto.",
+          "tags": "Ilustração comercial · Editorial · Retratos · Projetos especiais"
+        },
+        {
+          "name": "ANIMAÇÃO",
+          "text": "Damos movimento a imagens, personagens e histórias através da animação 2D, criando conteúdos que tornam a comunicação mais dinâmica e envolvente.",
+          "tags": "Animação 2D · Motion design · Vídeos explicativos · Conteúdos digitais"
+        }
+      ],
+      "closing_line": "A TECNOLOGIA TRANSFORMA A FORMA COMO CRIAMOS. O OLHAR HUMANO CONTINUA A FAZER A DIFERENÇA.",
+      "studio_eyebrow": "O ESTÚDIO",
+      "studio_text": "O RIMA studio é um estúdio fundado por Ricardo Esteves Corga, ilustrador, e Marta Oliveira, designer gráfica. Em conjunto, cruzamos práticas distintas mas complementares, aproximando design, ilustração e animação numa linguagem visual partilhada. A nossa colaboração assenta no método, no diálogo e no compromisso de criar comunicação visual clara, consistente e duradoura.",
+      "studio_cta": "CONHECER O ESTÚDIO",
+      "lab_eyebrow": "RIMA LAB",
+      "lab_title": "UM ESPAÇO DE EXPLORAÇÃO AUTORAL",
+      "lab_text": "Quando o foco é a criação autoral e a experimentação visual, é no RIMA lab que reunimos os projetos que nascem da nossa prática criativa. Aqui desenvolvemos ilustrações, peças gráficas e edições próprias, num território mais livre e exploratório, onde o desenho, a matéria e a expressão visual são o ponto de partida para criações que se situam entre a arte, o design e a edição.",
+      "lab_cta": "RIMA LAB"
+    },
+    "en": {
+      "hero_title": "VISUAL COMMUNICATION WITH HUMAN TOUCH.",
+      "hero_sub": "Design, illustration, and animation for companies and projects that value ideas, authorship, and a personal approach.",
+      "projects_eyebrow": "WORK",
+      "projects_title": "DIFFERENT IDEAS, CONTEXTS AND CHALLENGES.",
+      "projects_sub": "A selection of projects that reflect the diversity of our work.",
+      "projects_cta": "EXPLORE ALL PROJECTS",
+      "what_eyebrow": "WHAT WE DO",
+      "what_title": "DIFFERENT WAYS TO COMMUNICATE. ONE SHARED PERSPECTIVE.",
+      "what_sub": "We work across different areas of visual communication, bringing together complementary skills and creative approaches to find the right solution for each project. Sometimes, all it takes is an image. Other times, it means building an entire visual identity.",
+      "services": [
+        {
+          "name": "DESIGN",
+          "text": "We create visual identities and communication materials that give shape to ideas and help brands and projects communicate with clarity and personality.",
+          "tags": "Visual Identity · Editorial Design · Packaging · Digital & Print Communication"
+        },
+        {
+          "name": "ILLUSTRATION",
+          "text": "We create original illustrations for different contexts and formats, exploring visual styles that bring character and a more personal dimension to each project.",
+          "tags": "Commercial Illustration · Editorial Illustration · Portraits · Special Projects"
+        },
+        {
+          "name": "ANIMATION",
+          "text": "We bring images, characters and stories into motion through 2D animation, creating content that makes communication more dynamic and engaging.",
+          "tags": "2D Animation · Motion Design · Explainer Videos · Digital Content"
+        }
+      ],
+      "closing_line": "TECHNOLOGY IS CHANGING THE WAY WE CREATE. THE HUMAN PERSPECTIVE STILL MAKES THE DIFFERENCE.",
+      "studio_eyebrow": "THE STUDIO",
+      "studio_text": "RIMA studio is founded by Ricardo Esteves Corga, illustrator, and Marta Oliveira, graphic designer. Together, we bring distinct but complementary practices into a shared visual language, bridging design, illustration and animation. Our collaboration is grounded in method, dialogue and a commitment to creating clear, consistent and enduring visual communication.",
+      "studio_cta": "THE STUDIO",
+      "lab_eyebrow": "RIMA LAB",
+      "lab_title": "A SPACE FOR INDEPENDENT CREATIVE EXPLORATION",
+      "lab_text": "RIMA lab is where we bring together projects driven by our own creative practice and visual experimentation. Here, we develop original illustrations, graphic pieces and independent editions in a more open and exploratory space, where drawing, materials and visual expression become the starting point for creations that sit somewhere between art, design and publishing.",
+      "lab_cta": "RIMA LAB"
+    }
+  },
+  "oestudio": {
+    "pt": {
+      "paragraphs": [
+        "O RIMA studio é um estúdio criativo dedicado à comunicação visual para marcas e instituições. Trabalhamos nas áreas de design gráfico, ilustração e animação 2D, desenvolvendo soluções visuais claras, consistentes e funcionais.",
+        "Acreditamos que a comunicação visual começa na escuta e na compreensão do contexto. Por isso, cada projeto parte da estratégia, dos objetivos e da identidade de quem nos procura. O nosso trabalho assenta em método, intenção e atenção ao detalhe, com soluções pensadas para responder às necessidades reais das marcas e para durar no tempo.",
+        "O estúdio é fundado por Ricardo Esteves Corga, ilustrador, e Marta Oliveira, designer gráfica. Em conjunto, cruzamos práticas distintas mas complementares, aproximando design, ilustração e animação numa linguagem visual partilhada. A nossa colaboração constrói-se no diálogo, na reflexão e num envolvimento próximo em todas as fases do projeto.",
+        "Valorizamos processos bem definidos, colaboração transparente e uma relação de proximidade com os clientes. Acompanhamos cada projeto de forma cuidada, garantindo coerência, clareza e aplicabilidade no dia a dia das marcas.",
+        "Mais do que criar peças visuais, procuramos desenvolver comunicação que funcione, que faça sentido no seu contexto e que se mantenha relevante ao longo do tempo."
+      ],
+      "contact_eyebrow": "CONTACTO",
+      "contact_title": "Cada projeto começa com uma conversa.",
+      "contact_text": "Escreva-nos diretamente para",
+      "clients_eyebrow": "CLIENTES",
+      "clients_text": "Trabalhamos com marcas e negócios que valorizam clareza, consistência e intenção na sua comunicação visual."
+    },
+    "en": {
+      "paragraphs": [
+        "RIMA studio is a creative studio dedicated to visual communication for brands and institutions. We work across graphic design, illustration and 2D animation, developing visual solutions that are clear, consistent and functional.",
+        "We believe visual communication begins with listening and understanding context. For that reason, every project starts from strategy, objectives and the identity of those who seek us out. Our work is grounded in method, intention and attention to detail, creating solutions designed to respond to the real needs of brands and to stand the test of time.",
+        "The studio was founded by Ricardo Esteves Corga, illustrator, and Marta Oliveira, graphic designer. Together, we bring distinct yet complementary practices into a shared visual language, bridging design, illustration and animation. Our collaboration is built on dialogue, reflection and close involvement throughout every stage of a project.",
+        "We value well-defined processes, transparent collaboration and close relationships with our clients. We accompany each project with care, ensuring coherence, clarity and real-world applicability in the everyday life of brands.",
+        "More than creating visual pieces, we aim to develop communication that works, that makes sense within its context and remains relevant over time."
+      ],
+      "contact_eyebrow": "CONTACT",
+      "contact_title": "Every project begins with a conversation.",
+      "contact_text": "Write to us directly at",
+      "clients_eyebrow": "CLIENTS",
+      "clients_text": "We work with brands and businesses that value clarity, consistency and intention in their visual communication."
+    },
+    "team_images": [
+      "e46b83_a75d611234f549c5956391f1eab67651~mv2.jpg",
+      "e46b83_bf78916535954ae69095d2ad96d8d535~mv2.jpg"
+    ],
+    "studio_image": "e46b83_f5bf614e30eb479a9a74c9e87758f9de~mv2.jpg",
+    "client_logos": [
+      "e46b83_1403a5c670f7485c87a6ec4f9e2be74f~mv2.png",
+      "e46b83_2a5c9ee89b2e45b78c1a3fda0f97a68b~mv2.png",
+      "e46b83_06349610f0d340adb95d9cd48c5eb9bc~mv2.png",
+      "e46b83_a1bfb91b9861425fb9181b048471cd57~mv2.png",
+      "e46b83_c11f56b16faf44da8829291771ca961d~mv2.png",
+      "e46b83_24ba5a8652114a4dbe1cf127076a2f2f~mv2.png",
+      "e46b83_da8f41eb387f4e59b54ffe5fe04c415d~mv2.png",
+      "e46b83_1678b195271f47fc9e271ad5ca6a3c2c~mv2.png"
+    ]
+  },
+  "projects": []
+}
