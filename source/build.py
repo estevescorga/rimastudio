@@ -103,12 +103,12 @@ def hover_tags(tags_pt, tags_en):
     parts = [t.strip() for t in raw.split("|") if t.strip()]
     return " . ".join(p.lower() for p in parts)
 
-def grid_markup(items):
+def grid_markup(items, extra_cls=""):
     """Shared alternating narrow/wide project grid, used on the home page's
     featured projects and on the portfolio/filter pages, with a consistent
     hover caption: bold uppercase title + lowercase tags, centered at the
     bottom of the thumbnail (matching the original site)."""
-    out = '<div class="grid">\n'
+    out = f'<div class="grid {extra_cls}">\n'
     for i, p in enumerate(items):
         pair_i = i // 2
         pos = i % 2
@@ -205,6 +205,7 @@ def header(filename="index.html"):
       </ul>
     </li>
     <li><a href="{oestudio_url}">{e(L('O ESTÚDIO','THE STUDIO'))}</a></li>
+    <li><a href="{oestudio_url}#contacto">{e(L('CONTACTOS','CONTACT'))}</a></li>
     <li><a href="{SITE['meta']['external']['rimalab']}" target="_blank" rel="noopener">RIMA lab</a></li>
     <li><a href="{SITE['meta']['external']['estevescorga']}" target="_blank" rel="noopener">ESTEVES CORGA | Portfolio de Ilustração</a></li>
   </ul>
@@ -297,7 +298,7 @@ def build_home():
     {bi(h['pt']['projects_title'], h['en']['projects_title'], 'h2', 'section-title section-title--projects')}
     {bi(h['pt']['projects_sub'], h['en']['projects_sub'], 'p', 'section-sub')}
     <div class="divider"></div>
-    {grid_markup(featured)}
+    {grid_markup(featured, 'grid--home')}
     <div class="center">
       <a class="cta-link" href="{url_for('portfolio.html')}">{bi(h['pt']['projects_cta'], h['en']['projects_cta'])}</a>
     </div>
@@ -352,7 +353,7 @@ def build_home():
   </div>
 </section>
 
-<section class="band-dark section-tight">
+<section class="band-taupe section-tight home-clients">
   <div class="container center">
     {bi(SITE['oestudio']['pt']['clients_eyebrow'], SITE['oestudio']['en']['clients_eyebrow'], 'p', 'eyebrow')}
 {clients_section("", "")}  </div>
@@ -417,11 +418,11 @@ def build_oestudio():
   <p>{studio_para(4)}</p>
 </section>
 
-<section class="studio-contact">
+<section class="studio-contact" id="contacto">
   <h2 class="studio-title">{e(L(o["pt"]["contact_eyebrow"], o["en"]["contact_eyebrow"]))}</h2>
   <div class="divider divider--dark"></div>
   <p class="studio-contact-lead"><strong>{e(L(o["pt"]["contact_title"], o["en"]["contact_title"]))}</strong><br>
-  {e(L("Preencha o formulário abaixo ou escreva-nos diretamente para", "Fill in the form below or write to us directly at"))} {SITE["meta"]["email"]}</p>
+  {e(L("Preencha o formulário abaixo ou escreva-nos diretamente para", "Fill in the form below or write to us directly at"))} <strong>{SITE["meta"]["email"]}</strong></p>
   <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST"
         data-key="{key}" data-ok="{e(lab["ok"])}" data-err="{e(lab["err"])}" data-email="{SITE["meta"]["email"]}">
     <input type="hidden" name="access_key" value="{key}">
