@@ -65,6 +65,7 @@ LANG = "pt"
 STATIC_FILENAMES = ["index.html", "portfolio.html", "oestudio.html",
                      "design.html", "animacao.html", "ilustracao.html"]
 PROJECT_FILENAMES = [f"{p['slug']}.html" for p in PROJECTS]
+DRAFT_FILENAMES = ["the-people-series.html"]  # built, in menu, but noindex and not in sitemap
 ALL_FILENAMES = STATIC_FILENAMES + PROJECT_FILENAMES
 
 def webp_name(id_):
@@ -171,11 +172,12 @@ def base_head(filename, title, desc=""):
     en_url = SITE_URL + url_for(filename, "en")
     canonical = SITE_URL + url_for(filename, LANG)
     locale = "pt_PT" if LANG == "pt" else "en_US"
+    noindex = '<meta name="robots" content="noindex, nofollow">\n' if filename in DRAFT_FILENAMES else ""
     return f'''<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{e(title)}</title>
 <meta name="description" content="{e(desc)}">
-<link rel="canonical" href="{canonical}">
+{noindex}<link rel="canonical" href="{canonical}">
 <link rel="alternate" hreflang="pt" href="{pt_url}">
 <link rel="alternate" hreflang="en" href="{en_url}">
 <link rel="alternate" hreflang="x-default" href="{pt_url}">
@@ -225,11 +227,12 @@ def header(filename="index.html"):
       </ul>
     </li>
     <li><a href="{oestudio_url}">{e(L('O ESTÚDIO','THE STUDIO'))}</a></li>
+    <li><a href="{url_for('the-people-series.html')}">THE PEOPLE SERIES</a></li>
     <li><a href="{oestudio_url}#contacto">{e(L('CONTACTO','CONTACT'))}</a></li>
     <li><a href="{SITE['meta']['external']['rimalab']}" target="_blank" rel="noopener">RIMA lab</a></li>
     <li><a href="{SITE['meta']['external']['estevescorga']}" target="_blank" rel="noopener">ESTEVES CORGA</a>
       <ul class="offcanvas-sub">
-        <li><a href="{SITE['meta']['external']['estevescorga']}" target="_blank" rel="noopener">{e(L('Portfolio de Ilustração','Illustration Portfolio'))}</a></li>
+        <li><a href="{SITE['meta']['external']['estevescorga']}" target="_blank" rel="noopener">{e(L('Portfolio de Autor','Author Portfolio'))}</a></li>
       </ul>
     </li>
   </ul>
@@ -589,6 +592,267 @@ def build_project(p, idx):
     desc_en = (p.get("text_en") or [desc_pt])[0][:160]
     write_page(f"{p['slug']}.html", page_title, content, desc=L(desc_pt, desc_en))
 
+# ---------------- THE PEOPLE SERIES (draft page) ----------------
+def ph(label_pt, label_en, ratio="4/3", cls=""):
+    """Visible placeholder for a photo still to be produced (draft only)."""
+    return f'<div class="ph {cls}" style="aspect-ratio:{ratio}"><span>{e(L(label_pt, label_en))}</span></div>'
+
+def ul(items_pt, items_en):
+    return "<ul class=\"tps-list\">" + "".join(f"<li>{e(x)}</li>" for x in L(items_pt, items_en)) + "</ul>"
+
+def build_people_series():
+    mail = "hello@rimastudio.pt"
+    contact = url_for("oestudio.html") + "#contacto"
+    steps = L([
+        ("Briefing", "Percebemos o contexto da iniciativa, número de colaboradores, ocasião, timing e nível de personalização pretendido."),
+        ("Referências", "A empresa fornece, idealmente, pelo menos duas referências atuais de cada pessoa."),
+        ("Direção visual", "A RIMA studio propõe a abordagem de ilustração que considera mais adequada ao projeto. O cliente pode optar entre Traço, Forma ou Textura, sem alteração de valor."),
+        ("Ilustração", "Cada retrato é desenvolvido individualmente pela equipa RIMA."),
+        ("Preview", "Antes da produção física, enviamos sempre um preview digital para aprovação. Está incluída uma ronda de pequenos ajustes."),
+        ("Produção", "Depois da aprovação, cada retrato é preparado, impresso e finalizado."),
+        ("Entrega", "As peças podem ser entregues apenas impressas ou já emolduradas e prontas a oferecer. O ficheiro digital em .jpg é sempre incluído."),
+    ], [
+        ("Brief", "We understand the context of the initiative, number of employees, occasion, timing and level of customisation required."),
+        ("References", "The company provides, ideally, at least two recent references of each person."),
+        ("Visual direction", "RIMA studio proposes the illustration approach we believe best fits the project. The client may choose between Line, Form or Texture, with no price difference between styles."),
+        ("Illustration", "Each portrait is developed individually by the RIMA team."),
+        ("Preview", "Before physical production, we always send a digital preview for approval. One round of minor adjustments is included."),
+        ("Production", "After approval, each portrait is prepared, printed and finished."),
+        ("Delivery", "The pieces can be delivered as prints only or framed and ready to give. A high-resolution .jpg file is always included."),
+    ])
+    steps_html = "".join(
+        f'<li><span class="tps-num">{i+1:02d}</span><div><h3>{e(t)}</h3><p>{e(d)}</p></div></li>'
+        for i, (t, d) in enumerate(steps))
+
+    styles = L([
+        ("Traço", "A abordagem mais simples e essencial.",
+         "O retrato é construído sobretudo através da linha, com uma utilização muito contida da cor. A imagem é reduzida aos elementos necessários para preservar a expressão, a postura e os traços mais reconhecíveis de cada pessoa.",
+         "O resultado é leve, limpo e intemporal, mantendo uma forte ligação à fotografia de referência sem perder o carácter ilustrado."),
+        ("Forma", "Uma abordagem mais construída, em que ao traço se juntam manchas de cor, sombras suaves e elementos de fundo.",
+         "Estas camadas acrescentam maior definição e presença ao retrato, criando uma imagem visualmente mais preenchida sem perder a simplicidade e a clareza do desenho.",
+         "O resultado mantém-se contemporâneo e equilibrado, com uma leitura mais gráfica e uma maior sensação de profundidade."),
+        ("Textura", "A abordagem mais expressiva e rica visualmente.",
+         "Ao traço juntam-se diferentes camadas de cor, hachuras, manchas, sobreposições e texturas, criando uma imagem com maior densidade gráfica e um carácter mais editorial.",
+         "O retrato mantém a identidade e os traços essenciais da pessoa, mas permite uma interpretação visual mais livre, dinâmica e autoral."),
+    ], [
+        ("Line", "The simplest and most essential approach.",
+         "The portrait is built mainly through line, with a very restrained use of colour. The image is reduced to the elements needed to preserve the expression, posture and most recognisable features of each person.",
+         "The result is light, clean and timeless, maintaining a strong connection to the reference while still feeling clearly illustrated."),
+        ("Form", "A more constructed approach, where line is complemented by areas of colour, soft shadows and background elements.",
+         "These layers add definition and presence to the portrait, creating a fuller image while preserving the simplicity and clarity of the drawing.",
+         "The result remains contemporary and balanced, with a more graphic reading and a stronger sense of depth."),
+        ("Texture", "The most expressive and visually rich approach.",
+         "Line is layered with colour, hatching, marks, overlays and textures, creating a portrait with greater graphic density and a more editorial character.",
+         "The portrait still preserves the identity and essential features of the person, while allowing for a freer, more dynamic and author-led interpretation."),
+    ])
+    who = L(["Homem", "Mulher", "Grupo"], ["Man", "Woman", "Group"])
+    styles_html = ""
+    for t, lead, p1, p2 in styles:
+        shots = "".join(ph(f"{t} — {w}", f"{t} — {w}", "4/5") for w in who)
+        styles_html += f'''
+<section class="tps-style">
+  <div class="container">
+    <div class="tps-style-text">
+      <h3>{e(t)}</h3>
+      <p class="tps-lead">{e(lead)}</p>
+      <p>{e(p1)}</p>
+      <p>{e(p2)}</p>
+    </div>
+    <div class="tps-trio">{shots}</div>
+  </div>
+</section>'''
+
+    faq = L([
+        ("Quantas fotografias são necessárias?", "Idealmente, pelo menos duas referências atuais de cada pessoa."),
+        ("As fotografias têm de ser profissionais?", "Não. Fotografias informais podem funcionar perfeitamente, desde que permitam ver bem a pessoa."),
+        ("Podem trabalhar a partir de vídeo?", "Sim. Frames de vídeo podem ser utilizados como referência quando mostram bem a pessoa."),
+        ("O cliente escolhe o estilo?", "A RIMA studio propõe a abordagem que considera mais adequada ao projeto, mas o cliente pode optar entre Traço, Forma ou Textura. O estilo não altera o valor."),
+        ("Existe aprovação antes da impressão?", "Sim. Enviamos sempre um preview digital antes da produção física."),
+        ("Estão incluídas alterações?", "Está incluída uma ronda de pequenos ajustes. Alterações estruturais, mudança de referência, pose ou abordagem depois de iniciado o desenho podem implicar orçamento adicional."),
+        ("Qual é o formato?", "O formato standard é A5. Formatos superiores estão disponíveis mediante pedido."),
+        ("A moldura está incluída?", "Existem duas opções: ilustração impressa ou ilustração emoldurada."),
+        ("O ficheiro digital está incluído?", "Sim. É sempre entregue um ficheiro .jpg de alta resolução."),
+        ("Podem personalizar a embalagem?", "Sim. A versão standard utiliza a identidade The People Series / RIMA studio, mas podemos adaptar elementos à identidade da empresa."),
+        ("Existe quantidade mínima?", "Não existe quantidade mínima pública. O serviço pode ser desenvolvido para uma única pessoa ou para séries maiores."),
+        ("Podem criar programas anuais?", "Sim. O serviço adapta-se particularmente bem a programas recorrentes de reconhecimento, como 5, 10, 15 ou mais anos de casa."),
+        ("Trabalham fora de Lisboa?", "Sim. Projetos fora da região de Lisboa/Cascais e envios nacionais ou internacionais são avaliados caso a caso."),
+    ], [
+        ("How many photographs are needed?", "Ideally, at least two recent references of each person."),
+        ("Do the photographs need to be professional?", "No. Informal photographs can work perfectly well, as long as the person can be seen clearly."),
+        ("Can you work from video?", "Yes. Video frames can be used as references when they show the person clearly."),
+        ("Does the client choose the style?", "RIMA studio proposes the approach we believe best fits the project, but the client can choose between Line, Form or Texture. The style does not affect the price."),
+        ("Is there an approval stage before printing?", "Yes. We always send a digital preview before physical production."),
+        ("Are revisions included?", "One round of minor adjustments is included. Structural changes, a new reference, pose or illustration approach after work has started may require an additional quote."),
+        ("What is the standard format?", "The standard format is A5. Larger formats are available upon request."),
+        ("Is the frame included?", "There are two options: printed illustration or framed illustration."),
+        ("Is the digital file included?", "Yes. A high-resolution .jpg file is always included."),
+        ("Can the packaging be customised?", "Yes. The standard version uses The People Series / RIMA studio identity, but selected elements can be adapted to the company's identity."),
+        ("Is there a minimum quantity?", "There is no public minimum quantity. The service can be developed for one person or for larger series."),
+        ("Can this be an annual programme?", "Yes. The service is particularly suited to recurring recognition programmes such as 5, 10, 15 or more years of service."),
+        ("Do you work outside Lisbon?", "Yes. Projects outside Lisbon/Cascais and national or international shipping are evaluated case by case."),
+    ])
+    faq_html = "".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in faq)
+
+    content = f'''
+<section class="tps-hero">
+  <div class="container">
+    <p class="eyebrow">THE PEOPLE SERIES</p>
+    <h1>Recognition, made personal.</h1>
+    <p class="tps-sub">{e(L("Ilustrações de autor criadas para celebrar as pessoas por detrás de uma empresa.", "Author illustrations created to celebrate the people behind a company."))}</p>
+    <div class="tps-ctas">
+      <a class="cta-link" href="{contact}">{e(L("Falar connosco", "Get in touch"))}</a>
+      <a class="tps-link" href="#como-funciona">{e(L("Ver como funciona", "See how it works"))}</a>
+    </div>
+    {ph("Hero: retrato A5 emoldurado + caixa aberta (ou vídeo em loop 15–25 s)", "Hero: framed A5 portrait + open box (or 15–25 s loop video)", "16/9", "ph--wide")}
+  </div>
+</section>
+
+<section class="tps-section">
+  <div class="container tps-narrow">
+    <h2>{e(L("Uma forma mais pessoal de reconhecer", "A more personal form of recognition"))}</h2>
+    <p>{e(L("Uma empresa é feita de muitas coisas, mas sobretudo das pessoas que a constroem todos os dias.", "A company is made of many things, but above all, of the people who build it every day."))}</p>
+    <p>{e(L("The People Series nasce como uma forma mais pessoal e artística de reconhecer essas pessoas. Um serviço de retratos ilustrados de autor pensado para empresas que valorizam os seus colaboradores e procuram assinalar momentos importantes de uma forma menos convencional e mais significativa.", "The People Series was created as a more personal and artistic way to recognise those people. An author illustration service for companies that value their employees and want to mark meaningful moments in a less conventional, more thoughtful way."))}</p>
+    <p>{e(L("Mais do que reproduzir uma fotografia, procuramos transformar cada pessoa numa peça única, pensada para ser oferecida, guardada e associada a um momento de reconhecimento.", "Rather than simply reproducing a photograph, we turn each person into a unique piece designed to be given, kept and associated with a moment of recognition."))}</p>
+  </div>
+  <div class="container">{ph("Vários retratos lado a lado (ou detalhe de 2–3 retratos em moldura)", "Several portraits side by side (or detail of 2–3 framed portraits)", "21/9", "ph--wide")}</div>
+</section>
+
+<section class="tps-section tps-tint">
+  <div class="container tps-narrow">
+    <h2>{e(L("Pensado para momentos com significado", "Made for meaningful moments"))}</h2>
+    <p>{e(L("The People Series pode ser integrado em diferentes momentos de reconhecimento dentro de uma empresa:", "The People Series can be part of different moments of recognition within a company:"))}</p>
+    {ul(["Anos de casa / work anniversaries", "5, 10, 15, 20 ou mais anos na empresa", "Reforma", "Saída de um colaborador", "Reconhecimento de uma contribuição ou conquista", "Prémios internos", "Aniversários da empresa", "Celebrações de equipa", "Programas anuais de employee recognition"],
+        ["Work anniversaries", "5, 10, 15, 20 or more years with the company", "Retirement", "Employee departures", "Recognition of a contribution or achievement", "Internal awards", "Company anniversaries", "Team celebrations", "Annual employee recognition programmes"])}
+    <p>{e(L("Pode funcionar como uma iniciativa pontual ou como um programa recorrente ao longo dos anos.", "It can work as a one-off initiative or as an ongoing recognition programme over the years."))}</p>
+  </div>
+</section>
+
+<section class="tps-section">
+  <div class="container tps-split">
+    <div>{ph("Marta + Ricardo no estúdio (Ricardo a desenhar, Marta a rever)", "Marta + Ricardo in the studio (Ricardo drawing, Marta reviewing)", "4/5")}</div>
+    <div class="tps-narrow">
+      <h2>{e(L("Criado pela equipa RIMA studio", "Created by RIMA studio"))}</h2>
+      <p>{e(L("Cada retrato é desenvolvido pela equipa do RIMA studio, Marta e Ricardo, a partir de fotografias e outras referências da pessoa retratada.", "Each portrait is developed by the RIMA studio team, Marta and Ricardo, using photographs and other visual references of the person being portrayed."))}</p>
+      <p>{e(L("O trabalho parte sempre de uma linguagem de ilustração autoral, contemporânea e humana, mas é pensado especificamente para cada projeto.", "The work always starts from an author-led, contemporary and human illustration language, while being adapted to the specific context of each project."))}</p>
+      <p>{e(L("Mais do que reproduzir uma imagem, cruzamos referências para perceber melhor a expressão, os traços e a presença de cada pessoa.", "Rather than simply reproducing one image, we cross-reference different materials to better understand each person's expression, features and presence."))}</p>
+    </div>
+  </div>
+</section>
+
+<section class="tps-section tps-center">
+  <div class="container tps-narrow">
+    <h2>{e(L("Um conceito, diferentes abordagens", "One concept, different approaches"))}</h2>
+    <p>{e(L("Cada projeto pode assumir uma linguagem visual diferente, mantendo sempre a identidade do The People Series e o carácter autoral da ilustração.", "Each project can take on a different visual language while keeping the identity of The People Series and the author-led nature of the illustration."))}</p>
+    <p>{e(L("As três abordagens distinguem-se sobretudo pela forma como trabalham o traço, a cor, a sombra e a textura, permitindo adaptar o resultado ao contexto, à dimensão do projeto e à identidade de cada empresa.", "The three approaches differ mainly in the way they use line, colour, shadow and texture, allowing the result to adapt to the context, scale and identity of each company."))}</p>
+    <p>{e(L("Nenhuma é apresentada como superior às restantes. São diferentes formas de interpretar o mesmo princípio: criar retratos reconhecíveis, pessoais e com valor para quem os recebe.", "None is presented as superior to the others. They are simply different ways of interpreting the same principle: creating recognisable, personal portraits with meaning for the person receiving them."))}</p>
+  </div>
+</section>
+{styles_html}
+
+<section class="tps-section tps-tint">
+  <div class="container tps-narrow">
+    <h2>{e(L("Trabalhamos a partir de referências", "We work from references"))}</h2>
+    <p>{e(L("Idealmente, pedimos pelo menos duas referências atuais de cada pessoa.", "Ideally, we ask for at least two recent references of each person."))}</p>
+    <p>{e(L("Podem ser fotografias profissionais ou informais. Não precisam de ter sido produzidas especificamente para o projeto. Também podemos trabalhar a partir de vídeo, desde que permita ver bem a pessoa.", "They can be professional or informal photographs and do not need to have been produced specifically for the project. We can also work from video, as long as the person can be seen clearly."))}</p>
+    <p>{e(L("A equipa RIMA cruza as diferentes referências para perceber melhor os traços, a expressão e a presença de cada colaborador, sem ficar dependente de uma única fotografia.", "The RIMA team cross-references the available material to better understand each employee's features, expression and presence, rather than relying on a single photograph."))}</p>
+  </div>
+  <div class="container tps-trio tps-trio--seq">
+    {ph("Referência 1", "Reference 1", "1/1")}{ph("Referência 2 / frame de vídeo", "Reference 2 / video frame", "1/1")}{ph("Retrato final", "Final portrait", "1/1")}
+  </div>
+</section>
+
+<section class="tps-section" id="como-funciona">
+  <div class="container">
+    <h2 class="tps-h-center">{e(L("Como funciona", "How it works"))}</h2>
+    <ol class="tps-steps">{steps_html}</ol>
+    {ph("Timeline visual: referência → desenho → preview → impressão → moldura → caixa", "Visual timeline: reference → drawing → preview → print → frame → box", "21/9", "ph--wide")}
+  </div>
+</section>
+
+<section class="tps-section tps-tint">
+  <div class="container tps-split">
+    <div class="tps-narrow">
+      <h2>{e(L("Da ilustração a uma peça para guardar", "From illustration to a piece worth keeping"))}</h2>
+      <p>{e(L("Cada retrato é pensado para existir para além do momento em que é oferecido.", "Each portrait is designed to live beyond the moment in which it is given."))}</p>
+      <p>{e(L("O formato standard é A5, suficientemente presente para ter destaque numa secretária, estante ou prateleira, sem se tornar demasiado grande para um espaço pessoal. Formatos superiores podem ser desenvolvidos mediante pedido.", "The standard format is A5 — large enough to have presence on a desk, shelf or bookcase, while remaining suitable for a personal space. Larger formats are available upon request."))}</p>
+      <h3>Illustration</h3>
+      {ul(["Retrato ilustrado", "Impressão A5", "Ficheiro digital .jpg"], ["Illustrated portrait", "A5 print", "Digital .jpg file"])}
+      <h3>Framed Illustration</h3>
+      {ul(["Retrato ilustrado", "Impressão A5", "Moldura", "Ficheiro digital .jpg", "Embalagem preparada para oferta"], ["Illustrated portrait", "A5 print", "Frame", "Digital .jpg file", "Packaging prepared for gifting"])}
+      <p class="tps-note">{e(L("A disponibilidade de molduras está sempre sujeita ao stock do fornecedor.", "Frame availability is always subject to supplier stock."))}</p>
+    </div>
+    <div class="tps-duo">
+      {ph("Envelope / versão sem moldura", "Envelope / unframed version", "4/5")}
+      {ph("Caixa aberta / versão com moldura", "Open box / framed version", "4/5")}
+    </div>
+  </div>
+</section>
+
+<section class="tps-section">
+  <div class="container tps-split">
+    <div class="tps-duo">
+      {ph("Exemplo: standard RIMA", "Example: standard RIMA", "1/1")}
+      {ph("Exemplo: com logo / cartão personalizado", "Example: with logo / custom card", "1/1")}
+    </div>
+    <div class="tps-narrow">
+      <h2>{e(L("Adaptado a cada empresa", "Adapted to each company"))}</h2>
+      <p>{e(L("A identidade standard do The People Series é assinada pela RIMA studio. Quando faz sentido, podemos adaptar alguns elementos à identidade da empresa:", "The standard The People Series identity is signed by RIMA studio. When relevant, selected elements can be adapted to the company's identity:"))}</p>
+      {ul(["Logótipo", "Cor", "Nome do colaborador", "Anos de casa", "Data", "Mensagem", "Cartão", "Packaging"], ["Logo", "Colour", "Employee name", "Years with the company", "Date", "Message", "Card", "Packaging"])}
+      <p>{e(L("Personalizações mais extensas ou produção de packaging específico são avaliadas caso a caso. A ilustração mantém sempre o carácter autoral do projeto, evitando transformar o retrato numa peça excessivamente corporate.", "More extensive customisation or bespoke packaging production is evaluated on a project-by-project basis. The illustration always retains the author-led character of the project, avoiding an overly corporate result."))}</p>
+    </div>
+  </div>
+</section>
+
+<section class="tps-section tps-tint">
+  <div class="container tps-narrow">
+    <h2>{e(L("Um serviço testado em contexto real", "A service tested in real corporate contexts"))}</h2>
+    <p>{e(L("The People Series nasce de experiência real em projetos de reconhecimento corporate. Não é um template, um filtro ou um processo automático. Cada retrato é desenvolvido individualmente pela equipa RIMA studio.", "The People Series is built on real experience in corporate recognition projects. It is not a template, a filter or an automated process. Each portrait is developed individually by the RIMA studio team."))}</p>
+    <p>{e(L("A experiência acumulada permite-nos trabalhar tanto com projetos pontuais como com programas recorrentes ao longo dos anos.", "Our experience allows us to work both on one-off projects and on recurring recognition programmes over the years."))}</p>
+    <p class="tps-draft">{e(L("[Rascunho: o case study de cinco anos com cliente corporate só entra depois de validação escrita do cliente.]", "[Draft: the five-year corporate case study goes in only after the client's written approval.]"))}</p>
+  </div>
+</section>
+
+<section class="tps-section">
+  <div class="container tps-narrow">
+    <h2>{e(L("Ilustração de autor, não um presente corporate genérico", "Author illustration, not a generic corporate gift"))}</h2>
+    <p>{e(L("The People Series não é:", "The People Series is not:"))}</p>
+    {ul(["Caricatura", "Retrato fotorealista", "Produção automática", "IA generativa", "Aplicação de um template", "Merchandising", "Um brinde corporate genérico"], ["Caricature", "Photorealistic portraiture", "Automated production", "Generative AI", "A template applied to photographs", "Merchandise", "A generic corporate giveaway"])}
+    <p>{e(L("É uma forma de aplicar ilustração de autor ao reconhecimento das pessoas dentro de uma empresa.", "It is a way of bringing author illustration into employee recognition."))}</p>
+  </div>
+</section>
+
+<section class="tps-section tps-tint">
+  <div class="container tps-narrow">
+    <h2>{e(L("Também em formato digital", "Digital file included"))}</h2>
+    <p>{e(L("O ficheiro digital em alta resolução é sempre incluído. Pode ser utilizado pela empresa em contextos relacionados com a iniciativa de reconhecimento, como:", "A high-resolution digital file is always included. It can be used by the company in contexts related to the recognition initiative, such as:"))}</p>
+    {ul(["Intranet", "Newsletters internas", "Apresentações", "Comunicação do evento", "Publicações de reconhecimento nas redes sociais"], ["Intranet", "Internal newsletters", "Presentations", "Event communication", "Employee recognition posts on social media"])}
+    <p>{e(L("Utilizações comerciais, publicidade paga, merchandising, revenda ou alterações à ilustração devem ser avaliadas separadamente.", "Commercial campaigns, paid advertising, merchandising, resale or alterations to the artwork should be discussed separately."))}</p>
+  </div>
+</section>
+
+<section class="tps-section">
+  <div class="container tps-faq">
+    <h2 class="tps-h-center">FAQ</h2>
+    {faq_html}
+  </div>
+</section>
+
+<section class="tps-cta">
+  <div class="container">
+    <h2>{e(L("Há pessoas que merecem mais do que um presente genérico.", "Some people deserve more than a generic corporate gift."))}</h2>
+    <p>{e(L("Se a sua empresa procura uma forma mais pessoal de reconhecer quem faz parte da sua história, gostávamos de conhecer o projeto.", "If your company is looking for a more personal way to recognise the people behind its story, we would love to hear about the project."))}</p>
+    <a class="cta-link" href="{contact}">{e(L("Falar connosco", "Get in touch"))}</a>
+    <p class="tps-mail"><a href="mailto:{mail}">{mail}</a></p>
+    <p class="tps-credit">{L("<strong>The People Series</strong> é um projeto do <strong>RIMA studio</strong>, desenvolvido por Marta + Ricardo.", "<strong>The People Series</strong> is a project by <strong>RIMA studio</strong>, developed by Marta + Ricardo.")}</p>
+  </div>
+</section>
+'''
+    title = L("The People Series | Retratos ilustrados para empresas — RIMA studio",
+              "The People Series | Author Portraits for Employee Recognition — RIMA studio")
+    desc = L("Retratos ilustrados de autor para employee recognition, anos de casa, milestones e momentos especiais dentro de uma empresa. Um projeto do RIMA studio.",
+             "Author illustrations created for employee recognition, work anniversaries, milestones and meaningful moments inside a company. A project by RIMA studio.")
+    write_page("the-people-series.html", title, content, desc=desc)
+
 # ---------------- SITEMAP / ROBOTS ----------------
 def build_sitemap():
     urls = []
@@ -622,6 +886,7 @@ def build_sitemap():
 def build_all_pages():
     build_home()
     build_oestudio()
+    build_people_series()
     build_portfolio()
     build_portfolio("design", "design.html")
     build_portfolio("animacao", "animacao.html")
