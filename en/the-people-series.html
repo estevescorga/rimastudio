@@ -72,8 +72,8 @@
     <h1>Recognition, made personal.</h1>
     <p class="tps-sub">Author illustrations created to celebrate the people behind a company.</p>
     <div class="tps-ctas">
-      <a class="cta-link" href="/en/oestudio.html#contacto">Get in touch</a>
-      <a class="tps-link" href="#como-funciona">See how it works</a>
+      <button type="button" class="cta-link" data-open-contact>Get in touch</button>
+      <a class="cta-link cta-link--outline" href="#como-funciona">See how it works</a>
     </div>
     <div class="ph ph--wide" style="aspect-ratio:16/9"><span>Hero: framed A5 portrait + open box (or 15–25 s loop video)</span></div>
   </div>
@@ -245,12 +245,33 @@
   <div class="container">
     <h2>Some people deserve more than a generic corporate gift.</h2>
     <p>If your company is looking for a more personal way to recognise the people behind its story, we would love to hear about the project.</p>
-    <a class="cta-link" href="/en/oestudio.html#contacto">Get in touch</a>
+    <button type="button" class="cta-link" data-open-contact>Get in touch</button>
     <p class="tps-mail"><a href="mailto:hello@rimastudio.pt">hello@rimastudio.pt</a></p>
     <p class="tps-credit"><strong>The People Series</strong> is a project by <strong>RIMA studio</strong>, developed by Marta + Ricardo.</p>
   </div>
 </section>
-
+<div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-label="Contact" hidden>
+  <div class="modal-box">
+    <button class="modal-close" type="button" data-close-contact aria-label="Close">&times;</button>
+    <p class="studio-contact-lead"><strong>Shall we create something for your people?</strong><br>
+    Fill in the form or write to us at <strong>hello@rimastudio.pt</strong></p>
+    <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST"
+        data-key="4f6a9150-bb8b-4edd-b7dc-0118c9d7c4d1" data-ok="Message sent. Thank you, we will reply shortly." data-err="Could not send. Please write to us at" data-email="hello@rimastudio.pt">
+    <input type="hidden" name="access_key" value="4f6a9150-bb8b-4edd-b7dc-0118c9d7c4d1">
+    <input type="hidden" name="from_name" value="RIMA studio (rimastudio.pt)">
+    <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+    <div class="cf-left">
+      <label>Name *<input type="text" name="name" required></label>
+      <label>Last name *<input type="text" name="surname" required></label>
+      <label>Email *<input type="email" name="email" required></label>
+      <label>Subject *<input type="text" name="subject" required></label>
+    </div>
+    <label class="cf-right">Message<textarea name="message"></textarea></label>
+    <button type="submit" class="cf-send">SEND</button>
+    <p class="cf-status" role="status" aria-live="polite"></p>
+  </form>
+  </div>
+</div>
 </main>
 <footer class="site-footer">
   <div class="site-footer-inner">

@@ -72,8 +72,8 @@
     <h1>Recognition, made personal.</h1>
     <p class="tps-sub">Ilustrações de autor criadas para celebrar as pessoas por detrás de uma empresa.</p>
     <div class="tps-ctas">
-      <a class="cta-link" href="/oestudio.html#contacto">Falar connosco</a>
-      <a class="tps-link" href="#como-funciona">Ver como funciona</a>
+      <button type="button" class="cta-link" data-open-contact>Falar connosco</button>
+      <a class="cta-link cta-link--outline" href="#como-funciona">Ver como funciona</a>
     </div>
     <div class="ph ph--wide" style="aspect-ratio:16/9"><span>Hero: retrato A5 emoldurado + caixa aberta (ou vídeo em loop 15–25 s)</span></div>
   </div>
@@ -245,12 +245,33 @@
   <div class="container">
     <h2>Há pessoas que merecem mais do que um presente genérico.</h2>
     <p>Se a sua empresa procura uma forma mais pessoal de reconhecer quem faz parte da sua história, gostávamos de conhecer o projeto.</p>
-    <a class="cta-link" href="/oestudio.html#contacto">Falar connosco</a>
+    <button type="button" class="cta-link" data-open-contact>Falar connosco</button>
     <p class="tps-mail"><a href="mailto:hello@rimastudio.pt">hello@rimastudio.pt</a></p>
     <p class="tps-credit"><strong>The People Series</strong> é um projeto do <strong>RIMA studio</strong>, desenvolvido por Marta + Ricardo.</p>
   </div>
 </section>
-
+<div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-label="Contacto" hidden>
+  <div class="modal-box">
+    <button class="modal-close" type="button" data-close-contact aria-label="Fechar">&times;</button>
+    <p class="studio-contact-lead"><strong>Vamos criar algo para as suas pessoas?</strong><br>
+    Preencha o formulário ou escreva-nos para <strong>hello@rimastudio.pt</strong></p>
+    <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST"
+        data-key="4f6a9150-bb8b-4edd-b7dc-0118c9d7c4d1" data-ok="Mensagem enviada. Obrigado, respondemos em breve." data-err="Não foi possível enviar. Escreva-nos para" data-email="hello@rimastudio.pt">
+    <input type="hidden" name="access_key" value="4f6a9150-bb8b-4edd-b7dc-0118c9d7c4d1">
+    <input type="hidden" name="from_name" value="RIMA studio (rimastudio.pt)">
+    <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+    <div class="cf-left">
+      <label>Nome *<input type="text" name="name" required></label>
+      <label>Apelido *<input type="text" name="surname" required></label>
+      <label>Email *<input type="email" name="email" required></label>
+      <label>Assunto *<input type="text" name="subject" required></label>
+    </div>
+    <label class="cf-right">Mensagem<textarea name="message"></textarea></label>
+    <button type="submit" class="cf-send">ENVIAR</button>
+    <p class="cf-status" role="status" aria-live="polite"></p>
+  </form>
+  </div>
+</div>
 </main>
 <footer class="site-footer">
   <div class="site-footer-inner">

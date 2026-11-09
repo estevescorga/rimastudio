@@ -418,6 +418,41 @@ def studio_intro_paras():
     cut = full.index(". ") + 1
     return full[:cut], full[cut:].strip()
 
+def contact_form_html():
+    key = SITE["meta"].get("web3forms_key", "")
+    lab = {
+        "name": L("Nome", "Name"), "surname": L("Apelido", "Last name"),
+        "email": "Email", "subject": L("Assunto", "Subject"),
+        "message": L("Mensagem", "Message"), "send": L("ENVIAR", "SEND"),
+        "ok": L("Mensagem enviada. Obrigado, respondemos em breve.", "Message sent. Thank you, we will reply shortly."),
+        "err": L("Não foi possível enviar. Escreva-nos para", "Could not send. Please write to us at"),
+    }
+    return f'''<form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST"
+        data-key="{key}" data-ok="{e(lab["ok"])}" data-err="{e(lab["err"])}" data-email="{SITE["meta"]["email"]}">
+    <input type="hidden" name="access_key" value="{key}">
+    <input type="hidden" name="from_name" value="RIMA studio (rimastudio.pt)">
+    <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
+    <div class="cf-left">
+      <label>{lab["name"]} *<input type="text" name="name" required></label>
+      <label>{lab["surname"]} *<input type="text" name="surname" required></label>
+      <label>{lab["email"]} *<input type="email" name="email" required></label>
+      <label>{lab["subject"]} *<input type="text" name="subject" required></label>
+    </div>
+    <label class="cf-right">{lab["message"]}<textarea name="message"></textarea></label>
+    <button type="submit" class="cf-send">{lab["send"]}</button>
+    <p class="cf-status" role="status" aria-live="polite"></p>
+  </form>'''
+
+def contact_modal_html():
+    return f'''<div class="modal" id="contactModal" role="dialog" aria-modal="true" aria-label="{e(L('Contacto','Contact'))}" hidden>
+  <div class="modal-box">
+    <button class="modal-close" type="button" data-close-contact aria-label="{e(L('Fechar','Close'))}">&times;</button>
+    <p class="studio-contact-lead"><strong>{e(L('Vamos criar algo para as suas pessoas?','Shall we create something for your people?'))}</strong><br>
+    {e(L('Preencha o formulário ou escreva-nos para','Fill in the form or write to us at'))} <strong>{SITE["meta"]["email"]}</strong></p>
+    {contact_form_html()}
+  </div>
+</div>'''
+
 def build_oestudio():
     o = SITE["oestudio"]
     key = SITE["meta"].get("web3forms_key", "")
@@ -456,21 +491,7 @@ def build_oestudio():
   <div class="divider divider--dark"></div>
   <p class="studio-contact-lead"><strong>{e(L(o["pt"]["contact_title"], o["en"]["contact_title"]))}</strong><br>
   {e(L("Preencha o formulário abaixo ou escreva-nos diretamente para", "Fill in the form below or write to us directly at"))} <strong>{SITE["meta"]["email"]}</strong></p>
-  <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST"
-        data-key="{key}" data-ok="{e(lab["ok"])}" data-err="{e(lab["err"])}" data-email="{SITE["meta"]["email"]}">
-    <input type="hidden" name="access_key" value="{key}">
-    <input type="hidden" name="from_name" value="RIMA studio (rimastudio.pt)">
-    <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off">
-    <div class="cf-left">
-      <label>{lab["name"]} *<input type="text" name="name" required></label>
-      <label>{lab["surname"]} *<input type="text" name="surname" required></label>
-      <label>{lab["email"]} *<input type="email" name="email" required></label>
-      <label>{lab["subject"]} *<input type="text" name="subject" required></label>
-    </div>
-    <label class="cf-right">{lab["message"]}<textarea name="message"></textarea></label>
-    <button type="submit" class="cf-send">{lab["send"]}</button>
-    <p class="cf-status" role="status" aria-live="polite"></p>
-  </form>
+  {contact_form_html()}
 </section>
 
 <section class="map-band">
@@ -700,8 +721,8 @@ def build_people_series():
     <h1>Recognition, made personal.</h1>
     <p class="tps-sub">{e(L("Ilustrações de autor criadas para celebrar as pessoas por detrás de uma empresa.", "Author illustrations created to celebrate the people behind a company."))}</p>
     <div class="tps-ctas">
-      <a class="cta-link" href="{contact}">{e(L("Falar connosco", "Get in touch"))}</a>
-      <a class="tps-link" href="#como-funciona">{e(L("Ver como funciona", "See how it works"))}</a>
+      <button type="button" class="cta-link" data-open-contact>{e(L("Falar connosco", "Get in touch"))}</button>
+      <a class="cta-link cta-link--outline" href="#como-funciona">{e(L("Ver como funciona", "See how it works"))}</a>
     </div>
     {ph("Hero: retrato A5 emoldurado + caixa aberta (ou vídeo em loop 15–25 s)", "Hero: framed A5 portrait + open box (or 15–25 s loop video)", "16/9", "ph--wide")}
   </div>
@@ -841,7 +862,7 @@ def build_people_series():
   <div class="container">
     <h2>{e(L("Há pessoas que merecem mais do que um presente genérico.", "Some people deserve more than a generic corporate gift."))}</h2>
     <p>{e(L("Se a sua empresa procura uma forma mais pessoal de reconhecer quem faz parte da sua história, gostávamos de conhecer o projeto.", "If your company is looking for a more personal way to recognise the people behind its story, we would love to hear about the project."))}</p>
-    <a class="cta-link" href="{contact}">{e(L("Falar connosco", "Get in touch"))}</a>
+    <button type="button" class="cta-link" data-open-contact>{e(L("Falar connosco", "Get in touch"))}</button>
     <p class="tps-mail"><a href="mailto:{mail}">{mail}</a></p>
     <p class="tps-credit">{L("<strong>The People Series</strong> é um projeto do <strong>RIMA studio</strong>, desenvolvido por Marta + Ricardo.", "<strong>The People Series</strong> is a project by <strong>RIMA studio</strong>, developed by Marta + Ricardo.")}</p>
   </div>
@@ -851,6 +872,7 @@ def build_people_series():
               "The People Series | Author Portraits for Employee Recognition — RIMA studio")
     desc = L("Retratos ilustrados de autor para employee recognition, anos de casa, milestones e momentos especiais dentro de uma empresa. Um projeto do RIMA studio.",
              "Author illustrations created for employee recognition, work anniversaries, milestones and meaningful moments inside a company. A project by RIMA studio.")
+    content += contact_modal_html()
     write_page("the-people-series.html", title, content, desc=desc)
 
 # ---------------- SITEMAP / ROBOTS ----------------
