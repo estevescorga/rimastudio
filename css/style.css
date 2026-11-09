@@ -31,7 +31,7 @@
 html{scroll-behavior:smooth;}
 body{
   margin:0;
-  font-family:var(--font-body);
+  font-family:var(--font-serif);
   color:var(--c-text);
   background:var(--c-bg);
   font-size:16px;
@@ -151,11 +151,12 @@ section{padding:var(--space-6) var(--space-3);}
   margin-bottom:var(--space-2);
 }
 .section-title{
-  font-family:var(--font-body);font-weight:700;
+  font-family:var(--font-accent);font-weight:700;
   font-size:clamp(19px,2.2vw,25px);
   text-align:center;max-width:720px;margin:0 auto var(--space-2);
   letter-spacing:.3px;
 }
+.section-title--projects{font-size:clamp(16px,1.9vw,21px);}
 .section-sub{
   text-align:center;color:var(--c-text-soft);max-width:560px;margin:0 auto;
   font-size:14.5px;
@@ -164,10 +165,11 @@ section{padding:var(--space-6) var(--space-3);}
 .divider{width:1px;height:40px;background:var(--c-line);margin:var(--space-3) auto 0;}
 .cta-link{
   display:inline-block;margin-top:var(--space-3);
-  font-family:var(--font-body);font-weight:700;font-size:12.5px;letter-spacing:1.5px;
+  font-family:var(--font-accent);font-weight:700;font-size:12.5px;letter-spacing:1.5px;
   text-transform:uppercase;background:var(--c-dark);color:var(--c-white);
   padding:14px 30px;border-radius:2px;
 }
+.band-dark .cta-link{background:var(--c-white);color:var(--c-dark);}
 
 /* ---------- Portfolio grid ---------- */
 /* Mobile: simple 2-up square grid. Desktop: alternating narrow/wide pairs
@@ -219,10 +221,10 @@ section{padding:var(--space-6) var(--space-3);}
   display:flex;flex-direction:column;gap:var(--space-6);
   margin-top:var(--space-6);max-width:640px;margin-left:auto;margin-right:auto;
 }
-.service{text-align:center;padding:0 var(--space-2);}
+.service{text-align:left;padding:0 var(--space-2);}
 .service h3{
-  font-family:var(--font-body);font-weight:700;letter-spacing:1px;font-size:17px;
-  text-transform:uppercase;margin-bottom:var(--space-2);
+  font-family:var(--font-accent);font-weight:700;letter-spacing:1px;font-size:17px;
+  text-transform:uppercase;margin-bottom:var(--space-2);text-align:center;
 }
 .service p{font-size:14.5px;color:var(--c-text);}
 .service .tags{
@@ -238,10 +240,10 @@ section{padding:var(--space-6) var(--space-3);}
 /* ---------- Mission band (full-bleed photo + statement) ---------- */
 .mission{
   position:relative;background-size:cover;background-position:center;
-  min-height:340px;display:flex;align-items:center;justify-content:center;
-  padding:var(--space-6) var(--space-3);
+  min-height:280px;display:flex;align-items:center;justify-content:center;
+  padding:var(--space-5) var(--space-3);
 }
-.mission::before{content:"";position:absolute;inset:0;background:rgba(20,18,15,.4);}
+.mission::before{content:"";position:absolute;inset:0;background:rgba(20,18,15,.18);}
 .mission-inner{position:relative;max-width:680px;text-align:center;}
 .mission-inner p{
   font-family:var(--font-accent);font-weight:700;
@@ -254,8 +256,10 @@ section{padding:var(--space-6) var(--space-3);}
 }
 @media(min-width:860px){.split{grid-template-columns:1fr 1fr;gap:var(--space-5);}}
 .split img{width:100%;border-radius:2px;}
+.split-text{text-align:left;}
 .split-text p{font-family:var(--font-serif);font-size:15.5px;line-height:1.7;}
 .split-text p strong{font-weight:700;}
+.split-text .eyebrow{text-align:left;font-family:var(--font-accent);font-weight:700;}
 
 .band{background:var(--c-beige-light);}
 .band-dark{background:var(--c-dark);color:var(--c-white);}
