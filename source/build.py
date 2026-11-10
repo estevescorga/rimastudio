@@ -621,6 +621,28 @@ def ph(label_pt, label_en, ratio="4/3", cls=""):
 def ul(items_pt, items_en):
     return "<ul class=\"tps-list\">" + "".join(f"<li>{e(x)}</li>" for x in L(items_pt, items_en)) + "</ul>"
 
+TL_SVG = {
+    "preview": '<svg viewBox="0 0 100 125" fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="15" y="30" width="70" height="48" rx="2"/><path d="M50 78v14M36 92h28"/><circle cx="50" cy="47" r="7"/><path d="M36 74q14-20 28 0"/></svg>',
+    "print": '<svg viewBox="0 0 100 125" fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="28" y="25" width="44" height="62"/><circle cx="50" cy="47" r="6"/><path d="M38 76q12-18 24 0"/><path d="M20 20h6M20 20v6M80 20h-6M80 20v6M20 92h6M20 92v-6M80 92h-6M80 92v-6"/></svg>',
+    "frame": '<svg viewBox="0 0 100 125" fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="22" y="22" width="56" height="76"/><rect x="30" y="30" width="40" height="60"/><circle cx="50" cy="52" r="6"/><path d="M40 82q10-18 20 0"/><path d="M32 98l-6 8h48l-6-8"/></svg>',
+    "box": '<svg viewBox="0 0 100 125" fill="none" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="22" y="50" width="56" height="42"/><rect x="18" y="38" width="64" height="12"/><path d="M50 38v54"/><rect x="58" y="66" width="14" height="10"/></svg>',
+}
+
+def timeline_html():
+    steps = [
+        ("img", "tps-ref-homem", L("Referência", "Reference")),
+        ("img", "tps-forma-homem", L("Desenho", "Drawing")),
+        ("svg", "preview", "Preview"),
+        ("svg", "print", L("Impressão", "Print")),
+        ("svg", "frame", L("Moldura", "Frame")),
+        ("svg", "box", L("Caixa", "Box")),
+    ]
+    items = ""
+    for i, (kind, ref, label) in enumerate(steps, 1):
+        vis = img(ref, alt="", cls="tps-tl-img") if kind == "img" else TL_SVG[ref]
+        items += f'<li><div class="tps-tl-visual tps-tl-{kind}">{vis}</div><span class="tps-tl-label"><b>{i:02d}</b> {e(label)}</span></li>'
+    return f'<ol class="tps-timeline">{items}</ol>'
+
 def build_people_series():
     mail = "hello@rimastudio.pt"
     contact = url_for("oestudio.html") + "#contacto"
@@ -843,7 +865,7 @@ def build_people_series():
   <div class="container">
     <h2 class="tps-h-center">{e(L("Como funciona", "How it works"))}</h2>
     <ol class="tps-steps">{steps_html}</ol>
-    {ph("Timeline visual: referência → desenho → preview → impressão → moldura → caixa", "Visual timeline: reference → drawing → preview → print → frame → box", "21/9", "ph--wide")}
+    {timeline_html()}
   </div>
 </section>
 
