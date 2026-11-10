@@ -782,10 +782,6 @@ def build_people_series():
     <div class="tps-refs-photos">
       {"".join(f'<figure>{img(f"tps-ref-{w}", alt=L("Fotografia de referência", "Reference photograph") + " — " + lbl)}<figcaption>{e(L("Referência", "Reference"))} · {e(lbl)}</figcaption></figure>' for w, lbl in (("homem", L("Homem", "Man")), ("mulher", L("Mulher", "Woman")), ("grupo", L("Grupo", "Group"))))}
     </div>
-    <div class="tps-arrow" aria-hidden="true">&darr;</div>
-    <div class="tps-refs-ill">
-      {"".join(img(f"tps-forma-{w}", cls=f"tps-{w}", alt=L("Retrato ilustrado a partir da referência", "Illustrated portrait made from the reference")) for w in ("homem", "mulher", "grupo"))}
-    </div>
   </div>
 </section>
 
