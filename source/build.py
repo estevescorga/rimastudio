@@ -632,7 +632,7 @@ def timeline_html():
     steps = [
         ("img", "tps-ref-mulher", L("Referência", "Reference")),
         ("img", "tps-traco-mulher", L("Desenho", "Drawing")),
-        ("svg", "preview", "Preview"),
+        ("img", "tps-tl-preview", "Preview"),
         ("img", "tps-tl-impressao", L("Impressão", "Print")),
         ("img", "tps-tl-moldura", L("Moldura", "Frame")),
         ("img", "tps-tl-caixa", L("Caixa", "Box")),
