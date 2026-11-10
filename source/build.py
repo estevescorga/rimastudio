@@ -790,7 +790,7 @@ def build_people_series():
     <p>{e(L("The People Series nasce como uma forma mais pessoal e artística de reconhecer essas pessoas. Um serviço de retratos ilustrados de autor pensado para empresas que valorizam os seus colaboradores e procuram assinalar momentos importantes de uma forma menos convencional e mais significativa.", "The People Series was created as a more personal and artistic way to recognise those people. An author illustration service for companies that value their employees and want to mark meaningful moments in a less conventional, more thoughtful way."))}</p>
     <p>{e(L("Mais do que reproduzir uma fotografia, procuramos transformar cada pessoa numa peça única, pensada para ser oferecida, guardada e associada a um momento de reconhecimento.", "Rather than simply reproducing a photograph, we turn each person into a unique piece designed to be given, kept and associated with a moment of recognition."))}</p>
   </div>
-  <div class="container">{ph("Vários retratos lado a lado (ou detalhe de 2–3 retratos em moldura)", "Several portraits side by side (or detail of 2–3 framed portraits)", "21/9", "ph--wide")}</div>
+  <div class="container">{img("tps-intro", cls="tps-intro", alt=L("Retratos ilustrados emoldurados, lado a lado numa mesa", "Framed illustrated portraits side by side on a table"))}</div>
 </section>
 
 <section class="tps-section tps-tint">

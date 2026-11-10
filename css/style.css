@@ -486,3 +486,5 @@ button.cta-link{border:1px solid var(--c-dark);cursor:pointer;line-height:inheri
 .tps-gr-block h3{margin-top:0 !important;}
 @media(max-width:760px){.tps-gr-photos,.tps-gr-stats,.tps-gr-cols{grid-template-columns:1fr;}}
 .ph--logo{min-height:44px;}
+
+.tps-intro{width:100%;height:auto;display:block;}
