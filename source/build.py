@@ -630,12 +630,12 @@ TL_SVG = {
 
 def timeline_html():
     steps = [
-        ("img", "tps-ref-homem", L("Referência", "Reference")),
-        ("img", "tps-forma-homem", L("Desenho", "Drawing")),
+        ("img", "tps-ref-mulher", L("Referência", "Reference")),
+        ("img", "tps-traco-mulher", L("Desenho", "Drawing")),
         ("svg", "preview", "Preview"),
-        ("svg", "print", L("Impressão", "Print")),
-        ("svg", "frame", L("Moldura", "Frame")),
-        ("svg", "box", L("Caixa", "Box")),
+        ("img", "tps-tl-impressao", L("Impressão", "Print")),
+        ("img", "tps-tl-moldura", L("Moldura", "Frame")),
+        ("img", "tps-tl-caixa", L("Caixa", "Box")),
     ]
     items = ""
     for i, (kind, ref, label) in enumerate(steps, 1):
