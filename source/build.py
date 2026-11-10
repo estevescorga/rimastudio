@@ -715,6 +715,60 @@ def build_people_series():
     ])
     faq_html = "".join(f"<details><summary>{e(q)}</summary><p>{e(a)}</p></details>" for q, a in faq)
 
+    GRUNENTHAL_APPROVED = False  # set True only after Grünenthal's written validation (hides the draft banner)
+    gr_blocks = L([
+        ("Seis anos a celebrar pessoas através da ilustração", [
+            "Durante seis anos consecutivos, o RIMA studio colaborou com a Grünenthal num projeto de reconhecimento de colaboradores integrado nas celebrações do aniversário da empresa.",
+            "Todos os anos, a empresa distinguia colaboradores que atingiam marcos importantes de antiguidade, como 5, 10, 15 ou mais anos de casa, através de uma oferta personalizada entregue durante o evento anual.",
+            "Ao longo destes seis anos, desenvolvemos aproximadamente 50 retratos ilustrados, criados individualmente para cada pessoa homenageada."]),
+        ("Um presente pensado para cada pessoa", [
+            "O departamento de Recursos Humanos selecionava os colaboradores a reconhecer e partilhava connosco as respetivas referências.",
+            "A partir dessas imagens, cada retrato era desenvolvido individualmente pela equipa RIMA, procurando preservar os traços, a expressão e a identidade de cada pessoa.",
+            "Depois de aprovado, o retrato era impresso, emoldurado e preparado numa caixa identificada, acompanhado por uma mensagem da própria empresa dirigida ao colaborador."]),
+        ("Uma iniciativa que se tornou recorrente", [
+            "O que começou como uma encomenda pontual tornou-se um projeto renovado ao longo de seis anos consecutivos.",
+            "Essa continuidade permitiu acompanhar diferentes grupos de colaboradores ao longo do tempo e mostrou-nos o valor que uma peça verdadeiramente pessoal pode ter dentro de uma iniciativa de reconhecimento.",
+            "Foi também esta experiência que ajudou a consolidar aquilo que hoje apresentamos como The People Series."]),
+    ], [
+        ("Six years celebrating people through illustration", [
+            "For six consecutive years, RIMA studio collaborated with Grünenthal on an employee recognition project integrated into the company's anniversary celebrations.",
+            "Each year, the company recognised employees reaching important service milestones, such as 5, 10, 15 or more years with the company, through a personalised gift presented during the annual event.",
+            "Across these six years, we created approximately 50 illustrated portraits, individually developed for each person being recognised."]),
+        ("A gift made for each person", [
+            "The Human Resources department selected the employees to be recognised and shared the relevant references with us.",
+            "Using those images, each portrait was developed individually by the RIMA team, with particular attention to the person's features, expression and identity.",
+            "After approval, the portrait was printed, framed and prepared in an identified box, together with a message from the company addressed to the employee."]),
+        ("A project that became recurring", [
+            "What started as an individual commission became a project renewed over six consecutive years.",
+            "That continuity allowed us to follow different groups of employees over time and showed us the value that a truly personal piece can bring to an employee recognition initiative.",
+            "It was also this experience that helped consolidate what we now present as The People Series."]),
+    ])
+    gr_stats = L([("6 anos", "de colaboração continuada"), ("≈ 50 retratos", "criados individualmente"), ("5, 10, 15+ anos", "de percurso reconhecido")],
+                 [("6 years", "of continued collaboration"), ("≈ 50 portraits", "individually created"), ("5, 10, 15+ years", "of service recognised")])
+    gr_title = L("Seis anos a celebrar pessoas através da ilustração", "Six years celebrating people through illustration")
+    gr_text = "".join(f'<div class="tps-gr-block"><h3>{e(h)}</h3>' + "".join(f"<p>{e(x)}</p>" for x in ps) + "</div>" for (h, ps) in gr_blocks[1:])
+    gr_first = "".join(f"<p>{e(x)}</p>" for x in gr_blocks[0][1])
+    gr_stats_html = "".join(f'<div><strong>{e(a)}</strong><span>{e(b)}</span></div>' for a, b in gr_stats)
+    gr_banner = "" if GRUNENTHAL_APPROVED else f'''<p class="tps-draft">{e(L("[Rascunho para validação da Grünenthal. Esta é a extensão total da referência à Grünenthal que pretendemos publicar no site do RIMA studio. Não está prevista publicidade paga nem conteúdo promocional isolado com o nome da Grünenthal ou dos seus colaboradores. O material visual será escolhido para mostrar o projeto como um todo e não colaboradores individuais. O logótipo só entra se for autorizado.]", "[Draft for Grünenthal validation. This is the full extent of the Grünenthal reference we intend to publish on the RIMA studio website. No paid advertising or standalone promotional content featuring the Grünenthal name or employees is planned. Any visual material used will be selected to show the project as a whole rather than individual employees. The logo is included only if authorised.]"))}</p>'''
+    case_html = f'''
+<section class="tps-section tps-case" id="case-study">
+  <div class="container">
+    {gr_banner}
+    <p class="eyebrow tps-h-center">Case study</p>
+    <div class="tps-gr-head">{ph("Logótipo Grünenthal (só se autorizado)", "Grünenthal logo (only if authorised)", "5/1", "ph--logo")}<h2>Grünenthal</h2></div>
+    <h2 class="tps-h-center tps-gr-title">{e(gr_title)}</h2>
+    <div class="tps-narrow tps-gr-first">{gr_first}</div>
+    <div class="tps-gr-photos">
+      {ph("Fotografia geral de 3–5 retratos já emoldurados (sem destacar uma pessoa)", "General photo of 3–5 already framed portraits (no single person highlighted)", "4/3")}
+      {ph("Caixas / preparação, sem nomes visíveis", "Boxes / preparation, no visible names", "4/3")}
+      {ph("Detalhe de várias ilustrações juntas", "Detail of several illustrations together", "4/3")}
+    </div>
+    <div class="tps-gr-stats">{gr_stats_html}</div>
+    <div class="tps-gr-cols">{gr_text}</div>
+  </div>
+</section>
+'''
+
     content = f'''
 <section class="tps-hero">
   <div class="container">
@@ -827,12 +881,13 @@ def build_people_series():
   </div>
 </section>
 
+{case_html}
+
 <section class="tps-section tps-tint">
   <div class="container tps-narrow">
     <h2>{e(L("Um serviço testado em contexto real", "A service tested in real corporate contexts"))}</h2>
     <p>{e(L("The People Series nasce de experiência real em projetos de reconhecimento corporate. Não é um template, um filtro ou um processo automático. Cada retrato é desenvolvido individualmente pela equipa RIMA studio.", "The People Series is built on real experience in corporate recognition projects. It is not a template, a filter or an automated process. Each portrait is developed individually by the RIMA studio team."))}</p>
     <p>{e(L("A experiência acumulada permite-nos trabalhar tanto com projetos pontuais como com programas recorrentes ao longo dos anos.", "Our experience allows us to work both on one-off projects and on recurring recognition programmes over the years."))}</p>
-    <p class="tps-draft">{e(L("[Rascunho: o case study de cinco anos com cliente corporate só entra depois de validação escrita do cliente.]", "[Draft: the five-year corporate case study goes in only after the client's written approval.]"))}</p>
   </div>
 </section>
 

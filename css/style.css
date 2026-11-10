@@ -470,3 +470,19 @@ button.cta-link{border:1px solid var(--c-dark);cursor:pointer;line-height:inheri
 @media(max-width:640px){.tps-refs-photos{grid-template-columns:1fr;}.tps-refs-ill{grid-template-columns:1fr 1fr;}.tps-refs-ill .tps-grupo{grid-column:1/-1;}}
 
 .tps-team{width:100%;height:auto;display:block;}
+
+/* Grünenthal case study (draft, pending client validation) */
+.tps-case{border-top:1px solid var(--c-line);}
+.tps-gr-head{text-align:center;margin:0 0 var(--space-1);}
+.tps-gr-head .ph{max-width:220px;margin:0 auto var(--space-1);}
+.tps-gr-head h2{margin:0;}
+.tps-gr-title{margin-bottom:var(--space-3) !important;}
+.tps-gr-first{text-align:center;}
+.tps-gr-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-2);margin:var(--space-4) 0;}
+.tps-gr-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-3);text-align:center;border-top:1px solid var(--c-line);border-bottom:1px solid var(--c-line);padding:var(--space-4) 0;margin-bottom:var(--space-4);}
+.tps-gr-stats strong{display:block;font-family:var(--font-accent);font-weight:700;font-size:clamp(20px,2.6vw,28px);margin-bottom:4px;}
+.tps-gr-stats span{font-family:var(--font-serif);font-size:15px;color:var(--c-text-soft);}
+.tps-gr-cols{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4);max-width:900px;margin:0 auto;}
+.tps-gr-block h3{margin-top:0 !important;}
+@media(max-width:760px){.tps-gr-photos,.tps-gr-stats,.tps-gr-cols{grid-template-columns:1fr;}}
+.ph--logo{min-height:44px;}
