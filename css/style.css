@@ -468,3 +468,5 @@ button.cta-link{border:1px solid var(--c-dark);cursor:pointer;line-height:inheri
 .tps-refs-ill{display:grid;grid-template-columns:1fr 1fr 2fr;gap:var(--space-2);align-items:end;}
 .tps-refs-ill img{width:100%;height:auto;display:block;mix-blend-mode:multiply;}
 @media(max-width:640px){.tps-refs-photos{grid-template-columns:1fr;}.tps-refs-ill{grid-template-columns:1fr 1fr;}.tps-refs-ill .tps-grupo{grid-column:1/-1;}}
+
+.tps-team{width:100%;height:auto;display:block;}

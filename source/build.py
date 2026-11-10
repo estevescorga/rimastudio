@@ -751,7 +751,7 @@ def build_people_series():
 
 <section class="tps-section">
   <div class="container tps-split">
-    <div>{ph("Marta + Ricardo no estúdio (Ricardo a desenhar, Marta a rever)", "Marta + Ricardo in the studio (Ricardo drawing, Marta reviewing)", "4/5")}</div>
+    <div>{img("tps-equipa", cls="tps-team", alt=L("Marta e Ricardo no RIMA studio, a rever ilustrações impressas", "Marta and Ricardo at RIMA studio, reviewing printed illustrations"))}</div>
     <div class="tps-narrow">
       <h2>{e(L("Criado pela equipa RIMA studio", "Created by RIMA studio"))}</h2>
       <p>{e(L("Cada retrato é desenvolvido pela equipa do RIMA studio, Marta e Ricardo, a partir de fotografias e outras referências da pessoa retratada.", "Each portrait is developed by the RIMA studio team, Marta and Ricardo, using photographs and other visual references of the person being portrayed."))}</p>
