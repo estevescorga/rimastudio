@@ -55,12 +55,12 @@ ul{list-style:none;margin:0;padding:0;}
   display:flex;align-items:center;justify-content:space-between;
   padding:0 var(--space-3);
 }
-.site-header.scrolled{box-shadow:0 2px 14px rgba(20,18,15,.08);}
+.site-header.scrolled{box-shadow:none;border-bottom:1px solid var(--c-text);}
 /* Home page only: header starts transparent over the hero image, and the
    logo/menu/lang turn white to read on the photo, until scroll adds the
    .scrolled class (toggled in main.js) which makes it opaque again. */
 .page-home .site-header{background:transparent;box-shadow:none;}
-.page-home .site-header.scrolled{background:var(--c-bg);box-shadow:0 2px 14px rgba(20,18,15,.08);}
+.page-home .site-header.scrolled{background:var(--c-bg);box-shadow:none;border-bottom:1px solid var(--c-text);}
 .page-home .site-header .menu-btn span{background:var(--c-white);}
 .page-home .site-header.scrolled .menu-btn span{background:var(--c-text);}
 .page-home .site-header .logo-img{filter:brightness(0) invert(1);}
@@ -105,7 +105,7 @@ body:not(.page-home) main{padding-top:var(--header-h);}
 .offcanvas-nav > li{margin-bottom:var(--space-3);}
 .offcanvas-nav > li > a{
   font-family:var(--font-accent);font-weight:700;font-size:19px;letter-spacing:0;
-  text-transform:none;color:#000;
+  text-transform:none;color:var(--c-text);
 }
 .offcanvas-sub{margin-top:var(--space-1);padding-left:var(--space-2);}
 .offcanvas-sub li{margin-bottom:6px;}
@@ -162,7 +162,7 @@ section{padding:var(--space-6) var(--space-3);}
   font-size:14.5px;
 }
 .center{text-align:center;}
-.divider{width:1px;height:40px;background:var(--c-line);margin:var(--space-3) auto 0;}
+.divider{width:1px;height:40px;background:var(--c-text);margin:var(--space-3) auto 0;}
 .cta-link{
   display:inline-block;margin-top:var(--space-3);
   font-family:var(--font-accent);font-weight:700;font-size:12.5px;letter-spacing:1.5px;
@@ -350,7 +350,7 @@ button.cta-link{border:1px solid var(--c-dark);cursor:pointer;line-height:inheri
 .offcanvas-social a{
   color:var(--c-text);width:32px;height:32px;display:flex;align-items:center;justify-content:center;
 }
-.offcanvas-social a:hover{color:#000;}
+.offcanvas-social a:hover{color:var(--c-text);}
 
 /* ---------- O Estúdio (matches the original Wix page) ---------- */
 .studio-hero{height:clamp(260px,48.6vw,700px);background-size:cover;background-position:center;}
@@ -381,7 +381,7 @@ button.cta-link{border:1px solid var(--c-dark);cursor:pointer;line-height:inheri
 .contact-form .cf-right{display:flex;flex-direction:column;}
 .contact-form textarea{flex:1;min-height:180px;resize:vertical;}
 .contact-form input:focus,.contact-form textarea:focus{outline:2px solid var(--c-dark);outline-offset:1px;}
-.cf-send{grid-column:1/-1;background:#000;color:#fff;border:0;border-radius:0;padding:12px;font-family:var(--font-body);font-size:11.5px;letter-spacing:1.5px;cursor:pointer;}
+.cf-send{grid-column:1/-1;background:var(--c-text);color:#fff;border:0;border-radius:0;padding:12px;font-family:var(--font-body);font-size:11.5px;letter-spacing:1.5px;cursor:pointer;}
 .cf-send:hover{background:var(--c-dark);}
 .cf-send[disabled]{opacity:.6;cursor:default;}
 .cf-status{grid-column:1/-1;text-align:center;font-size:13.5px;margin:4px 0 0;min-height:1.4em;}
