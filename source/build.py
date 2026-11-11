@@ -847,6 +847,14 @@ def build_people_series():
 </section>
 {styles_html}
 
+<section class="tps-cta-mid">
+  <div class="container">
+    <p>{e(L("Quer ver como ficaria na sua empresa?", "Want to see how it would work for your company?"))}</p>
+    <button type="button" class="cta-link" data-open-contact>{e(L("Falar connosco", "Talk to us"))}</button>
+  </div>
+</section>
+
+
 <section class="tps-section tps-tint">
   <div class="container tps-narrow">
     <h2>{e(L("Trabalhamos a partir de referências", "We work from references"))}</h2>
@@ -904,6 +912,13 @@ def build_people_series():
 </section>
 
 {case_html}
+
+<section class="tps-cta-mid">
+  <div class="container">
+    <p>{e(L("Quer ver como ficaria na sua empresa?", "Want to see how it would work for your company?"))}</p>
+    <button type="button" class="cta-link" data-open-contact>{e(L("Falar connosco", "Talk to us"))}</button>
+  </div>
+</section>
 
 <section class="tps-section tps-tint">
   <div class="container tps-narrow">

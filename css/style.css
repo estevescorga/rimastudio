@@ -505,3 +505,7 @@ button.cta-link{border:1px solid var(--c-dark);cursor:pointer;line-height:inheri
 @media(max-width:760px){.tps-timeline{grid-template-columns:repeat(3,1fr);gap:var(--space-3) var(--space-2);}.tps-timeline li::after{display:none !important;}}
 
 .tps-gr-logo{width:min(220px,60%);height:auto;display:block;margin:0 auto var(--space-3);}
+
+/* CTA a meio da página (The People Series) */
+.tps-cta-mid{padding:var(--space-6) 0;text-align:center;}
+.tps-cta-mid p{font-family:var(--font-serif);font-size:18px;line-height:1.6;color:var(--c-text);margin:0 0 var(--space-3);}
