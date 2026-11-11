@@ -771,13 +771,13 @@ def build_people_series():
     gr_text = "".join(f'<div class="tps-gr-block"><h3>{e(h)}</h3>' + "".join(f"<p>{e(x)}</p>" for x in ps) + "</div>" for (h, ps) in gr_blocks[1:])
     gr_first = "".join(f"<p>{e(x)}</p>" for x in gr_blocks[0][1])
     gr_stats_html = "".join(f'<div><strong>{e(a)}</strong><span>{e(b)}</span></div>' for a, b in gr_stats)
-    gr_banner = "" if GRUNENTHAL_APPROVED else f'''<p class="tps-draft">{e(L("[Rascunho para validação da Grünenthal. Esta é a extensão total da referência à Grünenthal que pretendemos publicar no site do RIMA studio. Não está prevista publicidade paga nem conteúdo promocional isolado com o nome da Grünenthal ou dos seus colaboradores. O material visual será escolhido para mostrar o projeto como um todo e não colaboradores individuais. O logótipo só entra se for autorizado.]", "[Draft for Grünenthal validation. This is the full extent of the Grünenthal reference we intend to publish on the RIMA studio website. No paid advertising or standalone promotional content featuring the Grünenthal name or employees is planned. Any visual material used will be selected to show the project as a whole rather than individual employees. The logo is included only if authorised.]"))}</p>'''
+    gr_banner = "" if GRUNENTHAL_APPROVED else f'''<p class="tps-draft">{e(L("[Rascunho para validação da Grünenthal. Esta é a extensão total da referência à Grünenthal que pretendemos publicar no site do RIMA studio. Não está prevista publicidade paga nem conteúdo promocional isolado com o nome da Grünenthal ou dos seus colaboradores. O material visual será escolhido para mostrar o projeto como um todo e não colaboradores individuais. O logótipo só se mantém se for autorizado.]", "[Draft for Grünenthal validation. This is the full extent of the Grünenthal reference we intend to publish on the RIMA studio website. No paid advertising or standalone promotional content featuring the Grünenthal name or employees is planned. Any visual material used will be selected to show the project as a whole rather than individual employees. The logo stays only if authorised.]"))}</p>'''
     case_html = f'''
 <section class="tps-section tps-case" id="case-study">
   <div class="container">
     {gr_banner}
     <p class="eyebrow tps-h-center">Case study</p>
-    <div class="tps-gr-head">{ph("Logótipo Grünenthal (só se autorizado)", "Grünenthal logo (only if authorised)", "5/1", "ph--logo")}<h2>Grünenthal</h2></div>
+    <div class="tps-gr-head">{img("tps-grunenthal-logo", cls="tps-gr-logo", alt="Grünenthal")}</div>
     <h2 class="tps-h-center tps-gr-title">{e(gr_title)}</h2>
     <div class="tps-narrow tps-gr-first">{gr_first}</div>
     <div class="tps-gr-photos">

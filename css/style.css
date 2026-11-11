@@ -503,3 +503,5 @@ button.cta-link{border:1px solid var(--c-dark);cursor:pointer;line-height:inheri
 .tps-tl-label{display:block;margin-top:10px;font-family:var(--font-accent);font-size:13px;letter-spacing:.6px;text-transform:uppercase;}
 .tps-tl-label b{color:var(--c-beige);margin-right:4px;}
 @media(max-width:760px){.tps-timeline{grid-template-columns:repeat(3,1fr);gap:var(--space-3) var(--space-2);}.tps-timeline li::after{display:none !important;}}
+
+.tps-gr-logo{width:min(220px,60%);height:auto;display:block;margin:0 auto var(--space-3);}
