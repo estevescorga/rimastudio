@@ -780,11 +780,6 @@ def build_people_series():
     <div class="tps-gr-head">{img("tps-grunenthal-logo", cls="tps-gr-logo", alt="Grünenthal")}</div>
     <h2 class="tps-h-center tps-gr-title">{e(gr_title)}</h2>
     <div class="tps-narrow tps-gr-first">{gr_first}</div>
-    <div class="tps-gr-photos">
-      {ph("Fotografia geral de 3–5 retratos já emoldurados (sem destacar uma pessoa)", "General photo of 3–5 already framed portraits (no single person highlighted)", "4/3")}
-      {ph("Caixas / preparação, sem nomes visíveis", "Boxes / preparation, no visible names", "4/3")}
-      {ph("Detalhe de várias ilustrações juntas", "Detail of several illustrations together", "4/3")}
-    </div>
     <div class="tps-gr-stats">{gr_stats_html}</div>
     <div class="tps-gr-cols">{gr_text}</div>
   </div>
@@ -891,17 +886,13 @@ def build_people_series():
     </div>
     <div class="tps-duo">
       {ph("Envelope / versão sem moldura", "Envelope / unframed version", "4/5")}
-      {ph("Caixa aberta / versão com moldura", "Open box / framed version", "4/5")}
+      {img("tps-tl-moldura", alt=L("Retrato ilustrado emoldurado", "Framed illustrated portrait"))}
     </div>
   </div>
 </section>
 
 <section class="tps-section">
-  <div class="container tps-split">
-    <div class="tps-duo">
-      {ph("Exemplo: standard RIMA", "Example: standard RIMA", "1/1")}
-      {ph("Exemplo: com logo / cartão personalizado", "Example: with logo / custom card", "1/1")}
-    </div>
+  <div class="container tps-narrow">
     <div class="tps-narrow">
       <h2>{e(L("Adaptado a cada empresa", "Adapted to each company"))}</h2>
       <p>{e(L("A identidade standard do The People Series é assinada pela RIMA studio. Quando faz sentido, podemos adaptar alguns elementos à identidade da empresa:", "The standard The People Series identity is signed by RIMA studio. When relevant, selected elements can be adapted to the company's identity:"))}</p>
