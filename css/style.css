@@ -119,7 +119,7 @@ body:not(.page-home) main{padding-top:var(--header-h);}
 
 /* ---------- Hero ---------- */
 .hero{
-  position:relative;min-height:70vh;display:flex;align-items:center;justify-content:center;
+  position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;
   text-align:center;background-size:cover;background-position:center;
   padding:var(--space-5) var(--space-3);
 }
