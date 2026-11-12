@@ -509,3 +509,4 @@ button.cta-link{border:1px solid var(--c-dark);cursor:pointer;line-height:inheri
 /* CTA a meio da página (The People Series) */
 .tps-cta-mid{padding:var(--space-6) 0;text-align:center;}
 .tps-cta-mid p{font-family:var(--font-serif);font-size:18px;line-height:1.6;color:var(--c-text);margin:0 0 var(--space-3);}
+.tps-refs-note{text-align:center;margin-top:var(--space-3);}

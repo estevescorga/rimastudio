@@ -861,6 +861,7 @@ def build_people_series():
     <div class="tps-refs-photos">
       {"".join(f'<figure>{img(f"tps-ref-{w}", alt=L("Fotografia de referência", "Reference photograph") + " — " + lbl)}<figcaption>{e(L("Referência", "Reference"))} · {e(lbl)}</figcaption></figure>' for w, lbl in (("homem", L("Homem", "Man")), ("mulher", L("Mulher", "Woman")), ("grupo", L("Grupo", "Group"))))}
     </div>
+    <p class="tps-note tps-refs-note">{e(L("Fotografias de referência meramente ilustrativas, geradas por IA. Não correspondem a pessoas reais. Todos os retratos The People Series são desenhados pela equipa RIMA studio.", "Reference photographs shown are illustrative only and were generated with AI. They do not depict real people. All The People Series portraits are drawn by the RIMA studio team."))}</p>
   </div>
 </section>
 
