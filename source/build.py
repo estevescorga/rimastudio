@@ -885,7 +885,7 @@ def build_people_series():
       <p class="tps-note">{e(L("A disponibilidade de molduras está sempre sujeita ao stock do fornecedor.", "Frame availability is always subject to supplier stock."))}</p>
     </div>
     <div class="tps-duo">
-      {ph("Envelope / versão sem moldura", "Envelope / unframed version", "4/5")}
+      {img("tps-tl-envelope", alt=L("Retrato ilustrado em envelope, versão sem moldura", "Illustrated portrait in an envelope, unframed version"))}
       {img("tps-tl-moldura", alt=L("Retrato ilustrado emoldurado", "Framed illustrated portrait"))}
     </div>
   </div>
