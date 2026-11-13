@@ -575,15 +575,20 @@ VIDEOS = {
         "e46b83_c0827596dff64df6b2a2bf29d78f4347", "e46b83_68b2014ca37945b4a469048977707af9",
         "e46b83_2edfc12a58ac4d8aba1c084cab6889b6", "e46b83_fa35e3bf7efd485ba83d10d26f56df1d",
         "e46b83_cc364211fa874099a573f8c0ea3c50cf"],
-        names=["SKI", "NERD", "NATALICIO", "INFLUENCER", "DORMINHOCO"]),
+        names=["SKI", "NERD", "NATALICIO", "INFLUENCER", "DORMINHOCO"],
+        files=["ski", "nerd", "natalicio", "influencer", "dorminhoco"]),
     "talismas": dict(q="480p", ids=[
         "e46b83_ecd5ac0185b5478ab0757ccd9313268e", "e46b83_bd1963559c29445c97aeba6612b14326"],
-        names=["Talismãs 1", "Talismãs 2"]),
+        names=["Talismãs 1", "Talismãs 2"], files=["talismas-1", "talismas-2"]),
 }
 
 def _video_tag(slug, n, poster, ratio_cls=""):
     v = VIDEOS[slug]
-    src = f"https://video.wixstatic.com/video/{v['ids'][n]}/{v['q']}/mp4/file.mp4"
+    local = v["files"][n]
+    if os.path.exists(os.path.join(ROOT, "videos", local + ".mp4")):
+        src = f"/videos/{local}.mp4"  # self-hosted copy
+    else:
+        src = f"https://video.wixstatic.com/video/{v['ids'][n]}/{v['q']}/mp4/file.mp4"  # fallback until the file is added
     label = L("Reproduzir vídeo", "Play video")
     return (f'<div class="pj-video {ratio_cls}"><video preload="none" playsinline controlslist="nodownload" '
             f'poster="/images/{webp_name(poster)}" src="{src}" title="{html.escape(v["names"][n])}"></video>'
@@ -1102,6 +1107,12 @@ def main():
     os.makedirs(img_dist, exist_ok=True)
     for fn in os.listdir(IMG_SRC):
         shutil.copyfile(os.path.join(IMG_SRC, fn), os.path.join(img_dist, fn))
+    vid_src = os.path.join(ROOT, "videos")
+    if os.path.isdir(vid_src):
+        vid_dist = os.path.join(DIST, "videos")
+        os.makedirs(vid_dist, exist_ok=True)
+        for fn in os.listdir(vid_src):
+            shutil.copyfile(os.path.join(vid_src, fn), os.path.join(vid_dist, fn))
 
     for LANG in ("pt", "en"):
         build_all_pages()
