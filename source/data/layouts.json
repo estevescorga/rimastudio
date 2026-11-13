@@ -1,0 +1,1172 @@
+{
+ "casa-del-yoga": [
+  {
+   "t": "cover",
+   "img": "e46b83_62e75395de804025b8e410154334a89a~mv2.png",
+   "ratio": [
+    980,
+    502
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_e75fce406e46415d9ba572ec0c6684cc~mv2_d_2200_1645_s_2.png",
+   "ratio": [
+    980,
+    733
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_fc1181cd583047ef95c02ae5d5724110~mv2_d_4000_3000_s_4_2.jpg",
+   "ratio": [
+    980,
+    980
+   ],
+   "gap": 64
+  },
+  {
+   "t": "mosaic",
+   "rev": false,
+   "big": "e46b83_564ea3c51324470c8bbb06449603fe0c~mv2_d_3200_2389_s_2.jpg",
+   "s1": "e46b83_a9041253cad547d7a1e4a48e1f6c7c69~mv2_d_3000_1999_s_2.jpg",
+   "s2": "e46b83_883fb43d48024220af9050a657a33d30~mv2_d_3118_3685_s_4_2.jpg",
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_1c8bee0fd49f434899e993919cd4c70a~mv2_d_2380_2000_s_2.jpg",
+   "ratio": [
+    980,
+    980
+   ],
+   "gap": 15
+  }
+ ],
+ "vicente": [
+  {
+   "t": "cover",
+   "img": "e46b83_c71f994abc4a4c2096bc637b4d3c7078~mv2.png",
+   "ratio": [
+    980,
+    502
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_537b3b4074e1481ab7b0505bd18401a3~mv2.png",
+   "ratio": [
+    980,
+    732
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_d783e83ecb334ff9a2c069d8055c524f~mv2.jpg",
+   "ratio": [
+    980,
+    980
+   ],
+   "gap": 68
+  },
+  {
+   "t": "mosaic",
+   "rev": false,
+   "big": "e46b83_4c5d5ebab50c4225b1657c6fb86b56c0~mv2.jpg",
+   "s1": "e46b83_3dea96b599c34d4e9dae5c13ce10d2b4~mv2.jpg",
+   "s2": "e46b83_2e56e7670cb54e79ab480ed346fd842f~mv2.jpg",
+   "gap": 15
+  }
+ ],
+ "noveme": [
+  {
+   "t": "cover",
+   "img": "e46b83_797fc360a67343e994f828ff1b07b784~mv2.png",
+   "ratio": [
+    980,
+    502
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_27b4ed22cba846a4b4a270710c2109e0~mv2.png",
+   "ratio": [
+    980,
+    732
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_57b353c8dee34f5cade6c73f83ceac9e~mv2.jpg",
+   "ratio": [
+    980,
+    980
+   ],
+   "gap": 68
+  },
+  {
+   "t": "mosaic",
+   "rev": false,
+   "big": "e46b83_e590120cfcab4185b2904172813885f1~mv2.jpg",
+   "s1": "e46b83_4fc5feec1171442ebf2ed9ea5a4e1e8f~mv2.jpg",
+   "s2": "e46b83_9b0fa96968124681892072458905fbea~mv2.jpg",
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_d6ba6cf58cc649379d4c512dd3b94880~mv2.jpg",
+   "ratio": [
+    980,
+    980
+   ],
+   "gap": 15
+  },
+  {
+   "t": "small",
+   "img": "e46b83_419ba3baa7b046e589496415b0b00206~mv2.jpg",
+   "gap": 15
+  }
+ ],
+ "the-bear-collection": [
+  {
+   "t": "cover",
+   "img": "e46b83_0c8a1df2e024489590df54e57a140018~mv2.png",
+   "ratio": [
+    980,
+    509
+   ]
+  },
+  {
+   "t": "strip",
+   "img": "e46b83_13b3fc71c2ca4c4eb9efdbb8792cfe79~mv2.png",
+   "ratio": [
+    976,
+    164
+   ]
+  },
+  {
+   "t": "carousel",
+   "imgs": [
+    "e46b83_c0827596dff64df6b2a2bf29d78f4347f002.jpg",
+    "e46b83_68b2014ca37945b4a469048977707af9f002.jpg",
+    "e46b83_2edfc12a58ac4d8aba1c084cab6889b6f002.jpg",
+    "e46b83_fa35e3bf7efd485ba83d10d26f56df1df002.jpg",
+    "e46b83_cc364211fa874099a573f8c0ea3c50cff002.jpg"
+   ],
+   "ratio": [
+    672,
+    378
+   ],
+   "gap": 54
+  }
+ ],
+ "dahu-shoes-off": [
+  {
+   "t": "cover",
+   "img": "e46b83_c0e3b4e8215642de8bcb367a99af0c65~mv2.png",
+   "ratio": [
+    980,
+    502
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_0a74d47cbb0f4ede8afe5e87c1807159~mv2_d_2200_1645_s_2.png",
+   "ratio": [
+    980,
+    732
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_486a57c7d67444c78211dbf825539538~mv2_d_5000_3400_s_4_2.jpg",
+   "ratio": [
+    980,
+    980
+   ],
+   "gap": 69
+  },
+  {
+   "t": "mosaic",
+   "rev": false,
+   "big": "e46b83_a0538ca3d8f5404fa01fcf50bfbe9f51~mv2_d_5000_3400_s_4_2.jpg",
+   "s1": "e46b83_d1feae3878aa4b2bb5a2fd91c8d3425b~mv2_d_5000_3400_s_4_2.jpg",
+   "s2": null,
+   "gap": 15
+  }
+ ],
+ "kc-the-brand": [
+  {
+   "t": "cover",
+   "img": "e46b83_d9ed475cc72e45618374ae16980ca2fb~mv2.png",
+   "ratio": [
+    980,
+    502
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_e5d8238261ad457d820da5ac8118db3b~mv2.png",
+   "ratio": [
+    980,
+    732
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_e30d3e688523405782b1e37921dde17d~mv2.jpg",
+   "ratio": [
+    980,
+    980
+   ],
+   "gap": 68
+  },
+  {
+   "t": "mosaic",
+   "rev": false,
+   "big": "e46b83_a161a7dfa60d499498da8c53423b7c13~mv2.jpg",
+   "s1": null,
+   "s2": null,
+   "gap": 15
+  }
+ ],
+ "ctt-retrospectiva-2022": [
+  {
+   "t": "cover",
+   "img": "e46b83_1de8d60774474f31b7bf802b8ec71086~mv2.png",
+   "ratio": [
+    980,
+    509
+   ]
+  },
+  {
+   "t": "strip",
+   "img": "e46b83_f461e5e3d8f74d369acde33fe2425641~mv2.png",
+   "ratio": [
+    976,
+    130
+   ]
+  },
+  {
+   "t": "yt",
+   "ratio": [
+    980,
+    547
+   ],
+   "gap": 109
+  }
+ ],
+ "troglodicas": [
+  {
+   "t": "cover",
+   "img": "e46b83_9dfd6175b8cc43309f99cdfc4fa554e6~mv2.png",
+   "ratio": [
+    980,
+    509
+   ]
+  },
+  {
+   "t": "strip",
+   "img": "e46b83_c95efd35498841d18e6f9e5d26fae83d~mv2.png",
+   "ratio": [
+    984,
+    164
+   ]
+  },
+  {
+   "t": "yt",
+   "ratio": [
+    980,
+    567
+   ],
+   "gap": 67
+  },
+  {
+   "t": "img",
+   "img": "e46b83_33cc422c5c4a4bd1ab0001ad9ac8d6b8~mv2_d_3811_2160_s_2.jpg",
+   "ratio": [
+    980,
+    980
+   ],
+   "gap": 68
+  },
+  {
+   "t": "mosaic",
+   "rev": false,
+   "big": "e46b83_8165ef7a27224001946bca2fb439ac9c~mv2_d_3811_2160_s_2.jpg",
+   "s1": "e46b83_2d39d74a7e7443a08f8462ab1552bd45~mv2_d_3811_2160_s_2.jpg",
+   "s2": "e46b83_b7ca06c91400491d8c7bedadfe89b326~mv2_d_3811_2160_s_2.jpg",
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_556f030267914dbbbf316c0f228c047b~mv2_d_3811_2160_s_2.jpg",
+   "ratio": [
+    980,
+    980
+   ],
+   "gap": 15
+  }
+ ],
+ "olqnsoqqs": [
+  {
+   "t": "cover",
+   "img": "e46b83_517723e6dfa346a6aabca8d946a02428~mv2.png",
+   "ratio": [
+    980,
+    502
+   ]
+  },
+  {
+   "t": "strip",
+   "img": "e46b83_7f64a8b60ac34bb1a4010a9f00e4d5a6~mv2.png",
+   "ratio": [
+    984,
+    164
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_acbb83be1ef34a8d9dc3683617e1885e~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 75
+  },
+  {
+   "t": "img",
+   "img": "e46b83_927bd756def94048ab6a767af29da5f9~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_a13e844e930f458a8644ffba314a04b2~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_456df33ab73c4ad6a32c7dea6f8e2562~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_ab73907e6db243948a0e48e421c103bf~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_33032c70fe384451bef5013e7ae5d5b3~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  }
+ ],
+ "tailor-made-events": [
+  {
+   "t": "cover",
+   "img": "e46b83_aa18cf448bd84e57b3a20d29c03d4f93~mv2.png",
+   "ratio": [
+    980,
+    502
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_8f608ab144784cf281ba26a589c73c15~mv2_d_2200_1645_s_2.png",
+   "ratio": [
+    980,
+    733
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_c45f2a4bbcca4aff83b6dd494f83bcf6~mv2_d_5760_3840_s_4_2.png",
+   "ratio": [
+    980,
+    980
+   ],
+   "gap": 83
+  },
+  {
+   "t": "mosaic",
+   "rev": false,
+   "big": "e46b83_7ab441ab624f45ec81c6a74d44a8da78~mv2_d_3500_2500_s_4_2.jpg",
+   "s1": "e46b83_ff5c5f99bf3140ab9beec28cd176d264~mv2_d_2300_1533_s_2.jpg",
+   "s2": "e46b83_50964360b9ee4a9588ffc8a0be996f7b~mv2_d_6000_4500_s_4_2.jpg",
+   "gap": 15
+  }
+ ],
+ "o-protesto-do-lobo-mau": [
+  {
+   "t": "cover",
+   "img": "e46b83_9bb9eebb97bc4b2dbf928abea025a0c4~mv2.png",
+   "ratio": [
+    980,
+    502
+   ]
+  },
+  {
+   "t": "strip",
+   "img": "e46b83_aa40c87860e145d1b696efc55c6b4c9a~mv2.png",
+   "ratio": [
+    984,
+    164
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_69a1f2b99d084f97be5d6669194166b3~mv2_d_4960_3508_s_4_2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 70
+  },
+  {
+   "t": "img",
+   "img": "e46b83_d8d24e36fe2345d1a1c773e5c08fec2e~mv2_d_4961_3508_s_4_2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_45e5e09dec644c6a88a66725aafa4120~mv2_d_4961_3508_s_4_2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_7d4fd86090fb43fba51a8e35cdd5986c~mv2_d_4961_3508_s_4_2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_7e2a291f19b74a6985a038aee41055af~mv2_d_4961_3508_s_4_2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_5bbec2b2efb4461a92b1be76f37ab02e~mv2_d_4961_3508_s_4_2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_aa965e2839ee4c98a36332d799dcea41~mv2_d_4961_3508_s_4_2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_f1b582429a764b4c929145e60c7facbd~mv2_d_4961_3508_s_4_2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_0bae74f49a6e4f068c18edb05bc38895~mv2_d_4961_3508_s_4_2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_397879ef720047cab7cf1e607bec8035~mv2_d_4961_3508_s_4_2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_7c282359aa624cd78f15e25479060f84~mv2_d_4961_3508_s_4_2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_75784bd3e68046dd9f1613e5f13c5ee2~mv2_d_4961_3508_s_4_2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_564110c699f44f1bbc6f077d8b78f582~mv2_d_4961_3508_s_4_2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_71510569bece4024b446ebed44aed093~mv2_d_4961_3508_s_4_2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  }
+ ],
+ "jfdo": [
+  {
+   "t": "cover",
+   "img": "e46b83_42b347ef885b4938b75505b283d61cb9~mv2.png",
+   "ratio": [
+    980,
+    501
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_3f81f506fcbc4b3eac0d471289272884~mv2_d_2200_1645_s_2.png",
+   "ratio": [
+    980,
+    732
+   ]
+  },
+  {
+   "t": "img",
+   "img": null,
+   "ratio": [
+    980,
+    980
+   ],
+   "gap": 81
+  },
+  {
+   "t": "mosaic",
+   "rev": false,
+   "big": "e46b83_32ef9f60c0fa4efea5eb95257ea0ab5e~mv2_d_3000_4000_s_4_2.png",
+   "s1": "e46b83_86116130f227447abad349e2d6e254dc~mv2_d_2000_1500_s_2.png",
+   "s2": "e46b83_177455c82a3149eeb2e41fba7cbedba7~mv2_d_2400_1746_s_2.png",
+   "gap": 15
+  }
+ ],
+ "quinta-foz-do-sabor": [
+  {
+   "t": "cover",
+   "img": "e46b83_89f9092c736b4c73b63603bf2d3ee9f0~mv2.png",
+   "ratio": [
+    980,
+    502
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_4f3ea67fb31441dea4e84dd9902ad2dc~mv2.png",
+   "ratio": [
+    980,
+    732
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_345c67e06eab40e48f9c97db891900a1~mv2.jpg",
+   "ratio": [
+    980,
+    980
+   ],
+   "gap": 68
+  },
+  {
+   "t": "mosaic",
+   "rev": false,
+   "big": "e46b83_1912cb41aad043289585ca4d2dbff196~mv2.jpg",
+   "s1": "e46b83_70992ee3375d4918888f8511a16216b9~mv2.jpg",
+   "s2": "e46b83_a018d5fe90d347aabea50805de83248a~mv2.jpg",
+   "gap": 15
+  }
+ ],
+ "armar-o-baile": [
+  {
+   "t": "cover",
+   "img": "e46b83_84069dddd8c84ec8b98b79055118d977~mv2.png",
+   "ratio": [
+    980,
+    502
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_03e157e106ac4168a2745d4e39f4dd86~mv2_d_2200_1645_s_2.png",
+   "ratio": [
+    980,
+    732
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_33d4002eaac84d81bc6f15170256f801~mv2_d_3500_2100_s_2.jpg",
+   "ratio": [
+    980,
+    980
+   ],
+   "gap": 68
+  },
+  {
+   "t": "mosaic",
+   "rev": false,
+   "big": "e46b83_22226a703326420b82eccfc38d0b15dd~mv2_d_1900_1425_s_2.jpg",
+   "s1": null,
+   "s2": null,
+   "gap": 15
+  }
+ ],
+ "andanças-22": [
+  {
+   "t": "cover",
+   "img": "e46b83_8cbd2310a184454b846aadf7c997bcc4~mv2.png",
+   "ratio": [
+    980,
+    502
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_fd12ae4b9a0e4f34987377fa76142d15~mv2.png",
+   "ratio": [
+    980,
+    732
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_610d3764f1fc4c149e2683febf9ed892~mv2.jpg",
+   "ratio": [
+    980,
+    980
+   ],
+   "gap": 68
+  },
+  {
+   "t": "mosaic",
+   "rev": false,
+   "big": "e46b83_2b8f1a2cad02498ca0d0ac0cb5d6c6ce~mv2.jpg",
+   "s1": null,
+   "s2": null,
+   "gap": 15
+  }
+ ],
+ "eclipse": [
+  {
+   "t": "cover",
+   "img": "e46b83_e4b3b568d3334778bed45fc84bc7be65~mv2.png",
+   "ratio": [
+    980,
+    502
+   ]
+  },
+  {
+   "t": "strip",
+   "img": "e46b83_6596fd373cf149c8a708bbb5a7fc7b1e~mv2.png",
+   "ratio": [
+    984,
+    166
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_8bfe883069174e578eaa4909a021b463~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 69
+  },
+  {
+   "t": "img",
+   "img": "e46b83_36b9d174039e4f3ba9b303f5fd154ce9~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_183a958c4af24d5aabf54dbc9da6108d~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_cade01135d4742ce8d0becf310b7014d~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_1f17b1a80dee42528a9aa8a4d9171676~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_f400e6362fee4ba6bd6d799e25a92a0d~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_b6d7edec31014503b913236921b54161~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_9658801849794bd0b523c7c057dfe581~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_743448313af34f6b8bfb4bf478c0fbb7~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_b17d15bb06d04c0f91d31e8b36b7f4d5~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_51d08ac039324334800ca182e87318e9~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  }
+ ],
+ "talismas": [
+  {
+   "t": "cover",
+   "img": "e46b83_c3e05a10055d46a0a515d03bcf458355~mv2.png",
+   "ratio": [
+    980,
+    502
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_1566c843d96443ad8ec223fe2cf3e528~mv2.png",
+   "ratio": [
+    980,
+    732
+   ]
+  },
+  {
+   "t": "videos",
+   "ratio": [
+    483,
+    840
+   ],
+   "gap": 81
+  }
+ ],
+ "omami": [
+  {
+   "t": "cover",
+   "img": "e46b83_18438992375546d8807c4a0b69b02110~mv2.png",
+   "ratio": [
+    980,
+    502
+   ]
+  },
+  {
+   "t": "strip",
+   "img": "e46b83_50de4f0f2afe40618d73994e1a398a32~mv2.png",
+   "ratio": [
+    984,
+    164
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_df8af84f391c4637a0bbfd5ec39c5bc1~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 70
+  },
+  {
+   "t": "img",
+   "img": "e46b83_9565752fc97f45a7a94f5d2491528a8e~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_efca93b2dea546e0bc85a3d214ea7b3e~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_a01600210cab4f17910d305e8b9015b6~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_5cb7cc3141f648ac836fd3cc3ecb96b7~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_f3332abec6e4494eb071dc866fb21a4e~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_910c95e7393e455ab41ec990613b587b~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_c318aa297b434ad18955b6bab9c7995b~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_0c1d4e86e289409d995ffac833759e9f~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_3d8b5b1edac14b488537310de208879a~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_870f0006b7cf41068a4e3ccb4cf97685~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_d1774673473540a79e1b5c674c69bac7~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_f81e833a890843f7adaad85a0a05c33f~mv2.jpg",
+   "ratio": [
+    980,
+    735
+   ],
+   "gap": 15
+  }
+ ],
+ "videoclip-linho": [
+  {
+   "t": "cover",
+   "img": "e46b83_d67d6dd2e9ca439f9c2d3448a548c0ca~mv2.png",
+   "ratio": [
+    980,
+    509
+   ]
+  },
+  {
+   "t": "strip",
+   "img": "e46b83_2a2dec144c8e4ac390d5065fa8929be0~mv2.png",
+   "ratio": [
+    976,
+    130
+   ]
+  },
+  {
+   "t": "yt",
+   "ratio": [
+    980,
+    547
+   ],
+   "gap": 73
+  }
+ ],
+ "mil-jewellery": [
+  {
+   "t": "cover",
+   "img": "e46b83_f1fc55bf02be479b9cd4564f7319b2d7~mv2.png",
+   "ratio": [
+    980,
+    504
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_3d1a2df6f538418a95042e7f64e37a78~mv2_d_2200_1645_s_2.png",
+   "ratio": [
+    980,
+    733
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_c22fd8ebc7474286ba62eaa390d67356~mv2.jpg",
+   "ratio": [
+    980,
+    980
+   ],
+   "gap": 99
+  },
+  {
+   "t": "mosaic",
+   "rev": false,
+   "big": "e46b83_971a0b5721074ae49c63656a7edb3c6e~mv2_d_4000_3000_s_4_2.jpg",
+   "s1": "e46b83_99f2b00b12fe418eab548a2804cf8c8d~mv2.jpg",
+   "s2": "e46b83_0f895e2ba2c54711acaf9a788be1fcd3~mv2_d_4200_3000_s_4_2.jpg",
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_6b95c457b223447380772822696f86db~mv2.jpg",
+   "ratio": [
+    980,
+    980
+   ],
+   "gap": 15
+  }
+ ],
+ "padrao-byou": [
+  {
+   "t": "cover",
+   "img": "e46b83_c22ae1fdaa7747cebd92b6ea21a21733~mv2.png",
+   "ratio": [
+    980,
+    502
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_2511fb769ee3465f86ad0c9cde616159~mv2.png",
+   "ratio": [
+    980,
+    732
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_6c2a404954be4189855a768a48311af9~mv2.jpg",
+   "ratio": [
+    980,
+    980
+   ],
+   "gap": 68
+  },
+  {
+   "t": "mosaic",
+   "rev": false,
+   "big": "e46b83_2e98ca4c4b1541e996f02a71265d9ad3~mv2.jpg",
+   "s1": "e46b83_f1a668cf67ec41d5aec7b067bb38eee2~mv2.jpg",
+   "s2": "e46b83_c5dd88bc9c5944b998a76eac22ebca07~mv2.jpg",
+   "gap": 15
+  }
+ ],
+ "de-la-espada-lookbook": [
+  {
+   "t": "cover",
+   "img": "e46b83_98a9d66ab41949d7b078c5153c90f82a~mv2.png",
+   "ratio": [
+    980,
+    502
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_07e42a4db13b4842bb6e02cadf8688bf~mv2.png",
+   "ratio": [
+    980,
+    732
+   ]
+  },
+  {
+   "t": "img",
+   "img": "e46b83_28133881efd44b76b81fd2f550c1b644~mv2.jpg",
+   "ratio": [
+    980,
+    980
+   ],
+   "gap": 68
+  },
+  {
+   "t": "mosaic",
+   "rev": false,
+   "big": "e46b83_ebc1510464fa47ea80cd26842c4ccea7~mv2.jpg",
+   "s1": "e46b83_8305cfffc3e04820bf493b227a5ae277~mv2.jpg",
+   "s2": "e46b83_98d22453762940ec901f26566a729497~mv2.jpg",
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_99846316575b4ff48bb468d46ba8d219~mv2.jpg",
+   "ratio": [
+    980,
+    980
+   ],
+   "gap": 15
+  },
+  {
+   "t": "mosaic",
+   "rev": true,
+   "big": "e46b83_6055e1538e1e419eb74a26fcc7180af2~mv2.jpg",
+   "s1": "e46b83_28cbc663c4b44df193dbab9cf3fbb6e1~mv2.jpg",
+   "s2": "e46b83_9b6427b4763248a5be9ad0664c764fc5~mv2.jpg",
+   "gap": 15
+  },
+  {
+   "t": "img",
+   "img": "e46b83_f5ebcf915abd47dc96a2ff5e7ffda30d~mv2.jpg",
+   "ratio": [
+    980,
+    980
+   ],
+   "gap": 15
+  }
+ ],
+ "o-pequeno-ego": [
+  {
+   "t": "cover",
+   "img": "e46b83_28437c82353942bb85712d996738edf8~mv2.png",
+   "ratio": [
+    980,
+    509
+   ]
+  },
+  {
+   "t": "strip",
+   "img": "e46b83_b85a2a68320548de975ebc97d96a9c37~mv2.png",
+   "ratio": [
+    976,
+    164
+   ]
+  },
+  {
+   "t": "yt",
+   "ratio": [
+    980,
+    547
+   ],
+   "gap": 40
+  }
+ ]
+}

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import json, os, shutil, html
+import json
+import re, os, shutil, html
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DIST = os.path.join(ROOT, "dist")
@@ -9,6 +10,8 @@ SITE_URL = "https://rimastudio.pt"
 
 with open(os.path.join(ROOT, "data", "site.json"), encoding="utf-8") as f:
     SITE = json.load(f)
+with open(os.path.join(ROOT, "data", "layouts.json"), encoding="utf-8") as f:
+    LAYOUTS = json.load(f)
 with open(os.path.join(ROOT, "data", "projects.json"), encoding="utf-8") as f:
     PROJECTS = json.load(f)
 
@@ -545,73 +548,146 @@ def build_portfolio(category=None, filename="portfolio.html"):
     write_page(filename, title, content)
 
 # ---------------- PROJECT PAGES ----------------
+# Per-project "+ INFO" lines (label PT, label EN, href or None) and inline links,
+# copied from the original Wix project pages.
+INFO_LINES = {
+    "casa-del-yoga": [("www.casadelyoga.com", None, "http://www.casadelyoga.com"), ("@casadelyoga", None, "http://www.instagram.com/casadelyoga")],
+    "noveme": [("www.noveme.co.uk", None, "http://www.noveme.co.uk")],
+    "the-bear-collection": [("Post Instagram Parfois - The Bear Collection", None, "https://www.instagram.com/p/DSR29grjFwA/?img_index=1")],
+    "dahu-shoes-off": [("www.dahu.pt", None, "http://www.dahu.pt"), ("@dahu.som", None, "http://www.instagram.com/dahu.som")],
+    "kc-the-brand": [("www.kcthebrand.com", None, "http://www.kcthebrand.com")],
+    "troglodicas": [("www.mocedumcabreste.pt", None, "http://www.mocedumcabreste.pt"), ("@mocedumcabreste", None, "http://www.instagram.com/mocedumcabreste")],
+    "o-protesto-do-lobo-mau": [("www.pingodoce.pt/premio-literatura-infantil/", None, "http://www.pingodoce.pt/premio-literatura-infantil")],
+    "talismas": [("edição limitada esgotada", "limited edition - sold out", None)],
+    "omami": [("livro disponível para compra em eraumaines.pt", "book available for purchase at eraumaines.pt", "https://eraumaines.pt/")],
+    "videoclip-linho": [("www.katerinaldokova.com", None, "https://katerinaldokova.com/")],
+    "mil-jewellery": [("www.miljewellery.com", None, "http://www.miljewellery.com"), ("@miljewellery", None, "http://www.instagram.com/miljewellery")],
+    "padrao-byou": [("Arua | tiger dress", None, "https://byoubb.com/collections/africa-ss20/products/9776"), ("Gaya | tiger set", None, "https://byoubb.com/collections/africa-ss20/products/9767-tiger-ensemble")],
+    "de-la-espada-lookbook": [("DLE Lookbook IV", None, "https://delaespada.com/pages/look-book-volume-4")],
+    "o-pequeno-ego": [("IMDB \"Os Infanticidas\"", None, "https://www.imdb.com/pt/title/tt35636226/")],
+}
+# Words inside a paragraph that are links on the original page: (paragraph index, word, href)
+TEXT_LINKS = {"padrao-byou": [(0, "BYOU", "https://byoubb.com/")]}
+
+# Hosted videos (Wix video CDN ids). poster = same-order images of the project.
+VIDEOS = {
+    "the-bear-collection": dict(q="720p", ids=[
+        "e46b83_c0827596dff64df6b2a2bf29d78f4347", "e46b83_68b2014ca37945b4a469048977707af9",
+        "e46b83_2edfc12a58ac4d8aba1c084cab6889b6", "e46b83_fa35e3bf7efd485ba83d10d26f56df1d",
+        "e46b83_cc364211fa874099a573f8c0ea3c50cf"],
+        names=["SKI", "NERD", "NATALICIO", "INFLUENCER", "DORMINHOCO"]),
+    "talismas": dict(q="480p", ids=[
+        "e46b83_ecd5ac0185b5478ab0757ccd9313268e", "e46b83_bd1963559c29445c97aeba6612b14326"],
+        names=["Talismãs 1", "Talismãs 2"]),
+}
+
+def _video_tag(slug, n, poster, ratio_cls=""):
+    v = VIDEOS[slug]
+    src = f"https://video.wixstatic.com/video/{v['ids'][n]}/{v['q']}/mp4/file.mp4"
+    label = L("Reproduzir vídeo", "Play video")
+    return (f'<div class="pj-video {ratio_cls}"><video preload="none" playsinline controlslist="nodownload" '
+            f'poster="/images/{webp_name(poster)}" src="{src}" title="{html.escape(v["names"][n])}"></video>'
+            f'<button type="button" class="pj-play" aria-label="{label}"></button></div>')
+
+def _info_html(slug):
+    lines = INFO_LINES.get(slug)
+    if not lines:
+        return ""
+    rows = ""
+    for pt, en, href in lines:
+        txt = e(L(pt, en or pt))
+        if href:
+            txt = f'<a href="{href}" target="_blank" rel="noopener">{txt}</a>'
+        rows += f'<p class="pj-info-line">{txt}</p>'
+    return f'<div class="pj-info"><p class="pj-info-label">+ INFO</p>{rows}</div>'
+
+def _gallery_html(p, blocks):
+    slug = p["slug"]
+    title = L(p.get("title", slug), p.get("title_en", p.get("title", slug)))
+    out = ""
+    def im(f, cls=""):
+        return img(f, cls=cls, alt=title) if f else ""
+    for b in blocks[1:]:
+        t = b["t"]
+        g = b.get("gap")
+        out += f'<div class="pj-gap" style="height:{g - 30}px"></div>' if g and g > 30 else ""
+        if t == "strip":
+            out += f'<div class="pj-row pj-strip">{im(b["img"])}</div>'
+        elif t == "img":
+            if not b["img"]:
+                continue  # image not available locally (see report)
+            w, h = b["ratio"]
+            cls = "pj-img pj-img--b" if h in (732, 733) else "pj-img"
+            out += f'<div class="{cls}" style="--ar:{w}/{h}">{im(b["img"])}</div>'
+        elif t == "mosaic":
+            big = f'<div class="pj-sq">{im(b["big"])}</div>'
+            col = "".join(f'<div class="pj-sq">{im(b[k])}</div>' for k in ("s1", "s2") if b.get(k))
+            col = f'<div class="pj-col">{col}</div>' if col else ""
+            cls = "pj-mosaic" + (" pj-mosaic--rev" if b.get("rev") else "") + ("" if col else " pj-mosaic--solo")
+            out += f'<div class="{cls}">{col + big if b.get("rev") else big + col}</div>'
+        elif t == "small":
+            out += f'<div class="pj-mosaic pj-mosaic--solo pj-mosaic--small"><div class="pj-sq">{im(b["img"])}</div></div>'
+        elif t == "yt":
+            vid = p.get("youtube_id")
+            if vid:
+                w, h = b["ratio"]
+                out += (f'<div class="pj-yt" style="--ar:{w}/{h}"><iframe src="https://www.youtube-nocookie.com/embed/{vid}" '
+                        f'title="{html.escape(title)}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" '
+                        f'allowfullscreen loading="lazy"></iframe></div>')
+        elif t == "carousel":
+            slides = "".join(_video_tag(slug, n, f) for n, f in enumerate(b["imgs"]))
+            out += (f'<div class="pj-carousel"><div class="pj-track">{slides}</div>'
+                    f'<button type="button" class="pj-nav pj-nav--prev" aria-label="{L("Vídeos anteriores", "Previous videos")}"></button>'
+                    f'<button type="button" class="pj-nav pj-nav--next" aria-label="{L("Próximos vídeos", "Next videos")}"></button></div>')
+        elif t == "videos":
+            posters = [f for f in p["images"] if f not in {x.get("img") for x in blocks if x.get("img")}]
+            out += '<div class="pj-videos">' + "".join(_video_tag(slug, n, f) for n, f in enumerate(posters[:2])) + '</div>'
+    return out
+
+def _curly(t):
+    """Typographic double quotes, as on the original Wix pages."""
+    t = re.sub(r'(^|[\s(\[])"', lambda m: m.group(1) + "\u201c", t)
+    return t.replace('"', "\u201d")
+
 def build_project(p, idx):
+    slug = p["slug"]
     tags_pt = p.get("tags_pt", "")
     tags_en = p.get("tags_en", "")
-    title = p.get("title", p["slug"])
+    title = p.get("title", slug)
     title_en = p.get("title_en", title)
+    blocks = LAYOUTS[slug]
+    cover = blocks[0]
+
     paras = ""
+    links = TEXT_LINKS.get(slug, [])
     for i, t in enumerate(p.get("text_pt", [])):
-        en_t = p.get("text_en", [""]*len(p["text_pt"]))[i] if i < len(p.get("text_en", [])) else ""
-        paras += f'      <p>{bi(t, en_t)}</p>\n'
+        en_t = p.get("text_en", [""] * len(p["text_pt"]))[i] if i < len(p.get("text_en", [])) else ""
+        txt = e(_curly(L(t, en_t)))
+        for (pi, word, href) in links:
+            if pi == i:
+                txt = txt.replace(word, f'<a href="{href}" target="_blank" rel="noopener">{word}</a>', 1)
+        paras += f"<p>{txt}</p>\n"
+    if p.get("credit"):
+        paras += f'<p>{e(p["credit"])}</p>\n'
 
-    credit = f'<p class="project-credit">{e(p["credit"])}</p>' if p.get("credit") else ""
-
-    info_block = ""
-    if p.get("info") or p.get("info_en"):
-        info_block = f'<p class="project-info">{bi(p.get("info",""), p.get("info_en", p.get("info","")))}</p>'
-    if p.get("external_link"):
-        info_block += f'<div class="center"><a class="external-link" href="{p["external_link"]}" target="_blank" rel="noopener">{e(p.get("external_label",""))}</a></div>'
-
-    # Video embed: only rendered once a real YouTube id is set on the project
-    # via "youtube_id" in projects.json (these are the original, already-public
-    # client/film videos — not re-uploads). No placeholder text otherwise — we
-    # don't invent copy that wasn't on the original site.
-    video_note = ""
-    if p.get("youtube_id"):
-        video_note = f'''<div class="project-video">
-      <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/{p['youtube_id']}" title="{e(p['title'])}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
-    </div>'''
-
-    gallery_imgs = p.get("images", [])
-    cols_class = "cols-2" if len(gallery_imgs) > 1 else ""
-    gallery = f'<div class="project-gallery {cols_class}">\n'
-    for im in gallery_imgs:
-        gallery += f'      {img(im, alt=title)}\n'
-    gallery += '    </div>'
-
-    prev_p = PROJECTS[idx-1] if idx > 0 else PROJECTS[-1]
-    next_p = PROJECTS[idx+1] if idx < len(PROJECTS)-1 else PROJECTS[0]
-
-    note_html = f'<!-- NOTA interna: {e(p["note"])} -->' if p.get("note") else ""
-
+    # de-la-espada: the single "+ INFO" link
+    ar_w, ar_h = cover["ratio"]
     content = f'''
-{note_html}
-<section class="project-head">
-  <div class="container">
-    {bi(title, title_en, 'h1', 'project-title')}
-    {bi(tags_pt, tags_en, 'p', 'project-tags')}
-  </div>
+<section class="pj-cover" style="--ar:{ar_w}/{ar_h}">{img(cover["img"], alt=L(title, title_en), eager=True)}</section>
+<section class="pj-head">
+  <h1 class="pj-title">{e(L(title, title_en))}</h1>
+  <p class="pj-tags">{e(L(tags_pt, tags_en))}</p>
+  <span class="pj-line" aria-hidden="true"></span>
 </section>
-<section class="section-tight" style="padding-top:0;">
-  <div class="container">
-    <div class="project-text">
-{paras}    </div>
-    {credit}
-    <div class="center">{info_block}</div>
-    {video_note}
-    {gallery}
-  </div>
-</section>
-<div class="project-nav">
-  <a href="{url_for(prev_p['slug'] + '.html')}">&larr; {e(prev_p['title'])}</a>
-  <a href="{url_for(next_p['slug'] + '.html')}">{e(next_p['title'])} &rarr;</a>
-</div>
+<section class="pj-text">
+{paras}{_info_html(slug)}</section>
+<section class="pj-gallery">{_gallery_html(p, blocks)}</section>
 '''
     page_title = f"{L(title, title_en)} | RIMA studio"
     desc_pt = (p.get("text_pt") or [""])[0][:160]
     desc_en = (p.get("text_en") or [desc_pt])[0][:160]
     write_page(f"{p['slug']}.html", page_title, content, desc=L(desc_pt, desc_en))
+
 
 # ---------------- THE PEOPLE SERIES (draft page) ----------------
 def ph(label_pt, label_en, ratio="4/3", cls=""):
