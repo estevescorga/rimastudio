@@ -609,8 +609,8 @@ def _gallery_html(p, blocks):
         return img(f, cls=cls, alt=title) if f else ""
     for b in blocks[1:]:
         t = b["t"]
-        g = b.get("gap")
-        out += f'<div class="pj-gap" style="height:{g - 30}px"></div>' if g and g > 30 else ""
+        g = 68 if b.get("gap", 15) > 30 else 15  # uniform section spacing
+        out += f'<div class="pj-gap" style="height:{g - 30}px"></div>' if g > 30 else ""
         if t == "strip":
             out += f'<div class="pj-row pj-strip">{im(b["img"])}</div>'
         elif t == "img":
@@ -670,7 +670,8 @@ def build_project(p, idx):
     if p.get("credit"):
         paras += f'<p>{e(p["credit"])}</p>\n'
 
-    # de-la-espada: the single "+ INFO" link
+    prev_p = PROJECTS[idx-1] if idx > 0 else PROJECTS[-1]
+    next_p = PROJECTS[idx+1] if idx < len(PROJECTS)-1 else PROJECTS[0]
     ar_w, ar_h = cover["ratio"]
     content = f'''
 <section class="pj-cover" style="--ar:{ar_w}/{ar_h}">{img(cover["img"], alt=L(title, title_en), eager=True)}</section>
@@ -682,6 +683,10 @@ def build_project(p, idx):
 <section class="pj-text">
 {paras}{_info_html(slug)}</section>
 <section class="pj-gallery">{_gallery_html(p, blocks)}</section>
+<nav class="pj-nav-links" aria-label="{L("Outros projetos", "Other projects")}">
+  <a href="{url_for(prev_p['slug'] + '.html')}">&larr; {e(L(prev_p['title'], prev_p.get('title_en', prev_p['title'])))}</a>
+  <a href="{url_for(next_p['slug'] + '.html')}">{e(L(next_p['title'], next_p.get('title_en', next_p['title'])))} &rarr;</a>
+</nav>
 '''
     page_title = f"{L(title, title_en)} | RIMA studio"
     desc_pt = (p.get("text_pt") or [""])[0][:160]

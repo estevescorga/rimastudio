@@ -545,3 +545,5 @@ button.cta-link{border:1px solid var(--c-dark);cursor:pointer;line-height:inheri
 .tps-cta-mid p{font-family:var(--font-serif);font-size:18px;line-height:1.6;color:var(--c-text);margin:0 0 var(--space-3);}
 .tps-refs-note{text-align:center;margin-top:var(--space-3);}
 .tps-section p.eyebrow,.tps-cta p.eyebrow{font-family:var(--font-label);font-size:15px;line-height:1.6;letter-spacing:1.2px;margin:0 0 var(--space-2);}
+.pj-nav-links{max-width:980px;margin:0 auto var(--space-4);padding:0;display:flex;justify-content:space-between;gap:var(--space-3);font-family:var(--font-accent);font-weight:700;font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--c-text);}
+@media(max-width:768px){.pj-nav-links{padding:0 8vw;flex-direction:column;gap:3vw;font-size:11px;}.pj-nav-links a:last-child{text-align:right;}}
