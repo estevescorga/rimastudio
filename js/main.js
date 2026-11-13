@@ -76,7 +76,7 @@
   document.addEventListener('keydown', function(ev){ if (ev.key === 'Escape' && !modal.hidden) close(); });
 })();
 
-/* Project pages: video play buttons and carousel arrows */
+/* Project pages: video play buttons */
 (function(){
   document.querySelectorAll('.pj-video').forEach(function(w){
     var v=w.querySelector('video'),b=w.querySelector('.pj-play');
@@ -86,14 +86,5 @@
       v.controls=true;w.classList.add('is-playing');v.play();
     });
     v.addEventListener('ended',function(){v.controls=false;w.classList.remove('is-playing');});
-  });
-  document.querySelectorAll('.pj-carousel').forEach(function(c){
-    var t=c.querySelector('.pj-track');
-    c.querySelectorAll('.pj-nav').forEach(function(n){
-      n.addEventListener('click',function(){
-        var d=n.classList.contains('pj-nav--next')?1:-1;
-        t.scrollBy({left:d*(t.clientWidth*0.7+30),behavior:'smooth'});
-      });
-    });
   });
 })();

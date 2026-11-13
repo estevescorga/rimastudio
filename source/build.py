@@ -640,10 +640,9 @@ def _gallery_html(p, blocks):
                         f'title="{html.escape(title)}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" '
                         f'allowfullscreen loading="lazy"></iframe></div>')
         elif t == "carousel":
-            slides = "".join(_video_tag(slug, n, f) for n, f in enumerate(b["imgs"]))
-            out += (f'<div class="pj-carousel"><div class="pj-track">{slides}</div>'
-                    f'<button type="button" class="pj-nav pj-nav--prev" aria-label="{L("Vídeos anteriores", "Previous videos")}"></button>'
-                    f'<button type="button" class="pj-nav pj-nav--next" aria-label="{L("Próximos vídeos", "Next videos")}"></button></div>')
+            v = VIDEOS[slug]
+            tags = "".join(_video_tag(slug, n, "bear-" + f) for n, f in enumerate(v["files"]))
+            out += f'<div class="pj-videos pj-videos--5">{tags}</div>'
         elif t == "videos":
             posters = [f for f in p["images"] if f not in {x.get("img") for x in blocks if x.get("img")}]
             out += '<div class="pj-videos">' + "".join(_video_tag(slug, n, f) for n, f in enumerate(posters[:2])) + '</div>'
