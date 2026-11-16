@@ -162,7 +162,8 @@ section{padding:var(--space-6) var(--space-3);}
   font-size:14.5px;
 }
 .center{text-align:center;}
-.divider{width:1px;height:40px;background:var(--c-text);margin:var(--space-3) auto 0;}
+.divider{width:1px;height:40px;background:var(--c-text);margin:56px auto;}
+.divider + .grid,.divider + .services{margin-top:0;}
 .cta-link{
   display:inline-block;margin-top:var(--space-3);
   font-family:var(--font-accent);font-weight:700;font-size:12.5px;letter-spacing:1.5px;
