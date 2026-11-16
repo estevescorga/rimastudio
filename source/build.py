@@ -1059,6 +1059,7 @@ def build_people_series():
 
 def build_entrelinhas():
     lab = SITE["meta"]["external"]["rimalab"]
+    shop = lab.rstrip("/") + "/products/entrelinhas"
     people = url_for("the-people-series.html")
     ext = 'target="_blank" rel="noopener"'
     subj_proj = L("Entrelinhas — projeto para empresa", "Entrelinhas — project for a company")
@@ -1072,7 +1073,7 @@ def build_entrelinhas():
     <p class="tps-sub">{e(L("Entrelinhas transforma fotografias, vídeos e outras referências em ilustrações personalizadas, construídas a partir de linhas, formas e dos detalhes que realmente importam.", "Entrelinhas turns photographs, videos and other references into personalised illustrations, built from lines, shapes and the details that truly matter."))}</p>
     <p class="ent-by">{e(L("Uma coleção criada pelo RIMA lab, o nosso espaço de experimentação e criação de produtos.", "A collection created by RIMA lab, our space for experimentation and product creation."))}</p>
     <div class="tps-ctas">
-      <a class="cta-link" href="{lab}" {ext}>{e(L("Descobrir Entrelinhas no RIMA lab", "Discover Entrelinhas at RIMA lab"))}</a>
+      <a class="cta-link" href="{shop}" {ext}>{e(L("Descobrir Entrelinhas no RIMA lab", "Discover Entrelinhas at RIMA lab"))}</a>
     </div>
     <div class="ent-pair">
       {ph("Referência (fotografia)", "Reference (photograph)", "4/5")}
@@ -1159,7 +1160,7 @@ def build_entrelinhas():
     <div class="ent-paths-grid">
       <div>
         <p>{e(L("Para encomendas individuais, formatos e opções disponíveis:", "For individual orders, available formats and options:"))}</p>
-        <a class="cta-link" href="{lab}" {ext}>{e(L("Comprar Entrelinhas no RIMA lab", "Buy Entrelinhas at RIMA lab"))}</a>
+        <a class="cta-link" href="{shop}" {ext}>{e(L("Comprar Entrelinhas no RIMA lab", "Buy Entrelinhas at RIMA lab"))}</a>
       </div>
       <div>
         <p>{e(L("Para projetos para empresas, eventos ou Entrelinhas Live:", "For company projects, events or Entrelinhas Live:"))}</p>
