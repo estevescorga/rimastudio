@@ -565,3 +565,7 @@ button.cta-link{border:1px solid var(--c-dark);cursor:pointer;line-height:inheri
 .sec-projects{padding-bottom:0;}
 .sec-projects .center{margin-top:32px;}
 @media(max-width:768px){.sec-projects .center{margin-top:24px;}}
+.ent-hero-img{display:block;width:100%;max-width:980px;height:auto;margin:var(--space-4) auto 0;}
+.ent-grid img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;}
+.ent-labimg{margin-top:var(--space-4);}
+.ent-labimg .ent-hero-img{margin-top:0;}

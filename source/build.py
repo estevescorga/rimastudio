@@ -1075,10 +1075,7 @@ def build_entrelinhas():
     <div class="tps-ctas">
       <a class="cta-link" href="{shop}" {ext}>{e(L("Descobrir Entrelinhas no RIMA lab", "Discover Entrelinhas at RIMA lab"))}</a>
     </div>
-    <div class="ent-pair">
-      {ph("Referência (fotografia)", "Reference (photograph)", "4/5")}
-      {ph("Ilustração Entrelinhas correspondente", "Matching Entrelinhas illustration", "4/5")}
-    </div>
+    {img("ent-hero", "ent-hero-img", L("Ilustração Entrelinhas emoldurada numa sala", "Entrelinhas illustration framed in a living room"), True)}
   </div>
 </section>
 
@@ -1099,10 +1096,10 @@ def build_entrelinhas():
 <section class="tps-section tps-tint">
   <div class="container">
     <div class="ent-grid">
-      {ph("Entrelinhas realizado: pessoas", "Finished Entrelinhas: people", "4/5")}
-      {ph("Entrelinhas realizado: lugar", "Finished Entrelinhas: place", "4/5")}
-      {ph("Entrelinhas realizado: animal", "Finished Entrelinhas: animal", "4/5")}
-      {ph("Entrelinhas realizado: momento", "Finished Entrelinhas: moment", "4/5")}
+      {img("ent-obra-1", "", L("Entrelinhas: retrato de mãe e filha", "Entrelinhas: portrait of a mother and daughter"))}
+      {img("ent-obra-2", "", L("Entrelinhas: retrato de família emoldurado", "Entrelinhas: framed family portrait"))}
+      {img("ent-obra-3", "", L("Entrelinhas: retrato de três irmãos com cor", "Entrelinhas: portrait of three siblings, with colour"))}
+      {img("ent-obra-4", "", L("Entrelinhas: mãe com bebé", "Entrelinhas: mother with baby"))}
     </div>
   </div>
 </section>
@@ -1151,6 +1148,9 @@ def build_entrelinhas():
     {p("RIMA lab é o nosso espaço de experimentação. Um lugar onde somos nós a criar o briefing e a desenvolver produtos, coleções e ideias que exploram novas formas de transformar momentos em objetos e imagens.", "RIMA lab is our space for experimentation. A place where we write the brief ourselves and develop products, collections and ideas that explore new ways of turning moments into objects and images.")}
     {p("Entrelinhas nasceu no Lab e cresce também através do RIMA studio, quando o conceito encontra novas aplicações, escalas e contextos.", "Entrelinhas was born at the Lab and also grows through RIMA studio, when the concept finds new applications, scales and contexts.")}
     <p class="ent-cta"><a class="cta-link cta-link--outline" href="{lab}" {ext}>{e(L("Conhecer o RIMA lab", "Get to know RIMA lab"))}</a></p>
+  </div>
+  <div class="container ent-labimg">
+    {img("ent-lab", "ent-hero-img", L("Entrelinhas, uma coleção do RIMA lab", "Entrelinhas, an RIMA lab collection"))}
   </div>
 </section>
 
