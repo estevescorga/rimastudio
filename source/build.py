@@ -234,11 +234,11 @@ def header(filename="index.html"):
       <ul class="offcanvas-sub"><li><span>{e(L('Retratos ilustrados para empresas','Illustrated portraits for companies'))}</span></li></ul>
     </li>
     <li><a href="{url_for('entrelinhas.html')}">ENTRELINHAS</a>
-      <ul class="offcanvas-sub"><li><span>{e(L('Memórias reduzidas ao essencial','Memories reduced to the essential'))}</span></li></ul>
+      <ul class="offcanvas-sub"><li><span>{e(L('Ilustrações personalizadas de memórias','Personalised illustrations of memories'))}</span></li></ul>
     </li>
     <li><a href="{oestudio_url}#contacto">{e(L('CONTACTO','CONTACT'))}</a></li>
     <li><a href="{SITE['meta']['external']['rimalab']}" target="_blank" rel="noopener">RIMA lab</a>
-      <ul class="offcanvas-sub"><li><span>{e(L('Produtos e coleções originais','Original products and collections'))}</span></li></ul>
+      <ul class="offcanvas-sub"><li><span>{e(L('Loja online de produtos originais','Online shop for original products'))}</span></li></ul>
     </li>
     <li><a href="{SITE['meta']['external']['estevescorga']}" target="_blank" rel="noopener">ESTEVES CORGA</a>
       <ul class="offcanvas-sub">
