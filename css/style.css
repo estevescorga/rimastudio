@@ -569,3 +569,5 @@ button.cta-link{border:1px solid var(--c-dark);cursor:pointer;line-height:inheri
 .ent-grid img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;}
 .ent-labimg{margin-top:var(--space-4);}
 .ent-labimg .ent-hero-img{margin-top:0;}
+.ent-ref{margin:0;aspect-ratio:1/1;overflow:hidden;background:var(--c-beige-light);}
+.ent-ref img,.ent-ref video{display:block;width:100%;height:100%;object-fit:cover;}

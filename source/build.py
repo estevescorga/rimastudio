@@ -1087,9 +1087,9 @@ def build_entrelinhas():
     {p("Simplificamos a imagem, retiramos o excesso e ficamos com o essencial. O resultado é uma composição minimal que pode dizer pouco a quem a vê de fora, mas carregar uma história inteira para quem reconhece aquele momento.", "We simplify the image, remove the excess and keep the essential. The result is a minimal composition that may say little to an outside viewer, yet carry an entire story for those who recognise the moment.")}
   </div>
   <div class="container ent-trio">
-    {ph("Referência imperfeita: frame de vídeo", "Imperfect reference: video frame", "4/3")}
-    {ph("Referência imperfeita: fotografia antiga", "Imperfect reference: old photograph", "4/3")}
-    {ph("Várias fotografias → uma composição", "Several photographs → one composition", "4/3")}
+    <figure class="ent-ref"><video autoplay muted loop playsinline preload="metadata" poster="/images/ent-ref-video.webp" src="/videos/entrelinhas-footage.mp4" aria-label="{e(L("Frame de um vídeo usado como referência", "Frame from a video used as a reference"))}"></video></figure>
+    <figure class="ent-ref">{img("ent-ref-antiga", "", L("Fotografia antiga usada como referência", "Old photograph used as a reference"))}</figure>
+    <figure class="ent-ref">{img("ent-ref-montagem", "", L("Várias fotografias impressas e sobrepostas, base de uma única composição", "Several printed photographs overlapping, the basis for a single composition"))}</figure>
   </div>
 </section>
 
