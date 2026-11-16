@@ -68,7 +68,7 @@
 (function(){
   var modal = document.getElementById('contactModal');
   if (!modal) return;
-  function open(){ modal.hidden = false; document.body.style.overflow = 'hidden'; var i = modal.querySelector('input[type=text]'); if (i) i.focus(); }
+  function open(ev){ var sb = ev && ev.currentTarget && ev.currentTarget.dataset.subject; var si = modal.querySelector('input[name=subject]'); if (si && sb) si.value = sb; modal.hidden = false; document.body.style.overflow = 'hidden'; var i = modal.querySelector('input[type=text]'); if (i) i.focus(); }
   function close(){ modal.hidden = true; document.body.style.overflow = ''; }
   document.querySelectorAll('[data-open-contact]').forEach(function(b){ b.addEventListener('click', open); });
   modal.querySelectorAll('[data-close-contact]').forEach(function(b){ b.addEventListener('click', close); });
