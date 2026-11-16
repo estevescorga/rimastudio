@@ -234,7 +234,7 @@ def header(filename="index.html"):
       <ul class="offcanvas-sub"><li><span>{e(L('Retratos ilustrados para empresas','Illustrated portraits for companies'))}</span></li></ul>
     </li>
     <li><a href="{url_for('entrelinhas.html')}">ENTRELINHAS</a>
-      <ul class="offcanvas-sub"><li><span>{e(L('Ilustrações personalizadas de memórias','Personalised illustrations of memories'))}</span></li></ul>
+      <ul class="offcanvas-sub"><li><span>{e(L('Ilustrações autorais originais','Original author illustrations'))}</span></li></ul>
     </li>
     <li><a href="{oestudio_url}#contacto">{e(L('CONTACTO','CONTACT'))}</a></li>
     <li><a href="{SITE['meta']['external']['rimalab']}" target="_blank" rel="noopener">RIMA lab</a>
