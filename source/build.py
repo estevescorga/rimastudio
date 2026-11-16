@@ -329,7 +329,7 @@ def build_home():
   </div>
 </section>
 
-<section>
+<section class="sec-projects">
   <div class="container">
     {bi(h['pt']['projects_eyebrow'], h['en']['projects_eyebrow'], 'p', 'eyebrow')}
     {bi(h['pt']['projects_title'], h['en']['projects_title'], 'h2', 'section-title section-title--projects')}

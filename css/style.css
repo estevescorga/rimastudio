@@ -561,3 +561,7 @@ button.cta-link{border:1px solid var(--c-dark);cursor:pointer;line-height:inheri
 .ent-also-card em{font-family:var(--font-serif);font-size:13px;color:var(--c-text-soft);}
 @media(max-width:768px){.ent-grid{grid-template-columns:1fr 1fr;}.ent-trio{grid-template-columns:1fr;}.ent-paths-grid{grid-template-columns:1fr;}}
 .ent-hero .eyebrow,#live .eyebrow,.ent-also .eyebrow{color:var(--c-text);font-family:var(--font-label);font-weight:700;letter-spacing:1.5px;}
+
+.sec-projects{padding-bottom:0;}
+.sec-projects .center{margin-top:32px;}
+@media(max-width:768px){.sec-projects .center{margin-top:24px;}}
