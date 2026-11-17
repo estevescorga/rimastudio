@@ -1091,14 +1091,11 @@ def build_entrelinhas():
 <section class="tps-section tps-tint" id="live">
   <div class="container tps-narrow">
     <p class="eyebrow">ENTRELINHAS LIVE</p>
+    <p class="ent-soon"><span>{e(L("Em breve", "Coming soon"))}</span></p>
     <h2>{e(L("O mesmo olhar, agora ao vivo.", "The same eye, now live."))}</h2>
     {p("O Entrelinhas leva-se para eventos. Um ilustrador no local transforma convidados, colaboradores e pequenas cenas em ilustrações minimalistas, criadas no momento, que cada pessoa leva consigo.", "Entrelinhas goes to events. An illustrator on site turns guests, employees and small scenes into minimalist illustrations, created in the moment, that each person takes home.")}
     {p("Para eventos corporativos, ativações de marca, celebrações de equipa, lançamentos e encontros com clientes. O formato e o número de ilustrações adaptam-se a cada evento.", "For corporate events, brand activations, team celebrations, launches and client meetings. The format and number of illustrations are adapted to each event.")}
-  </div>
-  <div class="container">
-    {ph("Vídeo curto em loop: mão a desenhar → pessoa → desenho → entrega", "Short looping video: hand drawing → person → drawing → handover", "16/9", "ph--wide")}
-  </div>
-  <div class="container tps-narrow ent-live2">
+    {p("O conceito também pode ser adaptado a presentes e peças personalizadas para equipas e empresas.", "The concept can also be adapted to personalised gifts and pieces for teams and companies.")}
     <p class="ent-cta"><button type="button" class="cta-link" data-open-contact data-subject="{e(subj_live)}">{e(L("Falar connosco sobre Entrelinhas Live", "Talk to us about Entrelinhas Live"))}</button></p>
     <p class="ent-small">Live sketching by RIMA studio</p>
   </div>
