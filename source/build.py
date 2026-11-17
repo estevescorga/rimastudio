@@ -1060,40 +1060,24 @@ def build_people_series():
 def build_entrelinhas():
     lab = SITE["meta"]["external"]["rimalab"]
     shop = lab.rstrip("/") + "/products/entrelinhas"
-    people = url_for("the-people-series.html")
     ext = 'target="_blank" rel="noopener"'
-    subj_proj = L("Entrelinhas — projeto para empresa", "Entrelinhas — project for a company")
-    subj_live = L("Entrelinhas Live", "Entrelinhas Live")
+    subj_live = "Entrelinhas Live"
     def p(pt, en): return f"<p>{e(L(pt, en))}</p>"
     content = f'''
 <section class="tps-hero ent-hero">
   <div class="container">
     <p class="eyebrow">ENTRELINHAS</p>
     <h1>{e(L("Memórias reduzidas ao essencial.", "Memories, reduced to the essential."))}</h1>
-    <p class="tps-sub">{e(L("Entrelinhas transforma fotografias, vídeos e outras referências em ilustrações personalizadas, construídas a partir de linhas, formas e dos detalhes que realmente importam.", "Entrelinhas turns photographs, videos and other references into personalised illustrations, built from lines, shapes and the details that truly matter."))}</p>
-    <p class="ent-by">{e(L("Uma coleção criada pelo RIMA lab, o nosso espaço de experimentação e criação de produtos.", "A collection created by RIMA lab, our space for experimentation and product creation."))}</p>
+    <p class="tps-sub">{e(L("Ilustrações personalizadas em linha minimalista, criadas a partir das suas fotografias.", "Personalised minimalist line illustrations, created from your photographs."))}</p>
+    <p class="ent-by">{e(L("Uma coleção do RIMA lab, a nossa loja online de produtos originais, onde pode encomendar a sua.", "A collection by RIMA lab, our online shop for original products, where you can order yours."))}</p>
     <div class="tps-ctas">
-      <a class="cta-link" href="{shop}" {ext}>{e(L("Descobrir Entrelinhas no RIMA lab", "Discover Entrelinhas at RIMA lab"))}</a>
+      <a class="cta-link" href="{shop}" {ext}>{e(L("Comprar no RIMA lab", "Buy at RIMA lab"))}</a>
     </div>
     {img("ent-hero", "ent-hero-img", L("Ilustração Entrelinhas emoldurada numa sala", "Entrelinhas illustration framed in a living room"), True)}
   </div>
 </section>
 
 <section class="tps-section">
-  <div class="container tps-narrow">
-    <h2>{e(L("Não começa na fotografia perfeita.", "It doesn't start with the perfect photograph."))}<br>{e(L("Começa na memória certa.", "It starts with the right memory."))}</h2>
-    {p("Uma fotografia antiga. Um frame de um vídeo. Várias imagens diferentes. Um lugar, uma pessoa ou um momento aparentemente banal.", "An old photograph. A frame from a video. Several different images. A place, a person or an apparently ordinary moment.")}
-    {p("No Entrelinhas, a referência não precisa de ser perfeita. O mais importante é aquilo que representa.", "In Entrelinhas, the reference doesn't need to be perfect. What matters most is what it stands for.")}
-    {p("Simplificamos a imagem, retiramos o excesso e ficamos com o essencial. O resultado é uma composição minimal que pode dizer pouco a quem a vê de fora, mas carregar uma história inteira para quem reconhece aquele momento.", "We simplify the image, remove the excess and keep the essential. The result is a minimal composition that may say little to an outside viewer, yet carry an entire story for those who recognise the moment.")}
-  </div>
-  <div class="container ent-trio">
-    <figure class="ent-ref"><video autoplay muted loop playsinline preload="metadata" poster="/images/ent-ref-video.webp" src="/videos/entrelinhas-footage.mp4" aria-label="{e(L("Frame de um vídeo usado como referência", "Frame from a video used as a reference"))}"></video></figure>
-    <figure class="ent-ref">{img("ent-ref-antiga", "", L("Fotografia antiga usada como referência", "Old photograph used as a reference"))}</figure>
-    <figure class="ent-ref">{img("ent-ref-montagem", "", L("Várias fotografias impressas e sobrepostas, base de uma única composição", "Several printed photographs overlapping, the basis for a single composition"))}</figure>
-  </div>
-</section>
-
-<section class="tps-section tps-tint">
   <div class="container">
     <div class="ent-grid">
       {img("ent-obra-1", "", L("Entrelinhas: retrato de mãe e filha", "Entrelinhas: portrait of a mother and daughter"))}
@@ -1104,70 +1088,19 @@ def build_entrelinhas():
   </div>
 </section>
 
-<section class="ent-bridge">
-  <div class="container tps-narrow">
-    <p class="ent-bridge-line">{e(L("Há memórias que pertencem a mais do que uma pessoa.", "But some memories belong to more than one person."))}</p>
-  </div>
-</section>
-
-<section class="tps-section" id="empresas">
-  <div class="container tps-narrow">
-    <h2>{e(L("Uma peça pessoal. Muitas possibilidades.", "One personal piece. Many possibilities."))}</h2>
-    {p("Entrelinhas nasceu como uma coleção do RIMA lab, pensada para transformar memórias pessoais em peças únicas.", "Entrelinhas began as an RIMA lab collection, designed to turn personal memories into unique pieces.")}
-    {p("Mas há memórias que também pertencem a uma equipa, a uma empresa, a um lugar ou a um projeto.", "But some memories also belong to a team, a company, a place or a project.")}
-    {p("O conceito pode ser adaptado a diferentes contextos profissionais: presentes para colaboradores ou clientes, momentos de equipa, aniversários, marcos importantes, eventos ou outras ocasiões que mereçam ficar registadas de uma forma mais pessoal.", "The concept can be adapted to different professional contexts: gifts for employees or clients, team moments, anniversaries, milestones, events or other occasions that deserve to be recorded in a more personal way.")}
-    {p("Cada projeto pode ser pensado à medida da história, do número de peças e do contexto em que será utilizado.", "Each project can be shaped around the story, the number of pieces and the context in which it will be used.")}
-    <p class="ent-cta"><button type="button" class="cta-link" data-open-contact data-subject="{e(subj_proj)}">{e(L("Falar connosco sobre um projeto", "Talk to us about a project"))}</button></p>
-  </div>
-</section>
-
 <section class="tps-section tps-tint" id="live">
   <div class="container tps-narrow">
     <p class="eyebrow">ENTRELINHAS LIVE</p>
     <h2>{e(L("O mesmo olhar, agora ao vivo.", "The same eye, now live."))}</h2>
-    {p("Entrelinhas Live leva o conceito da coleção para eventos e experiências presenciais.", "Entrelinhas Live brings the concept of the collection to events and in-person experiences.")}
-    {p("Uma interpretação mais imediata do Entrelinhas, criada no próprio momento. Pessoas, gestos e pequenas cenas são transformados em ilustrações minimalistas que os convidados podem levar consigo.", "A more immediate interpretation of Entrelinhas, created in the moment. People, gestures and small scenes become minimalist illustrations that guests can take home.")}
-    {p("Mais do que live sketching, é uma forma de criar uma memória do próprio evento enquanto ele acontece.", "More than live sketching, it is a way of creating a memory of the event itself while it is happening.")}
+    {p("O Entrelinhas leva-se para eventos. Um ilustrador no local transforma convidados, colaboradores e pequenas cenas em ilustrações minimalistas, criadas no momento, que cada pessoa leva consigo.", "Entrelinhas goes to events. An illustrator on site turns guests, employees and small scenes into minimalist illustrations, created in the moment, that each person takes home.")}
+    {p("Para eventos corporativos, ativações de marca, celebrações de equipa, lançamentos e encontros com clientes. O formato e o número de ilustrações adaptam-se a cada evento.", "For corporate events, brand activations, team celebrations, launches and client meetings. The format and number of illustrations are adapted to each event.")}
   </div>
   <div class="container">
     {ph("Vídeo curto em loop: mão a desenhar → pessoa → desenho → entrega", "Short looping video: hand drawing → person → drawing → handover", "16/9", "ph--wide")}
   </div>
   <div class="container tps-narrow ent-live2">
-    <h3>{e(L("Para eventos, marcas e equipas.", "For events, brands and teams."))}</h3>
-    {p("Entrelinhas Live pode ser integrado em diferentes tipos de experiências:", "Entrelinhas Live can be part of many kinds of experience:")}
-    {p("Eventos corporativos, ativações de marca, celebrações de equipa, lançamentos, encontros com clientes ou outros momentos em que faça sentido oferecer algo criado especialmente para quem está presente.", "Corporate events, brand activations, team celebrations, launches, client meetings or other moments where it makes sense to offer something created especially for those present.")}
-    {p("O formato, número de ilustrações e abordagem visual podem ser adaptados a cada evento.", "The format, number of illustrations and visual approach can be adapted to each event.")}
     <p class="ent-cta"><button type="button" class="cta-link" data-open-contact data-subject="{e(subj_live)}">{e(L("Falar connosco sobre Entrelinhas Live", "Talk to us about Entrelinhas Live"))}</button></p>
     <p class="ent-small">Live sketching by RIMA studio</p>
-  </div>
-</section>
-
-<section class="tps-section">
-  <div class="container tps-narrow">
-    <h2>{e(L("Entrelinhas é um projeto RIMA lab.", "Entrelinhas is a RIMA lab project."))}</h2>
-    {p("RIMA lab é o nosso espaço de experimentação. Um lugar onde somos nós a criar o briefing e a desenvolver produtos, coleções e ideias que exploram novas formas de transformar momentos em objetos e imagens.", "RIMA lab is our space for experimentation. A place where we write the brief ourselves and develop products, collections and ideas that explore new ways of turning moments into objects and images.")}
-    {p("Entrelinhas nasceu no Lab e cresce também através do RIMA studio, quando o conceito encontra novas aplicações, escalas e contextos.", "Entrelinhas was born at the Lab and also grows through RIMA studio, when the concept finds new applications, scales and contexts.")}
-    <p class="ent-cta"><a class="cta-link cta-link--outline" href="{lab}" {ext}>{e(L("Conhecer o RIMA lab", "Get to know RIMA lab"))}</a></p>
-  </div>
-  <div class="container ent-labimg">
-    {img("ent-lab", "ent-hero-img", L("Entrelinhas, uma coleção do RIMA lab", "Entrelinhas, an RIMA lab collection"))}
-  </div>
-</section>
-
-<section class="tps-cta ent-paths">
-  <div class="container">
-    <h2>{e(L("Uma memória. Outra forma de a guardar.", "One memory. Another way to keep it."))}</h2>
-    <div class="ent-paths-grid">
-      <div>
-        <p>{e(L("Para encomendas individuais, formatos e opções disponíveis:", "For individual orders, available formats and options:"))}</p>
-        <a class="cta-link" href="{shop}" {ext}>{e(L("Comprar Entrelinhas no RIMA lab", "Buy Entrelinhas at RIMA lab"))}</a>
-      </div>
-      <div>
-        <p>{e(L("Para projetos para empresas, eventos ou Entrelinhas Live:", "For company projects, events or Entrelinhas Live:"))}</p>
-        <button type="button" class="cta-link" data-open-contact data-subject="{e(subj_proj)}">{e(L("Falar com o RIMA studio", "Talk to RIMA studio"))}</button>
-      </div>
-    </div>
-    <p class="tps-mail"><a href="mailto:{SITE["meta"]["email"]}">{SITE["meta"]["email"]}</a></p>
   </div>
 </section>
 
@@ -1175,9 +1108,9 @@ def build_entrelinhas():
 '''
     title = L("Entrelinhas | Memórias reduzidas ao essencial — RIMA studio",
               "Entrelinhas | Memories, reduced to the essential — RIMA studio")
-    desc = L("Entrelinhas, coleção do RIMA lab: ilustrações minimalistas a partir de memórias. Adaptável a empresas e eventos, incluindo Entrelinhas Live (live sketching) pelo RIMA studio.",
-             "Entrelinhas, an RIMA lab collection: minimalist illustrations made from memories. Adaptable for companies and events, including Entrelinhas Live (live sketching) by RIMA studio.")
-    content += contact_modal_html(L("Vamos falar sobre um projeto?", "Shall we talk about a project?"))
+    desc = L("Entrelinhas, coleção do RIMA lab disponível para compra em rimalab.pt, e Entrelinhas Live: live sketching para eventos, pelo RIMA studio.",
+             "Entrelinhas, an RIMA lab collection available at rimalab.pt, and Entrelinhas Live: live sketching for events by RIMA studio.")
+    content += contact_modal_html(L("Vamos falar sobre o seu evento?", "Shall we talk about your event?"))
     write_page("entrelinhas.html", title, content, desc=desc)
 
 def also_html(current):
@@ -1189,7 +1122,8 @@ def also_html(current):
     if current != "entrelinhas":
         items.append((url_for("entrelinhas.html"), "Entrelinhas", L("Memórias reduzidas ao essencial.", "Memories, reduced to the essential."),
                       L("Uma coleção do RIMA lab, adaptável a empresas.", "An RIMA lab collection, adaptable for companies.")))
-    items.append((url_for("entrelinhas.html") + "#live", "Entrelinhas Live", L("Live sketching para eventos e experiências.", "Live sketching for events and experiences."),
+    if current != "entrelinhas":
+      items.append((url_for("entrelinhas.html") + "#live", "Entrelinhas Live", L("Live sketching para eventos e experiências.", "Live sketching for events and experiences."),
                   "Live sketching by RIMA studio"))
     cards = "".join(f'<a class="ent-also-card" href="{h}"><strong>{e(t)}</strong><span>{e(a)}</span><em>{e(b)}</em></a>' for h, t, a, b in items)
     return f'<section class="tps-section ent-also"><div class="container"><p class="eyebrow tps-h-center">{e(L("Também lhe pode interessar", "You may also be looking for"))}</p><div class="ent-also-grid">{cards}</div></div></section>'

@@ -571,3 +571,7 @@ button.cta-link{border:1px solid var(--c-dark);cursor:pointer;line-height:inheri
 .ent-labimg .ent-hero-img{margin-top:0;}
 .ent-ref{margin:0;aspect-ratio:1/1;overflow:hidden;background:var(--c-beige-light);}
 .ent-ref img,.ent-ref video{display:block;width:100%;height:100%;object-fit:cover;}
+#live .tps-narrow,#live h2,#live .ent-cta,#live .ent-small{text-align:center;}
+#live .ent-live2{margin-top:var(--space-3);}
+.ent-also{background:transparent;}
+.ent-also-grid{grid-template-columns:repeat(auto-fit,minmax(240px,340px));justify-content:center;}
