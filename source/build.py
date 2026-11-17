@@ -229,17 +229,19 @@ def header(filename="index.html"):
         <li><a href="{ilustracao_url}">{e(L('#ilustração','#illustration'))}</a></li>
       </ul>
     </li>
-    <li><a href="{oestudio_url}">{e(L('O ESTÚDIO','THE STUDIO'))}</a></li>
     <li><a href="{url_for('the-people-series.html')}">THE PEOPLE SERIES</a>
       <ul class="offcanvas-sub"><li><span>{e(L('Retratos ilustrados para empresas','Illustrated portraits for companies'))}</span></li></ul>
     </li>
     <li><a href="{url_for('entrelinhas.html')}">ENTRELINHAS | LIVE</a>
       <ul class="offcanvas-sub"><li><span>{e(L('Ilustrações autorais | ao vivo','Original author illustrations | live'))}</span></li></ul>
     </li>
+    <li><a href="{oestudio_url}">{e(L('O ESTÚDIO','THE STUDIO'))}</a></li>
     <li><a href="{oestudio_url}#contacto">{e(L('CONTACTO','CONTACT'))}</a></li>
+    <li class="offcanvas-sep" aria-hidden="true"></li>
     <li><a href="{SITE['meta']['external']['rimalab']}" target="_blank" rel="noopener">RIMA lab</a>
       <ul class="offcanvas-sub"><li><span>{e(L('Loja online de produtos originais','Online shop for original products'))}</span></li></ul>
     </li>
+    <li class="offcanvas-sep" aria-hidden="true"></li>
     <li><a href="{SITE['meta']['external']['estevescorga']}" target="_blank" rel="noopener">ESTEVES CORGA</a>
       <ul class="offcanvas-sub">
         <li><a href="{SITE['meta']['external']['estevescorga']}" target="_blank" rel="noopener">{e(L('Portfolio de Autor','Author Portfolio'))}</a></li>

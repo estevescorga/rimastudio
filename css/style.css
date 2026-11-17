@@ -586,3 +586,5 @@ button.cta-link{border:1px solid var(--c-dark);cursor:pointer;line-height:inheri
 .ent-c .ent-cta{margin-top:var(--space-3) !important;}
 .ent-flow{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 14px;margin-top:var(--space-3) !important;font-family:var(--font-label) !important;font-size:13px !important;letter-spacing:1.2px;text-transform:uppercase;}
 .ent-flow i{font-style:normal;}
+
+.offcanvas-nav > li.offcanvas-sep{height:1px;background:var(--c-text-soft);opacity:.35;margin:var(--space-3) 0;}
