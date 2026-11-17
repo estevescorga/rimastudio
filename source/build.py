@@ -1069,7 +1069,7 @@ def build_entrelinhas():
     <p class="eyebrow">ENTRELINHAS</p>
     <h1>{e(L("Memórias reduzidas ao essencial.", "Memories, reduced to the essential."))}</h1>
     <p class="tps-sub">{e(L("Entrelinhas transforma fotografias, vídeos e outras referências em ilustrações personalizadas, construídas a partir de linhas, formas e dos detalhes que realmente importam.", "Entrelinhas turns photographs, videos and other references into personalised illustrations, built from lines, shapes and the details that truly matter."))}</p>
-    <p class="ent-by">{e(L("Uma coleção do RIMA lab, a nossa loja online de produtos originais, onde pode enviar a sua referência.", "A collection by RIMA lab, our online shop for original products, where you can send in your reference."))}</p>
+    <p class="ent-by">{e(L("Uma coleção criada pelo RIMA lab, o nosso espaço de experimentação e criação de produtos.", "A collection created by RIMA lab, our space for experimentation and product creation."))}</p>
     <div class="tps-ctas">
       <a class="cta-link" href="{shop}" {ext}>{e(L("Encomendar no RIMA lab", "Order at RIMA lab"))}</a>
     </div>
