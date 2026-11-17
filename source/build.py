@@ -1068,10 +1068,10 @@ def build_entrelinhas():
   <div class="container">
     <p class="eyebrow">ENTRELINHAS</p>
     <h1>{e(L("Memórias reduzidas ao essencial.", "Memories, reduced to the essential."))}</h1>
-    <p class="tps-sub">{e(L("Ilustrações personalizadas em linha minimalista, criadas a partir das suas fotografias.", "Personalised minimalist line illustrations, created from your photographs."))}</p>
-    <p class="ent-by">{e(L("Uma coleção do RIMA lab, a nossa loja online de produtos originais, onde pode encomendar a sua.", "A collection by RIMA lab, our online shop for original products, where you can order yours."))}</p>
+    <p class="tps-sub">{e(L("Entrelinhas transforma fotografias, vídeos e outras referências em ilustrações personalizadas, construídas a partir de linhas, formas e dos detalhes que realmente importam.", "Entrelinhas turns photographs, videos and other references into personalised illustrations, built from lines, shapes and the details that truly matter."))}</p>
+    <p class="ent-by">{e(L("Uma coleção do RIMA lab, a nossa loja online de produtos originais, onde pode enviar a sua referência.", "A collection by RIMA lab, our online shop for original products, where you can send in your reference."))}</p>
     <div class="tps-ctas">
-      <a class="cta-link" href="{shop}" {ext}>{e(L("Comprar no RIMA lab", "Buy at RIMA lab"))}</a>
+      <a class="cta-link" href="{shop}" {ext}>{e(L("Encomendar no RIMA lab", "Order at RIMA lab"))}</a>
     </div>
     {img("ent-hero", "ent-hero-img", L("Ilustração Entrelinhas emoldurada numa sala", "Entrelinhas illustration framed in a living room"), True)}
   </div>
@@ -1093,9 +1093,14 @@ def build_entrelinhas():
     <p class="eyebrow">ENTRELINHAS LIVE</p>
     <p class="ent-soon"><span>{e(L("Em breve", "Coming soon"))}</span></p>
     <h2>{e(L("O mesmo olhar, agora ao vivo.", "The same eye, now live."))}</h2>
-    {p("O Entrelinhas leva-se para eventos. Um ilustrador no local transforma convidados, colaboradores e pequenas cenas em ilustrações minimalistas, criadas no momento, que cada pessoa leva consigo.", "Entrelinhas goes to events. An illustrator on site turns guests, employees and small scenes into minimalist illustrations, created in the moment, that each person takes home.")}
-    {p("Para eventos corporativos, ativações de marca, celebrações de equipa, lançamentos e encontros com clientes. O formato e o número de ilustrações adaptam-se a cada evento.", "For corporate events, brand activations, team celebrations, launches and client meetings. The format and number of illustrations are adapted to each event.")}
-    {p("O conceito também pode ser adaptado a presentes e peças personalizadas para equipas e empresas.", "The concept can also be adapted to personalised gifts and pieces for teams and companies.")}
+    {p("Entrelinhas Live leva o conceito da coleção para eventos e experiências presenciais.", "Entrelinhas Live brings the concept of the collection to events and in-person experiences.")}
+    {p("Uma interpretação mais imediata do Entrelinhas, criada no próprio momento. Pessoas, gestos e pequenas cenas são transformados em ilustrações minimalistas que os convidados podem levar consigo.", "A more immediate interpretation of Entrelinhas, created in the moment. People, gestures and small scenes become minimalist illustrations that guests can take home.")}
+    {p("Mais do que live sketching, é uma forma de criar uma memória do próprio evento enquanto ele acontece.", "More than live sketching, it is a way of creating a memory of the event itself while it is happening.")}
+    <h3>{e(L("Para eventos, marcas e equipas.", "For events, brands and teams."))}</h3>
+    {p("Entrelinhas Live pode ser integrado em diferentes tipos de experiências:", "Entrelinhas Live can be part of many kinds of experience:")}
+    {p("Eventos corporativos, ativações de marca, celebrações de equipa, lançamentos, encontros com clientes ou outros momentos em que faça sentido oferecer algo criado especialmente para quem está presente.", "Corporate events, brand activations, team celebrations, launches, client meetings or other moments where it makes sense to offer something created especially for those present.")}
+    {p("O formato, número de ilustrações e abordagem visual podem ser adaptados a cada evento.", "The format, number of illustrations and visual approach can be adapted to each event.")}
+    {p("O conceito pode ser adaptado a diferentes contextos profissionais: presentes para colaboradores ou clientes, momentos de equipa, aniversários, marcos importantes, eventos ou outras ocasiões que mereçam ficar registadas de uma forma mais pessoal.", "The concept can be adapted to different professional contexts: gifts for employees or clients, team moments, anniversaries, milestones, events or other occasions that deserve to be recorded in a more personal way.")}
     <p class="ent-cta"><button type="button" class="cta-link" data-open-contact data-subject="{e(subj_live)}">{e(L("Falar connosco sobre Entrelinhas Live", "Talk to us about Entrelinhas Live"))}</button></p>
     <p class="ent-small">Live sketching by RIMA studio</p>
   </div>

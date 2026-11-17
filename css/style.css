@@ -577,3 +577,4 @@ button.cta-link{border:1px solid var(--c-dark);cursor:pointer;line-height:inheri
 .ent-also-grid{grid-template-columns:repeat(auto-fit,minmax(240px,340px));justify-content:center;}
 .ent-soon{text-align:center;margin:0 0 var(--space-2) !important;}
 .ent-soon span{display:inline-block;font-family:var(--font-label);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border:1px solid var(--c-text);border-radius:999px;color:var(--c-text);}
+#live h3{text-align:center;font-family:var(--font-accent);font-weight:700;font-size:16px;letter-spacing:.3px;text-transform:uppercase;margin:var(--space-4) 0 var(--space-2);}
