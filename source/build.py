@@ -1063,55 +1063,72 @@ def build_entrelinhas():
     ext = 'target="_blank" rel="noopener"'
     subj_live = "Entrelinhas Live"
     def p(pt, en): return f"<p>{e(L(pt, en))}</p>"
+    def btn(pt, en): return f'<p class="ent-cta"><button type="button" class="cta-link" data-open-contact data-subject="{e(subj_live)}">{e(L(pt, en))}</button></p>'
+    # Estrutura e textos EN: Marta (verbatim). PT: tradução nossa, a rever.
     content = f'''
-<section class="tps-hero ent-hero">
-  <div class="container">
-    <p class="eyebrow">ENTRELINHAS</p>
-    <h1>{e(L("Memórias reduzidas ao essencial.", "Memories, reduced to the essential."))}</h1>
-    <p class="tps-sub">{e(L("Entrelinhas transforma fotografias, vídeos e outras referências em ilustrações personalizadas, construídas a partir de linhas, formas e dos detalhes que realmente importam.", "Entrelinhas turns photographs, videos and other references into personalised illustrations, built from lines, shapes and the details that truly matter."))}</p>
-    <p class="ent-by">{e(L("Uma coleção criada pelo RIMA lab, o nosso espaço de experimentação e criação de produtos.", "A collection created by RIMA lab, our space for experimentation and product creation."))}</p>
-    <div class="tps-ctas">
-      <a class="cta-link" href="{shop}" {ext}>{e(L("Encomendar no RIMA lab", "Order at RIMA lab"))}</a>
-    </div>
-    {img("ent-hero", "ent-hero-img", L("Ilustração Entrelinhas emoldurada numa sala", "Entrelinhas illustration framed in a living room"), True)}
+<section class="tps-hero ent-hero ent-c" id="live">
+  <div class="container tps-narrow">
+    <p class="eyebrow">ENTRELINHAS LIVE</p>
+    <p class="ent-soon"><span>{e(L("Em breve", "Coming soon"))}</span></p>
+    <h1>{e(L("Memórias reduzidas ao essencial. Desenhadas ao vivo.", "Memories, reduced to the essential. Drawn live."))}</h1>
+    <p class="tps-sub">{e(L("Uma experiência de ilustração ao vivo para eventos, marcas e equipas.", "A live illustration experience for events, brands and teams."))}</p>
+    {p("Captamos pessoas e momentos à medida que acontecem, traduzindo-os em ilustrações minimalistas e personalizadas, criadas ao vivo durante o evento.", "We capture people and moments as they happen, translating them into minimal, personalised illustrations created live during the event.")}
+    {p("Cada desenho torna-se uma recordação única para levar para casa.", "Each drawing becomes a unique keepsake to take home.")}
+    {btn("Fale connosco sobre o seu evento", "Talk to us about your event")}
   </div>
 </section>
 
-<section class="tps-section">
+<section class="tps-section tps-tint ent-c">
+  <div class="container tps-narrow">
+    <h2>{e(L("Desenhado no momento.", "Drawn in the moment."))}</h2>
+    {p("Um convidado. Um momento. Uma referência rápida.", "A guest. A moment. A quick reference.")}
+    {p("A partir daí, criamos ao vivo uma ilustração Entrelinhas original, reduzindo a imagem às linhas, formas e detalhes mais reconhecíveis.", "From there, we create an original Entrelinhas illustration live, reducing the image to its most recognisable lines, shapes and details.")}
+    <p class="ent-flow"><span>{e(L("Momento", "Moment"))}</span><i>→</i><span>{e(L("Ilustração", "Illustration"))}</span><i>→</i><span>{e(L("Impressão", "Print"))}</span><i>→</i><span>{e(L("Levar para casa", "Take it home"))}</span></p>
+  </div>
+</section>
+
+<section class="tps-section ent-c">
+  <div class="container tps-narrow">
+    <h2>{e(L("Feito para eventos.", "Made for events."))}</h2>
+    {p("O Entrelinhas Live pode integrar eventos corporativos, ativações de marca, lançamentos, celebrações de equipa, encontros com clientes e outras experiências em que uma interação pessoal torne o momento mais memorável.", "Entrelinhas Live can be part of corporate events, brand activations, launches, team celebrations, client gatherings and other experiences where a personal interaction can make the moment more memorable.")}
+    {p("O formato pode ser adaptado à escala, ao contexto e à identidade de cada evento.", "The format can be adapted to the scale, context and identity of each event.")}
+  </div>
+</section>
+
+<section class="tps-section tps-tint ent-c">
+  <div class="container tps-narrow">
+    <h2>{e(L("Uma experiência pessoal, com um resultado duradouro.", "A personal experience, with a lasting result."))}</h2>
+    {p("Criada no momento e feita para cada convidado, cada ilustração passa a fazer parte da própria experiência — e torna-se algo físico para recordar.", "Created on the spot and made for each guest, every illustration becomes part of the experience itself — and something physical to remember it by.")}
+    {btn("Leve o Entrelinhas Live ao seu evento", "Bring Entrelinhas Live to your event")}
+    <p class="ent-small">Live sketching by RIMA studio</p>
+  </div>
+</section>
+
+<section class="tps-section ent-c">
   <div class="container">
+    <div class="tps-narrow">
+      <h2>{e(L("Do RIMA lab para eventos ao vivo.", "From RIMA lab to live events."))}</h2>
+      {p("O Entrelinhas Live parte do Entrelinhas, uma coleção de ilustração criada pelo RIMA lab.", "Entrelinhas Live is based on Entrelinhas, an illustration collection created by RIMA lab.")}
+    </div>
     <div class="ent-grid">
       {img("ent-obra-1", "", L("Entrelinhas: retrato de mãe e filha", "Entrelinhas: portrait of a mother and daughter"))}
       {img("ent-obra-2", "", L("Entrelinhas: retrato de família emoldurado", "Entrelinhas: framed family portrait"))}
       {img("ent-obra-3", "", L("Entrelinhas: retrato de três irmãos com cor", "Entrelinhas: portrait of three siblings, with colour"))}
       {img("ent-obra-4", "", L("Entrelinhas: mãe com bebé", "Entrelinhas: mother with baby"))}
     </div>
-  </div>
-</section>
-
-<section class="tps-section tps-tint" id="live">
-  <div class="container tps-narrow">
-    <p class="eyebrow">ENTRELINHAS LIVE</p>
-    <p class="ent-soon"><span>{e(L("Em breve", "Coming soon"))}</span></p>
-    <h2>{e(L("O mesmo olhar, agora ao vivo.", "The same eye, now live."))}</h2>
-    {p("Entrelinhas Live leva o conceito da coleção para eventos e experiências presenciais.", "Entrelinhas Live brings the concept of the collection to events and in-person experiences.")}
-    {p("Uma interpretação mais imediata do Entrelinhas, criada no próprio momento. Pessoas, gestos e pequenas cenas são transformados em ilustrações minimalistas que os convidados podem levar consigo.", "A more immediate interpretation of Entrelinhas, created in the moment. People, gestures and small scenes become minimalist illustrations that guests can take home.")}
-    {p("Mais do que live sketching, é uma forma de criar uma memória do próprio evento enquanto ele acontece.", "More than live sketching, it is a way of creating a memory of the event itself while it is happening.")}
-    <h3>{e(L("Para eventos, marcas e equipas.", "For events, brands and teams."))}</h3>
-    {p("Entrelinhas Live pode ser integrado em diferentes tipos de experiências:", "Entrelinhas Live can be part of many kinds of experience:")}
-    {p("Eventos corporativos, ativações de marca, celebrações de equipa, lançamentos, encontros com clientes ou outros momentos em que faça sentido oferecer algo criado especialmente para quem está presente.", "Corporate events, brand activations, team celebrations, launches, client meetings or other moments where it makes sense to offer something created especially for those present.")}
-    {p("O formato, número de ilustrações e abordagem visual podem ser adaptados a cada evento.", "The format, number of illustrations and visual approach can be adapted to each event.")}
-    {p("O conceito pode ser adaptado a diferentes contextos profissionais: presentes para colaboradores ou clientes, momentos de equipa, aniversários, marcos importantes, eventos ou outras ocasiões que mereçam ficar registadas de uma forma mais pessoal.", "The concept can be adapted to different professional contexts: gifts for employees or clients, team moments, anniversaries, milestones, events or other occasions that deserve to be recorded in a more personal way.")}
-    <p class="ent-cta"><button type="button" class="cta-link" data-open-contact data-subject="{e(subj_live)}">{e(L("Falar connosco sobre Entrelinhas Live", "Talk to us about Entrelinhas Live"))}</button></p>
-    <p class="ent-small">Live sketching by RIMA studio</p>
+    <div class="tps-narrow">
+      {p("À procura de uma ilustração por encomenda?", "Looking for a commissioned illustration instead?")}
+      <p class="ent-cta"><a class="cta-link" href="{shop}" {ext}>{e(L("Descobrir o Entrelinhas no RIMA lab", "Discover Entrelinhas at RIMA lab"))}</a></p>
+    </div>
   </div>
 </section>
 
 {also_html("entrelinhas")}
 '''
-    title = L("Entrelinhas | Memórias reduzidas ao essencial — RIMA studio",
-              "Entrelinhas | Memories, reduced to the essential — RIMA studio")
-    desc = L("Entrelinhas, coleção do RIMA lab disponível para compra em rimalab.pt, e Entrelinhas Live: live sketching para eventos, pelo RIMA studio.",
-             "Entrelinhas, an RIMA lab collection available at rimalab.pt, and Entrelinhas Live: live sketching for events by RIMA studio.")
+    title = L("Entrelinhas Live | Ilustração ao vivo para eventos — RIMA studio",
+              "Entrelinhas Live | Live illustration for events — RIMA studio")
+    desc = L("Entrelinhas Live: uma experiência de ilustração ao vivo para eventos, marcas e equipas. Parte do Entrelinhas, coleção do RIMA lab.",
+             "Entrelinhas Live: a live illustration experience for events, brands and teams. Based on Entrelinhas, a RIMA lab collection.")
     content += contact_modal_html(L("Vamos falar sobre o seu evento?", "Shall we talk about your event?"))
     write_page("entrelinhas.html", title, content, desc=desc)
 
@@ -1122,11 +1139,8 @@ def also_html(current):
         items.append((url_for("the-people-series.html"), "The People Series", L("Reconhecimento, personalizado.", "Recognition, made personal."),
                       L("Retratos ilustrados de autor para equipas e empresas.", "Author portraits for teams and companies.")))
     if current != "entrelinhas":
-        items.append((url_for("entrelinhas.html"), "Entrelinhas", L("Memórias reduzidas ao essencial.", "Memories, reduced to the essential."),
-                      L("Uma coleção do RIMA lab, adaptável a empresas.", "An RIMA lab collection, adaptable for companies.")))
-    if current != "entrelinhas":
-      items.append((url_for("entrelinhas.html") + "#live", "Entrelinhas Live", L("Live sketching para eventos e experiências.", "Live sketching for events and experiences."),
-                  "Live sketching by RIMA studio"))
+        items.append((url_for("entrelinhas.html"), "Entrelinhas Live", L("Memórias reduzidas ao essencial. Desenhadas ao vivo.", "Memories, reduced to the essential. Drawn live."),
+                      L("Ilustração ao vivo para eventos, marcas e equipas.", "Live illustration for events, brands and teams.")))
     cards = "".join(f'<a class="ent-also-card" href="{h}"><strong>{e(t)}</strong><span>{e(a)}</span><em>{e(b)}</em></a>' for h, t, a, b in items)
     return f'<section class="tps-section ent-also"><div class="container"><p class="eyebrow tps-h-center">{e(L("Também lhe pode interessar", "You may also be looking for"))}</p><div class="ent-also-grid">{cards}</div></div></section>'
 

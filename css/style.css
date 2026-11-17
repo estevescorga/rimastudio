@@ -578,3 +578,11 @@ button.cta-link{border:1px solid var(--c-dark);cursor:pointer;line-height:inheri
 .ent-soon{text-align:center;margin:0 0 var(--space-2) !important;}
 .ent-soon span{display:inline-block;font-family:var(--font-label);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border:1px solid var(--c-text);border-radius:999px;color:var(--c-text);}
 #live h3{text-align:center;font-family:var(--font-accent);font-weight:700;font-size:16px;letter-spacing:.3px;text-transform:uppercase;margin:var(--space-4) 0 var(--space-2);}
+
+/* Entrelinhas Live page */
+.ent-c,.ent-c h1,.ent-c h2,.ent-c .tps-narrow{text-align:center;}
+.ent-c .eyebrow{color:var(--c-text);font-family:var(--font-label);font-weight:700;letter-spacing:1.5px;}
+.ent-c .ent-grid{margin:var(--space-4) auto;}
+.ent-c .ent-cta{margin-top:var(--space-3) !important;}
+.ent-flow{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 14px;margin-top:var(--space-3) !important;font-family:var(--font-label) !important;font-size:13px !important;letter-spacing:1.2px;text-transform:uppercase;}
+.ent-flow i{font-style:normal;}
